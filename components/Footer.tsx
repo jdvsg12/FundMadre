@@ -1,5 +1,5 @@
 import React from 'react';
-import { footer as footerData } from '../data/footer';
+import { copyright, footer as footerData } from '../data/footer';
 import { styled } from '../stitches.config';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -76,39 +76,39 @@ export const FooterColumns = () => {
             <ContentContact>
               <TextUl key={title}>{title}</TextUl>
               <ContentData>
-                {icon1 
+                {icon1
                   ? (
-                      <Image
-                        src={icon1}
-                        alt={alt1}
-                      />
-                    )
+                    <Image
+                      src={icon1}
+                      alt={alt1}
+                    />
+                  )
                   : null
-                } 
+                }
                 <Li>{item1}</Li>
               </ContentData>
               <ContentData>
-                {icon2 
+                {icon2
                   ? (
-                      <Image key={`${icon2}-${index}`}
-                        src={icon2}
-                        alt={alt2}
-                      />
-                    )
+                    <Image key={`${icon2}-${index}`}
+                      src={icon2}
+                      alt={alt2}
+                    />
+                  )
                   : null
-                } 
+                }
                 <Li key={item2}>{item2}</Li>
               </ContentData>
               <ContentData>
                 {icon3
                   ? (
-                      <Image key={`${icon2}-${index}`}
-                        src={icon3}
-                        alt={alt3}
-                      />
-                    )
+                    <Image key={`${icon2}-${index}`}
+                      src={icon3}
+                      alt={alt3}
+                    />
+                  )
                   : null
-                } 
+                }
                 <Li key={item2}>{item3}</Li>
               </ContentData>
             </ContentContact>
@@ -116,8 +116,13 @@ export const FooterColumns = () => {
         })}
 
       </ContentFooter>
-      <ContentCopy>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-      </ContentCopy>
+      {copyright.map(({ text }) => {
+        return (
+          <ContentCopy key={text}>{text}
+          </ContentCopy>
+        )
+      })}
+
     </Content>
 
   )
