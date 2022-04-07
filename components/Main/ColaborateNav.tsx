@@ -140,17 +140,17 @@ export const NavColaborate = () => {
 
                     <ColaborateContent>
 
-                        {informativeSlider.PsychologyTab1.map(({ title, image, alt, text }) => {
+                        {informativeSlider.PsychologyTab1.map(({ title, image, alt, text }, index) => {
 
                             return (
 
-                                <ContenImages>
-                                    <Image
+                                <ContenImages key={`${title}-${index}`}>
+                                    <Image key={`${alt}-${index}`}
                                         src={image}
                                         alt={alt} />
-                                    <ContentText>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
+                                    <ContentText key={`${title}-${index}`}>
+                                        <H1 key={`${title}-${index}`}>{title}</H1>
+                                        <P key={`${text}-${index}`}>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -162,17 +162,17 @@ export const NavColaborate = () => {
                 <TabsContent value="tab2">
                     <ColaborateContent>
 
-                        {informativeSlider.EntrepreneurshipTab2.map(({ title, image, alt, text }) => {
+                        {informativeSlider.EntrepreneurshipTab2.map(({ title, image, alt, text }, index) => {
 
                             return (
 
-                                <ContenImages>
-                                    <Image
+                                <ContenImages key={`${title}-${index}`}>
+                                    <Image key={`${alt}-${index}`}
                                         src={image}
                                         alt={alt} />
                                     <ContentText>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
+                                        <H1 key={`${title}-${index}`}>{title}</H1>
+                                        <P key={`${text}-${index}`}>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -183,17 +183,17 @@ export const NavColaborate = () => {
                 <TabsContent value="tab3">
                     <ColaborateContent>
 
-                        {informativeSlider.ValuesTab3.map(({ title, image, alt, text }) => {
+                        {informativeSlider.ValuesTab3.map(({ title, image, alt, text }, index) => {
 
                             return (
 
-                                <ContenImages>
-                                    <Image
+                                <ContenImages key={`${title}-${index}`}>
+                                    <Image key={`${alt}-${index}`}
                                         src={image}
                                         alt={alt} />
-                                    <ContentText>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
+                                    <ContentText key={`${title}-${index}`}>
+                                        <H1 key={`${title}-${index}`}>{title}</H1>
+                                        <P key={`${text}-${index}`}>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -204,17 +204,17 @@ export const NavColaborate = () => {
                 <TabsContent value="tab4">
                     <ColaborateContent>
 
-                        {informativeSlider.PostPartoTab4.map(({ title, image, alt, text }) => {
+                        {informativeSlider.PostPartoTab4.map(({ title, image, alt, text }, index) => {
 
                             return (
 
-                                <ContenImages>
-                                    <Image
+                                <ContenImages key={`${title}-${index}`}>
+                                    <Image key={`${alt}-${index}`}
                                         src={image}
                                         alt={alt} />
                                     <ContentText>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
+                                        <H1 key={`${title}-${index}`}>{title}</H1>
+                                        <P key={`${text}-${index}`}>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
