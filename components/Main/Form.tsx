@@ -118,18 +118,18 @@ export const MainBannerForm = () => {
 
   return (
     <Content>
-      {FormData.GropMothersTab.map(({ message, title }) => {
+      {FormData.GropMothersTab.map(({ message, title }, index) => {
 
         return (
-          <GeneralContent>
-            <H1 key={message}>{message}</H1>
-            <ContentForm>
+          <GeneralContent key={`${title}-${index}`}>
+            <H1 key={`${message}-${index}`}>{message}</H1>
+            <ContentForm key={`${title}-${index}`}>
               <form onSubmit={registerUser}>
-                <Legend key={title}>{title}</Legend>
+                <Legend key={`${title}-${index}`}>{title}</Legend>
                 <ButtonBanner>
-                  {FormData.firstInputsRow.map(({ type, text, value }) => {
+                  {FormData.firstInputsRow.map(({ type, text, value }, index) => {
                     return (
-                      <FormMoneyButton key={`${type}-${text}-${value}`}
+                      <FormMoneyButton key={`${type}-${index}`}
                         color={valueToGive === value ? 'selected' : 'unselected'}
                         type={type}
                         autoComplete="name"
@@ -141,9 +141,9 @@ export const MainBannerForm = () => {
                   })}
                 </ButtonBanner>
                 <TextBanner>
-                  {FormData.secondRow.map(({ type, placeholder, value }) => {
+                  {FormData.secondRow.map(({ type, placeholder, value }, index) => {
                     return (
-                      <Input key={`${type}-${value}-${placeholder}`}
+                      <Input key={`${type}-${index}`}
                         id="name"
                         type={type}
                         value={value}
@@ -172,17 +172,17 @@ export const MainBannerFormVoluntary = () => {
 
   return (
     <Content>
-      {FormData.VoluntaryTab.map(({ message, title }) => {
+      {FormData.VoluntaryTab.map(({ message, title }, index) => {
         return (
-          <GeneralContent>
-            <H1>{message}</H1>
-            <ContentForm>
+          <GeneralContent key={`${title}-${index}`}>
+            <H1 key={`${message}-${index}`}>{message}</H1>
+            <ContentForm key={`${title}-${index}`}>
               <form onSubmit={registerUser}>
-                <Legend>{title}</Legend>
+                <Legend key={`${title}-${index}`}>{title}</Legend>
                 <TextBanner>
-                  {FormData.VoluntaryFirstInputsRow.map(({ type, placeholder, value }) => {
+                  {FormData.VoluntaryFirstInputsRow.map(({ type, placeholder, value }, index) => {
                     return (
-                      <Input
+                      <Input key={`${type}-${index}`}
                         id="name"
                         type={type}
                         value={value}
@@ -213,18 +213,18 @@ export const MainBannerFormKit = () => {
   };
   return (
     <Content>
-      {FormData.KitTab.map(({ message, title }) => {
+      {FormData.KitTab.map(({ message, title }, index) => {
 
         return (
-          <GeneralContent>
-            <H1>{message}</H1>
+          <GeneralContent key={`${title}-${index}`}>
+            <H1 key={`${message}-${index}`}>{message}</H1>
             <ContentForm>
               <form onSubmit={registerUser}>
-                <Legend>{title}</Legend>
+                <Legend key={`${title}-${index}`}>{title}</Legend>
                 <ButtonBanner>
-                  {FormData.KitfirstInputsRow.map(({ type, text, value }) => {
+                  {FormData.KitfirstInputsRow.map(({ type, text, value }, index) => {
                     return (
-                      <FormMoneyButton
+                      <FormMoneyButton key={`${type}-${index}`}
                         color={valueToGive === value ? 'selected' : 'unselected'}
                         type={type}
                         autoComplete="name"
@@ -236,9 +236,9 @@ export const MainBannerFormKit = () => {
                   })}
                 </ButtonBanner>
                 <TextBanner>
-                  {FormData.KitSecondInputRow.map(({ type, placeholder, value }) => {
+                  {FormData.KitSecondInputRow.map(({ type, placeholder, value }, index) => {
                     return (
-                      <Input
+                      <Input key={`${type}-${index}`}
                         id="name"
                         type={type}
                         value={value}
