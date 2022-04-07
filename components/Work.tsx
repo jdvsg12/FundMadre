@@ -50,12 +50,16 @@ export const OurWork = () => {
             <WorkText>
                 <H1>Nuestro trabajo</H1>
                 <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis id erat sed bibendum.
-                     Fusce nec sapien ante, consectetur adipiscing elit. Aliquam mattis id erat sed bibendum. 
-                     Fusce nec sapien ante
+                    Fusce nec sapien ante, consectetur adipiscing elit. Aliquam mattis id erat sed bibendum.
+                    Fusce nec sapien ante
                 </P>
             </WorkText>
             <WorkContent>
-                <CardOrWork/>
+                <CardOrWork />
+                <CardOrWork />
+                <CardOrWork />
+                <CardOrWork />
+
             </WorkContent>
         </ContentWork>
     )

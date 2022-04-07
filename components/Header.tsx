@@ -90,12 +90,13 @@ export const Header = () => {
   return (
     <Container>
       <LogoContainer>
+        <a href="home">
         <Image
           src={generalData.fundmadreLogoName}
           alt="Fundmadre logo"
           layout='intrinsic'
           objectFit='contain'
-        />
+        /></a>
       </LogoContainer>
       <RightMenuContainer>
         <LinksAndLangContainer>
