@@ -2,7 +2,6 @@ import React from 'react';
 import { copyright, footer as footerData } from '../data/footer';
 import { styled } from '../stitches.config';
 import Image from 'next/image';
-import Link from 'next/link';
 
 
 
@@ -74,7 +73,9 @@ export const FooterColumns = () => {
         {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
             <ContentContact>
-              <TextUl key={title}>{title}</TextUl>
+              <TextUl key={`${title}-${index}`}>
+                {title}
+              </TextUl>
               <ContentData>
                 {icon1
                   ? (
@@ -97,7 +98,7 @@ export const FooterColumns = () => {
                   )
                   : null
                 }
-                <Li key={item2}>{item2}</Li>
+                <Li key={`${item2}-${index}`}>{item2}</Li>
               </ContentData>
               <ContentData>
                 {icon3
@@ -109,18 +110,20 @@ export const FooterColumns = () => {
                   )
                   : null
                 }
-                <Li key={item2}>{item3}</Li>
+                <Li key={`${item3}-${index}`}>
+                  {item3}
+                </Li>
               </ContentData>
             </ContentContact>
           )
         })}
 
       </ContentFooter>
-      {copyright.map(({ text }) => {
+      {copyright.map(({ text }, index) => {
         return (
-          <ContentCopy key={text}>{text}
-          </ContentCopy>
-        )
+          <ContentCopy key={`${text}-${index}`}>
+            {text}
+          </ContentCopy>)
       })}
 
     </Content>
