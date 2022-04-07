@@ -72,7 +72,7 @@ export const FooterColumns = () => {
       <ContentFooter>
         {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
-            <ContentContact>
+            <ContentContact key={`${title}-${index}`}>
               <TextUl key={`${title}-${index}`}>
                 {title}
               </TextUl>
