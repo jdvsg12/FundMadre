@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from '../stitches.config';
 import generalImg from '../data/generalImg';
 import Image from 'next/image';
-import { Colaborate } from './Main/Colaborate';
 
 
 const ContentAbout = styled('div', {
