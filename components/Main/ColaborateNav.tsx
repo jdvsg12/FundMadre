@@ -108,28 +108,28 @@ export const NavColaborate = () => {
                 <TabsList>
                     <ContentButton>
                         <Image
-                            src={generalIcono.iconoPsychology} />
+                            src={generalIcono.iconoPsychology} alt="Psychology" />
                         <TabsTrigger value="tab1">
                             Psicologia
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton>
                         <Image
-                            src={generalIcono.iconoEntrepreneurship} />
+                            src={generalIcono.iconoEntrepreneurship} alt="Enterpreneurshio" />
                         <TabsTrigger value="tab2">
                             Emprendimmiento
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton>
                         <Image
-                            src={generalIcono.iconoValueSpirituality} />
+                            src={generalIcono.iconoValueSpirituality} alt="valuesSpirituality" />
                         <TabsTrigger value="tab3">
                             Espiritualidad y valores
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton>
                         <Image
-                            src={generalIcono.iconoCarePostpartum} />
+                            src={generalIcono.iconoCarePostpartum} alt="PostPartum"/>
                         <TabsTrigger value="tab4">
                             Post-partum
                         </TabsTrigger>
