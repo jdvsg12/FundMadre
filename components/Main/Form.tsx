@@ -1,7 +1,6 @@
 import { FormEvent, MouseEvent, useState } from 'react';
 import { styled } from '../../stitches.config';
 import { forms as FormData } from '../../data/heroCarousel';
-import { Hero } from '../Hero';
 
 
 const Content = styled('div', {
@@ -123,14 +122,14 @@ export const MainBannerForm = () => {
 
         return (
           <GeneralContent>
-            <H1>{message}</H1>
+            <H1 key={message}>{message}</H1>
             <ContentForm>
               <form onSubmit={registerUser}>
-                <Legend>{title}</Legend>
+                <Legend key={title}>{title}</Legend>
                 <ButtonBanner>
                   {FormData.firstInputsRow.map(({ type, text, value }) => {
                     return (
-                      <FormMoneyButton
+                      <FormMoneyButton key={`${type}-${text}-${value}`}
                         color={valueToGive === value ? 'selected' : 'unselected'}
                         type={type}
                         autoComplete="name"
@@ -144,7 +143,7 @@ export const MainBannerForm = () => {
                 <TextBanner>
                   {FormData.secondRow.map(({ type, placeholder, value }) => {
                     return (
-                      <Input
+                      <Input key={`${type}-${value}-${placeholder}`}
                         id="name"
                         type={type}
                         value={value}

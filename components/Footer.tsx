@@ -71,10 +71,10 @@ export const FooterColumns = () => {
   return (
     <Content>
       <ContentFooter>
-        {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }) => {
+        {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
             <ContentContact>
-              <TextUl>{title}</TextUl>
+              <TextUl key={title}>{title}</TextUl>
               <ContentData>
                 {icon1 
                   ? (
@@ -90,26 +90,26 @@ export const FooterColumns = () => {
               <ContentData>
                 {icon2 
                   ? (
-                      <Image
+                      <Image key={`${icon2}-${index}`}
                         src={icon2}
                         alt={alt2}
                       />
                     )
                   : null
                 } 
-                <Li>{item2}</Li>
+                <Li key={item2}>{item2}</Li>
               </ContentData>
               <ContentData>
                 {icon3
                   ? (
-                      <Image
+                      <Image key={`${icon2}-${index}`}
                         src={icon3}
                         alt={alt3}
                       />
                     )
                   : null
                 } 
-                <Li>{item3}</Li>
+                <Li key={item2}>{item3}</Li>
               </ContentData>
             </ContentContact>
           )
