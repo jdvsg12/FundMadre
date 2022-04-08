@@ -11,19 +11,19 @@ const ContentWhatDo = styled('div', {
     flex: 'fit-content',
     width: '100%',
     gap: '5rem',
-    margin: '2rem 0rem 0rem 0rem'
+    margin: '2rem 0rem 0rem 0rem',
+    marginTop: '7rem',
 });
 
 const WhatDoText = styled('div', {
     width: '50%',
-    marginTop: '2rem',
     padding: '0 4rem 0rem 5rem', 
+    marginTop: '-2rem'
 });
 
 const WhatDoImg = styled('image', {
     width: '50%',
-    margin: '2rem',
-    paddingRight: '10rem'
+    paddingRight: '10rem',
 });
 
 const H1 = styled('h1',{

@@ -8,20 +8,20 @@ const ContentAbout = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    gap: '5rem',
-    margin: '2rem 0rem 0rem 0rem'
+    gap: '3rem',
+    margin: '2rem 0rem 0rem 0rem',
+    marginTop: '7rem'
 });
 
 const AboutText = styled('div', {
     width: '50%',
-    marginTop: '2rem',
+    marginTop: '-2rem',
     padding: '0 4rem 0rem 5rem',
     
 });
 
 const AboutImg = styled('image', {
     width: '50%',
-    margin: '2rem',
     paddingRight: '10rem'
 });
 

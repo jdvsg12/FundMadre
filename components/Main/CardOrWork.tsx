@@ -15,7 +15,10 @@ const CardWorkContent = styled('div', {
 
 const CardWorkBox = styled('div', {
     border: '0.15rem solid $pinkMain',
-    padding: '5rem 1rem 1rem 1rem',
+    paddingTop: '15%',
+    paddingLeft: '10%',
+    paddingRight: '10%',
+    paddingBottom: '1%',
 })
 
 const H2 = styled('h2', {
@@ -43,7 +46,7 @@ const ContentWorkImag = styled('div', {
     display: 'flex',
     justifyContent: 'center',
     position: 'relative',   
-    top: '5rem',
+    top: '4rem',
     margin: '1rem',
     overflow: 'hidden',
     borderRadius: '0.5rem',
