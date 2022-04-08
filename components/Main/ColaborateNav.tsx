@@ -170,9 +170,9 @@ export const NavColaborate = () => {
                                     color={{
                                         '@initial' : 'Tablet',
                                         '@bp3' : 'Desktop'
-                                    }} >
-                                        <H1 key={`${title}-${index}`}>{title}</H1>
-                                        <P key={`${text}-${index}`}>{text}</P>
+                                    }}>
+                                        <H1>{title}</H1>
+                                        <P>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -192,9 +192,14 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText>
-                                        <H1 key={`${title}-${index}`}>{title}</H1>
-                                        <P key={`${text}-${index}`}>{text}</P>
+                                    <ContentText
+                                    key={`${title}-${index}`}
+                                    color={{
+                                        '@initial' : 'Tablet',
+                                        '@bp3' : 'Desktop'
+                                    }}>
+                                        <H1>{title}</H1>
+                                        <P>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -213,9 +218,14 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText key={`${title}-${index}`}>
-                                        <H1 key={`${title}-${index}`}>{title}</H1>
-                                        <P key={`${text}-${index}`}>{text}</P>
+                                    <ContentText 
+                                    key={`${title}-${index}`}
+                                    color={{
+                                        '@initial' : 'Tablet',
+                                        '@bp3' : 'Desktop'
+                                    }}>
+                                        <H1>{title}</H1>
+                                        <P>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
@@ -234,9 +244,14 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText>
-                                        <H1 key={`${title}-${index}`}>{title}</H1>
-                                        <P key={`${text}-${index}`}>{text}</P>
+                                    <ContentText
+                                    key={`${title}-${index}`}
+                                    color={{
+                                        '@initial' : 'Tablet',
+                                        '@bp3' : 'Desktop'
+                                    }}>
+                                        <H1>{title}</H1>
+                                        <P>{text}</P>
                                     </ContentText>
                                 </ContenImages>
                             )
