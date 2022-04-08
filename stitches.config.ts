@@ -3,6 +3,10 @@ import { createStitches } from '@stitches/react';
 type RemMeasure = `${string}rem`;
 
 export const { styled, getCssText } = createStitches({
+  media: {
+    bp2: '(min-width: 1024px)',
+    bp3: '(min-width: 1340px)',
+  },
   utils: {
     buttonAsLink: () => ({
       backgroundColor: 'transparent',

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import generalIcono from "../../data/icono";
-import { styled } from '../../stitches.config';
+import { styled} from '../../stitches.config';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { informativeSlider } from "../../data/informativeSlider";
 
@@ -20,7 +20,7 @@ const TabsList = styled(TabsPrimitive.List, {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: '10rem',
+    gap: '8%',
 });
 
 // Styles button
@@ -79,16 +79,33 @@ const ContenImages = styled('div', {
 })
 
 const ContentText = styled('div', {
-    position: 'absolute',
-    background: 'black',
-    width: '25rem',
-    height: '19rem',
-    color: 'White',
-    padding: '1rem',
-    opacity: '85%',
-    marginTop: '-21rem',
-    marginLeft: '19rem'
-})
+    variants: {
+        color: {
+            Desktop:{
+                position: 'absolute',
+                background: 'black',
+                width: '25%',
+                height: '40%',
+                color: 'White',
+                opacity: '85%',
+                padding: '2%',
+                marginTop: '-21%',
+                marginLeft: '22%',
+            },
+            Tablet: {
+                position: 'absolute',
+                background: 'black',
+                width: '25%',
+                height: '40%',
+                color: 'White',
+                opacity: '85%',
+                padding: '1%',
+                marginTop: '-27%',
+                marginLeft: '20%',
+        }
+    }
+}})
+
 const H1 = styled('h1', {
     color: '$white',
     fontSize: '$5',
@@ -129,7 +146,7 @@ export const NavColaborate = () => {
                     </ContentButton>
                     <ContentButton>
                         <Image
-                            src={generalIcono.iconoCarePostpartum} alt="PostPartum"/>
+                            src={generalIcono.iconoCarePostpartum} alt="PostPartum" />
                         <TabsTrigger value="tab4">
                             Post-partum
                         </TabsTrigger>
@@ -145,10 +162,15 @@ export const NavColaborate = () => {
                             return (
 
                                 <ContenImages key={`${title}-${index}`}>
-                                    <Image key={`${alt}-${index}`}
+                                    <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText key={`${title}-${index}`}>
+                                    <ContentText 
+                                    key={`${title}-${index}`}
+                                    color={{
+                                        '@initial' : 'Tablet',
+                                        '@bp3' : 'Desktop'
+                                    }} >
                                         <H1 key={`${title}-${index}`}>{title}</H1>
                                         <P key={`${text}-${index}`}>{text}</P>
                                     </ContentText>
@@ -167,7 +189,7 @@ export const NavColaborate = () => {
                             return (
 
                                 <ContenImages key={`${title}-${index}`}>
-                                    <Image key={`${alt}-${index}`}
+                                    <Image
                                         src={image}
                                         alt={alt} />
                                     <ContentText>
@@ -188,7 +210,7 @@ export const NavColaborate = () => {
                             return (
 
                                 <ContenImages key={`${title}-${index}`}>
-                                    <Image key={`${alt}-${index}`}
+                                    <Image
                                         src={image}
                                         alt={alt} />
                                     <ContentText key={`${title}-${index}`}>
@@ -209,7 +231,7 @@ export const NavColaborate = () => {
                             return (
 
                                 <ContenImages key={`${title}-${index}`}>
-                                    <Image key={`${alt}-${index}`}
+                                    <Image
                                         src={image}
                                         alt={alt} />
                                     <ContentText>
