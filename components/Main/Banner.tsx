@@ -9,10 +9,32 @@ const Container = styled('div', {
 });
 
 const Paragraph = styled('p', {
-  fontSize: '$5',
-  textAlign: 'center',
-  width: '70%',
-  lineHeight: '4.69rem',
+  variants: {
+    Paragraph: {
+      Desktop: {
+        fontSize: '$5',
+        textAlign: 'center',
+        width: '70%',
+        lineHeight: '4.69rem',
+        fontWeight: '500'
+      },
+      Tablet: {
+        fontSize: '$4',
+        textAlign: 'center',
+        width: '70%',
+        lineHeight: '3rem',
+        fontWeight: '400'
+      },
+      Mobile: {
+        fontSize: '$3',
+        textAlign: 'center',
+        width: '70%',
+        lineHeight: '2rem',
+        fontWeight: '400'
+      }
+    }
+  }
+
 })
 
 interface BannerProps {
@@ -23,7 +45,12 @@ const MainBanner = ({ text }: BannerProps) => {
 
   return (
     <Container>
-      <Paragraph>{text}</Paragraph>
+      <Paragraph
+        Paragraph={{
+          '@initial': 'Mobile',
+          '@bp2': 'Tablet',
+          '@bp3': 'Desktop',
+        }}>{text}</Paragraph>
     </Container>
   );
 };

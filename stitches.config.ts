@@ -4,8 +4,10 @@ type RemMeasure = `${string}rem`;
 
 export const { styled, getCssText } = createStitches({
   media: {
-    bp2: '(min-width: 1024px)',
-    bp3: '(min-width: 1340px)',
+    bp1: '(min-width: 540px)',
+    bp2: '(min-width: 768px)',
+    bp3: '(min-width: 1024px)',
+    bp4: '(min-width: 1280px)',
   },
   utils: {
     buttonAsLink: () => ({
@@ -52,12 +54,12 @@ export const { styled, getCssText } = createStitches({
       white: '#FFFFFF',
     },
     fontSizes: {
-      1: '13px',
-      2: '15px',
-      3: '17px',
+      1: '12px',
+      2: '16px',
+      3: '18px',
       4: '24px',
       5: '35px',
-      6: '48px',
+      6: '44px',
     },
   },
 });

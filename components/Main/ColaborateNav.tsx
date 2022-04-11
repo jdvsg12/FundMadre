@@ -1,26 +1,64 @@
 import Image from "next/image";
 import generalIcono from "../../data/icono";
-import { styled} from '../../stitches.config';
+import { styled } from '../../stitches.config';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { informativeSlider } from "../../data/informativeSlider";
+import { relative } from "node:path/win32";
 
 
 // General content
 
 const Tabs = styled(TabsPrimitive.Root, {
     display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
+    variants: {
+        height: {
+            Desktop: {
+                flexDirection: 'column',
+                width: '100%',
+            },
+            Tablet: {
+                flexDirection: 'column',
+                width: '100%',
+            },
+            Mobile: {
+                flexDirection: 'column',
+                width: '100%',
+            }
+        }
+    }
 });
 
 // Content button
 
 const TabsList = styled(TabsPrimitive.List, {
-    flexShrink: 0,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: '8%',
+    variants: {
+        height: {
+            Desktop: {
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                gap: '10%',
+            },
+            Tablet: {
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'row ',
+                justifyContent: 'center',
+                gap: '3%',
+                paddingLeft: '0'
+            },
+            Mobile: {
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                gap: '1%',
+                paddingLeft: '20%'
+            }
+        }
+    }
 });
 
 // Styles button
@@ -34,7 +72,7 @@ const TabsTrigger = styled(TabsPrimitive.Trigger, {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '$3',
+    fontSize: '$1',
     fontWeight: '700',
     color: 'GrayText',
     userSelect: 'none',
@@ -46,7 +84,6 @@ const TabsTrigger = styled(TabsPrimitive.Trigger, {
     },
 });
 
-
 const TabsContent = styled(TabsPrimitive.Content, {
     flexGrow: 1,
     padding: 5,
@@ -56,64 +93,147 @@ const TabsContent = styled(TabsPrimitive.Content, {
 });
 
 const Content = styled('div', {
-    width: '100%'
 })
 
 const ContentButton = styled('div', {
-    display: 'flex',
-    flexDirection: "row",
-    gap: '1rem',
-    justifyContent: 'center'
+    variants: {
+        display: {
+            Desktop: {
+                display: 'flex',
+                flexDirection: "row",
+                gap: '1rem',
+            },
+            Tablet: {
+                display: 'flex',
+                flexDirection: "row",
+                gap: '1rem',
+            },
+            Mobile: {
+                display: 'flex',
+                flexDirection: "row",
+                gap: '1rem',
+                justifyContent: 'flex-start',
+            }
+        }
+    }
 })
 
 const ColaborateContent = styled('div', {
     display: 'flex',
-    flexDirection: 'row',
-    margin: '0 1rem',
-    gap: '1rem'
+    variants: {
+        height: {
+            Desktop: {
+                flexDirection: 'row',
+                justifyContent: 'center',
+                margin: '0 1rem',
+                gap: '1rem'
+            },
+            Tablet: {
+                flexDirection: 'row',
+                justifyContent: 'center',
+                margin: '0 1rem',
+                gap: '1rem'
+            },
+            Mobile: {
+                flexDirection: 'column',
+                justifyContent: 'center',
+                margin: '0',
+                gap: '1rem'
+            }
+        }
+    }
 })
 
 const ContenImages = styled('div', {
-    width: '50%',
-    height: '100%'
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+})
+
+const ContentMain = styled('div', {
+    position: 'absolute',
+    padding: '1rem',
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'flex-end',
 })
 
 const ContentText = styled('div', {
+    color: 'White',
     variants: {
-        color: {
-            Desktop:{
+        Content: {
+            Desktop: {
                 position: 'absolute',
                 background: 'black',
-                width: '25%',
-                height: '40%',
+                width: '50%',
                 color: 'White',
                 opacity: '85%',
-                padding: '2%',
-                marginTop: '-21%',
-                marginLeft: '22%',
+                alignSelf: 'end'
+
+
             },
             Tablet: {
                 position: 'absolute',
                 background: 'black',
-                width: '25%',
-                height: '40%',
+                width: '55%',
+                height: '90%',
                 color: 'White',
                 opacity: '85%',
-                padding: '1%',
-                marginTop: '-27%',
-                marginLeft: '20%',
+                alignSelf: 'end'
+
+            },
+            Mobile: {
+                background: 'black',
+                padding:'0.5rem',
+                width: '100%',
+                height: 'auto',
+                color: 'White',
+                opacity: '85%',
+                alignSelf: 'end'
+            }
         }
     }
-}})
+})
 
 const H1 = styled('h1', {
     color: '$white',
-    fontSize: '$5',
+    variants: {
+        height: {
+            Desktop: {
+                fontSize: '$5',
+                padding: '1rem'
+            },
+            Tablet: {
+                fontSize: '$4',
+                padding: '0.2rem'
+            },
+            Mobile: {
+                fontSize: '$3',
+                padding: '1rem'
+            }
+        }
+    }
 })
 
 const P = styled('p', {
     color: '$white',
-    fontSize: '$3',
+    variants: {
+        height: {
+            Desktop: {
+                fontSize: '$2',
+                padding: '0 1rem'
+            },
+            Tablet: {
+                fontSize: '$1',
+                padding: '0 1rem'
+            },
+            Mobile: {
+                fontSize: '$1',
+                padding: '0 1rem'
+            }
+        }
+    }
 })
 
 
@@ -121,30 +241,61 @@ export const NavColaborate = () => {
 
     return (
         <Content>
-            <Tabs defaultValue="tab1">
-                <TabsList>
-                    <ContentButton>
+            <Tabs
+                height={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop',
+                }}
+                defaultValue="tab1">
+                <TabsList
+                    height={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop',
+                    }}>
+                    <ContentButton
+                        display={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
                         <Image
                             src={generalIcono.iconoPsychology} alt="Psychology" />
                         <TabsTrigger value="tab1">
                             Psicologia
                         </TabsTrigger>
                     </ContentButton>
-                    <ContentButton>
+                    <ContentButton
+                        display={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
                         <Image
                             src={generalIcono.iconoEntrepreneurship} alt="Enterpreneurshio" />
                         <TabsTrigger value="tab2">
                             Emprendimmiento
                         </TabsTrigger>
                     </ContentButton>
-                    <ContentButton>
+                    <ContentButton
+                        display={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
                         <Image
                             src={generalIcono.iconoValueSpirituality} alt="valuesSpirituality" />
                         <TabsTrigger value="tab3">
                             Espiritualidad y valores
                         </TabsTrigger>
                     </ContentButton>
-                    <ContentButton>
+                    <ContentButton
+                        display={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
                         <Image
                             src={generalIcono.iconoCarePostpartum} alt="PostPartum" />
                         <TabsTrigger value="tab4">
@@ -155,7 +306,12 @@ export const NavColaborate = () => {
                 </TabsList>
                 <TabsContent value="tab1">
 
-                    <ColaborateContent>
+                    <ColaborateContent
+                        height={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
 
                         {informativeSlider.PsychologyTab1.map(({ title, image, alt, text }, index) => {
 
@@ -165,15 +321,29 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText 
-                                    key={`${title}-${index}`}
-                                    color={{
-                                        '@initial' : 'Tablet',
-                                        '@bp3' : 'Desktop'
-                                    }}>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
-                                    </ContentText>
+                                    <ContentMain>
+                                        <ContentText
+                                            Content={{
+                                                '@initial': 'Mobile',
+                                                '@bp2': 'Tablet',
+                                                '@bp3': 'Desktop',
+                                            }}
+                                            key={`${title}-${index}`}
+                                        >
+                                            <H1
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{title}</H1>
+                                            <P
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{text}</P>
+                                        </ContentText>
+                                    </ContentMain>
                                 </ContenImages>
                             )
                         }
@@ -182,7 +352,12 @@ export const NavColaborate = () => {
 
                 </TabsContent>
                 <TabsContent value="tab2">
-                    <ColaborateContent>
+                    <ColaborateContent
+                        height={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
 
                         {informativeSlider.EntrepreneurshipTab2.map(({ title, image, alt, text }, index) => {
 
@@ -192,15 +367,28 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText
-                                    key={`${title}-${index}`}
-                                    color={{
-                                        '@initial' : 'Tablet',
-                                        '@bp3' : 'Desktop'
-                                    }}>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
-                                    </ContentText>
+                                    <ContentMain>
+                                        <ContentText
+                                            key={`${title}-${index}`}
+                                            Content={{
+                                                '@initial': 'Mobile',
+                                                '@bp2': 'Tablet',
+                                                '@bp3': 'Desktop',
+                                            }}>
+                                            <H1
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{title}</H1>
+                                            <P
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{text}</P>
+                                        </ContentText>
+                                    </ContentMain>
                                 </ContenImages>
                             )
                         }
@@ -208,7 +396,12 @@ export const NavColaborate = () => {
                     </ColaborateContent>
                 </TabsContent>
                 <TabsContent value="tab3">
-                    <ColaborateContent>
+                    <ColaborateContent
+                        height={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
 
                         {informativeSlider.ValuesTab3.map(({ title, image, alt, text }, index) => {
 
@@ -218,15 +411,28 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText 
-                                    key={`${title}-${index}`}
-                                    color={{
-                                        '@initial' : 'Tablet',
-                                        '@bp3' : 'Desktop'
-                                    }}>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
-                                    </ContentText>
+                                    <ContentMain>
+                                        <ContentText
+                                            key={`${title}-${index}`}
+                                            Content={{
+                                                '@initial': 'Mobile',
+                                                '@bp2': 'Tablet',
+                                                '@bp3': 'Desktop',
+                                            }}>
+                                            <H1
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{title}</H1>
+                                            <P
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{text}</P>
+                                        </ContentText>
+                                    </ContentMain>
                                 </ContenImages>
                             )
                         }
@@ -234,7 +440,12 @@ export const NavColaborate = () => {
                     </ColaborateContent>
                 </TabsContent>
                 <TabsContent value="tab4">
-                    <ColaborateContent>
+                    <ColaborateContent
+                        height={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop',
+                        }}>
 
                         {informativeSlider.PostPartoTab4.map(({ title, image, alt, text }, index) => {
 
@@ -244,15 +455,28 @@ export const NavColaborate = () => {
                                     <Image
                                         src={image}
                                         alt={alt} />
-                                    <ContentText
-                                    key={`${title}-${index}`}
-                                    color={{
-                                        '@initial' : 'Tablet',
-                                        '@bp3' : 'Desktop'
-                                    }}>
-                                        <H1>{title}</H1>
-                                        <P>{text}</P>
-                                    </ContentText>
+                                    <ContentMain>
+                                        <ContentText
+                                            key={`${title}-${index}`}
+                                            Content={{
+                                                '@initial': 'Mobile',
+                                                '@bp2': 'Tablet',
+                                                '@bp3': 'Desktop',
+                                            }}>
+                                            <H1
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{title}</H1>
+                                            <P
+                                                height={{
+                                                    '@initial': 'Mobile',
+                                                    '@bp2': 'Tablet',
+                                                    '@bp3': 'Desktop',
+                                                }}>{text}</P>
+                                        </ContentText>
+                                    </ContentMain>
                                 </ContenImages>
                             )
                         }

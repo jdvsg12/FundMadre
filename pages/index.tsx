@@ -30,7 +30,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderContainer>
-        <Header />
+        {/* <Header /> */}
       </HeaderContainer>
       <main>
         <Hero />
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         <NavColaborate/>
       </main>
       <footer>
-      <FooterColumns></FooterColumns>
+      {/* <FooterColumns></FooterColumns> */}
       </footer>
     </>
   )

@@ -8,15 +8,14 @@ import "swiper/css/a11y";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { MainBannerForm, MainBannerFormVoluntary, MainBannerFormKit } from './Main/Form';
 
 
 const swiperContainer = css({
   '& .swiper-pagination-bullets': {
     display: 'flex',
     justifyContent: 'flex-end',
-    paddingRight: '5.375rem',
-    bottom: '4.31rem',
+    paddingRight: '1%',
+    paddingBottom: '1%',  
   },
   '& .swiper-pagination-bullet': {
     width: '1.875rem',
