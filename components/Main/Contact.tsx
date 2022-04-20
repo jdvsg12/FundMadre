@@ -35,21 +35,21 @@ const ContentImage = styled('div', {
     variants: {
         grid: {
             Desktop: {
-                minwidth: '100%',
-                maxWidth: '1560px',
-                height: '1000px',
+                position: 'relative',
+                height: '600px',
                 overflow: 'hiden',
                 gridColumn: '1/4',
                 gridRow: '1/3',
             },
             Tablet: {
+                position: 'relative',
+                height: '450px',
                 gridColumn: '1/2',
                 gridRow: '1/4'
             },
             Mobile: {
-                minwidth: '100%',
-                maxWidth: '1560px',
-                height: '1000px',
+                position: 'relative',
+                height: '400px',
                 overflow: 'hideen',
                 gridColumn: '1/2',
                 gridRow: '1/3'
@@ -297,8 +297,10 @@ export const MainForm = () => {
                 <Image
                     src={generalImg.BackgroundContact}
                     alt="Profile"
-                    objectFit='contain'
-                /></ContentImage>
+                    layout="fill"
+                    objectFit="cover"
+                />
+            </ContentImage>
             <ContentInfo grid={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
