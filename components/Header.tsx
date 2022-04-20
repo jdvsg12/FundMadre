@@ -11,6 +11,36 @@ const Container = styled('div', {
   flexWithDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
+  variants:{
+    hidden:{
+      Desktop: {
+        background: '$White',
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      Tablet: {
+        position: 'absolute',
+        background: '$White',
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        },
+      Mobile: {
+        position: 'absolute',
+        background: '$White',
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
+    }
+  }
 });
 
 const LogoContainer = styled('div', {
@@ -38,57 +68,15 @@ const LinksContainer = styled('div', {
   height: 'fit-content'
 });
 
-const LangsContainer = styled('div', {
-  flexWithDirection: 'row',
-  alignItems: 'center',
-  color: '$blueMain',
-  gap: '0.3rem',
-  height: '1.2rem'
-})
-
-const LangButton = styled('button', {
-  buttonAsLink: '',
-  fontSize: '1rem',
-})
-
-const ContentDonatevoluntary = styled('div',{
-  right: '1rem',
-  top: '4rem',
-  gap: '0.5rem',
-  position: 'absolute',
-  flexWithDirection: 'row',
-  alignItems: 'center',
-  zIndex: '2'
-})
-
-const IconoStatico = styled('div',{
-  position: 'relative',
-  marginTop: '1.7rem',
-  left: '1rem',
-  width: '3.8rem',
-  height: '3.8rem',
-  borderRadius: '5rem',
-  backgroundColor: '$blueSecond'
-})
-
-const IconoText = styled('button',{
-  position: 'relative',
-  right: '1.8rem',
-  padding: '0.5rem 1rem',
-  paddingLeft: '2rem',
-  fontSize: '1rem',
-  fontWeight: 'bolder',
-  color: 'White',
-  backgroundColor: '$blueSecond',
-  border: 'none',
-  borderRadius: '0.5rem',
-  zIndex: '3'
-})
 
 export const Header = () => {
 
   return (
-    <Container>
+    <Container  hidden={{
+      '@initial': 'Mobile',
+      '@bp2': 'Tablet',
+      '@bp3': 'Desktop'
+    }}>
       <LogoContainer>
         <a href="home">
         <Image
@@ -108,19 +96,9 @@ export const Header = () => {
             ))}
             
           </LinksContainer>
-          {/* <LangsContainer>
-            <LangButton>
-              {header.langs[0]}
-            </LangButton>
-            <Separator decorative={true} orientation="vertical" />
-            <LangButton>
-              {header.langs[1]}
-            </LangButton>
-          </LangsContainer> */}
         </LinksAndLangContainer>
-        {/* <AvatarWithMenu /> */}
       </RightMenuContainer>
-      <DonateVoluntary/>
+      {/* <DonateVoluntary/> */}
     </Container>
   )
 }

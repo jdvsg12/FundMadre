@@ -4,33 +4,17 @@ import generalImg from '../../data/generalImg';
 import Image from 'next/image';
 
 
-const OurTeamContent = styled('div', {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    margin: '0rem 3rem'
-});
-
 const CardTeamContent = styled('div', {
     display: 'flex',
-    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'column',
-    width: '20%',
+    width: '20rem',
     height: '100%',
 })
 
 const CardTeamBox = styled('div', {
     border: '0.15rem solid $pinkMain',
     padding: '5rem 1rem 1rem 1rem',
-})
-
-const H1 = styled('h1', {
-    color: '$blueMain',
-    fontSize: '$4',
-    lineHeight: '4rem',
-    borderBottom: '0.18rem solid $pinkMain',
-    marginLeft: '3rem',
-    width: '37.5%'
 })
 
 const H2 = styled('h2', {

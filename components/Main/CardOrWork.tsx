@@ -7,18 +7,15 @@ import Image from 'next/image';
 
 const CardWorkContent = styled('div', {
     display: 'flex',
-    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'column',
-    width: '20%',
+    width: '20rem',
     height: '100%',
 })
 
 const CardWorkBox = styled('div', {
     border: '0.15rem solid $pinkMain',
-    paddingTop: '15%',
-    paddingLeft: '10%',
-    paddingRight: '10%',
-    paddingBottom: '1%',
+    padding: '5rem 1rem 1rem 1rem',
 })
 
 const H2 = styled('h2', {
@@ -26,15 +23,6 @@ const H2 = styled('h2', {
     fontSize: '$4',
     color: 'GrayText',
 })
-
-const H3 = styled('h3', {
-    lineHeight: '1rem',
-    color: 'GrayText',
-    fontWeight: '400',
-    fontStyle: 'italic',
-})
-
-
 
 const Ul = styled('p', {
     color: 'GrayText',

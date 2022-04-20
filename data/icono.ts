@@ -10,7 +10,7 @@ import iconPhoneNumber from '../public/assets/icons/IconPhoneNumber.svg'
 import iconoFacebook from '../public/assets/icons/IconFacebook.svg'
 import iconoTwitter from '../public/assets/icons/IconTwitter.svg'
 import iconoInstagram from '../public/assets/icons/IconInstagram.svg'
-
+import menu from '../public/assets/icons/menu_open.svg'
 
 const generalIcono = {
 
@@ -52,7 +52,13 @@ const generalIcono = {
     TextAlterTwitter: 'Twitter',
 
     iconoInstagram,
-    TextAlterInstagram: 'Instagram'
+    TextAlterInstagram: 'Instagram',
+
+    //Icono menu
+
+    menu,
+    TextAlterMenu: 'menu'
+
 
 }
 

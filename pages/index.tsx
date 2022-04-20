@@ -6,20 +6,39 @@ import { Hero } from '../components/Hero'
 import banners from '../data/banners'
 import { styled } from '../stitches.config'
 import { FooterColumns } from '../components/Footer'
-
 import { MainForm } from '../components/Main/Contact'
 import { NavColaborate } from '../components/Main/ColaborateNav'
-import { MainBannerForm, MainBannerFormKit, MainBannerFormVoluntary} from '../components/Main/Form'
+import DropDownMenu from '../components/Main/DropDownMenu'
 
-const HeaderContainer = styled('div', {
-  paddingX: '3rem',
-  paddingTop: '0.75rem',
-  paddingBottom: '0.38rem',
-  marginBottom: '0.37rem',
-  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-});
+const HeaderContainer = styled('div', {});
 
-
+const HeaderContainerMobile = styled('div', {
+  variants: {
+    hidden: {
+      Desktop: {
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      Tablet: {
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      Mobile: {
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+        marginBottom: '0.37rem',
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
+    }
+  }
+})
 
 const Home: NextPage = () => {
   return (
@@ -32,13 +51,21 @@ const Home: NextPage = () => {
       <HeaderContainer>
         {/* <Header /> */}
       </HeaderContainer>
+      {/* <HeaderContainerMobile
+        hidden={{
+          '@initial': 'Mobile',
+          '@bp2': 'Tablet',
+          '@bp3': 'Desktop',
+        }}>
+        <DropDownMenu />
+      </HeaderContainerMobile> */}
       <main>
         <Hero />
         <MainBanner text={banners.mainPage} />
-        <NavColaborate/>
+        <NavColaborate />
       </main>
       <footer>
-      {/* <FooterColumns></FooterColumns> */}
+        <FooterColumns />
       </footer>
     </>
   )

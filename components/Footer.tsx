@@ -10,37 +10,82 @@ const Content = styled('div', {
 })
 
 const ContentFooter = styled('div', {
-  display: 'flex',
-  flexDirection: 'row',
-  gap: '4rem',
-  paddingBottom: '2rem',
-  justifyContent: 'center'
+  variants: {
+    with: {
+      Desktop: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 0,
+        padding: '0 3%',
+        justifyContent: 'space-between'
+      },
+      Tablet: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 0,
+        padding: '0 3%',
+        justifyContent: 'space-between'
+      },
+      Mobile: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 0,
+        padding: '0 3%',
+        justifyContent: 'center'
+      }
+    }
+  }
 })
 
 const ContentContact = styled('div', {
-  width: '50%',
-  marginLeft: '5rem',
-  marginRight: '3.2rem'
+  variants: {
+    width: {
+      Desktop: {
+        lineHeight: 1
 
-})
+      },
+      Tablet: {
+        lineHeight: 1
 
-const TextUl = styled('ul', {
-  fontSize: '$4',
-  borderBottom: '0.15rem solid white',
-  color: 'White',
-  lineHeight: '2rem',
-  marginLeft: '-2rem',
-  marginBottom: '1rem',
-  fontWeight: '600',
-  paddingBottom: '0.5rem'
+      },
+      Mobile: {
+        lineHeight: 1
+      }
+    }
+  }
+
 })
 
 const ContentData = styled('div', {
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'center',
+  justifyContent: 'center',
   gap: '1rem',
-  margin: '1rem 0rem'
+  margin: '1rem 0rem',
+})
+
+const TextUl = styled('ul', {
+  borderBottom: '0.15rem solid white',
+  color: 'White',
+  lineHeight: '2rem',
+  textAlign: 'center',
+  padding: '0rem 2rem',
+  variants: {
+    with: {
+      Desktop: {
+        fontSize: '$4',
+        fontWeight: '600'
+      },
+      Tablet: {
+        fontSize: '$3',
+        fontWeight: '600'
+      },
+      Mobile: {
+        fontSize: '$3',
+        fontWeight: '600'
+      }
+    }
+  }
 })
 
 const Li = styled('li', {
@@ -49,18 +94,42 @@ const Li = styled('li', {
   listStyle: 'none',
   color: '$white',
   lineHeight: '1.8rem',
-  fontSize: '$3',
+  variants: {
+    with: {
+      Desktop: {
+        fontSize: '$3',
+      },
+      Tablet: {
+        fontSize: '$3'
+      },
+      Mobile: {
+        fontSize: '$3'
+      }
+    }
+  }
 })
 
 const ContentCopy = styled('div', {
   backgroundColor: '$blueMain',
   textAlign: 'center',
   color: '$white',
-  fontSize: '1rem',
   padding: '2rem 1rem',
   borderTop: '0.18rem solid $white',
   margin: '0rem 3rem',
-  fontWeight: '500'
+  fontWeight: '500',
+  variants:{
+    weight:{
+      Desktop:{
+        fontSize: '$3'
+      },
+      Tablet:{
+        fontSize: '$2'
+      },
+      Mobil:{
+        fontSize: '$1'
+      }
+    }
+  }
 })
 
 export const FooterColumns = () => {
@@ -69,11 +138,28 @@ export const FooterColumns = () => {
 
   return (
     <Content>
-      <ContentFooter>
+      <ContentFooter
+        with={{
+          '@initial': 'Mobile',
+          '@bp2': 'Tablet',
+          '@bp3': 'Desktop'
+        }}>
         {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
-            <ContentContact key={`${title}-${index}`}>
-              <TextUl key={`${title}-${index}`}>
+            <ContentContact
+              width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}
+              key={`${title}-${index}`}>
+              <TextUl
+                with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}
+                key={`${title}-${index}`}>
                 {title}
               </TextUl>
               <ContentData>
@@ -98,7 +184,12 @@ export const FooterColumns = () => {
                   )
                   : null
                 }
-                <Li key={`${item2}-${index}`}>{item2}</Li>
+                <Li
+                  with={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                  }} key={`${item2}-${index}`}>{item2}</Li>
               </ContentData>
               <ContentData>
                 {icon3
@@ -121,7 +212,13 @@ export const FooterColumns = () => {
       </ContentFooter>
       {copyright.map(({ text }, index) => {
         return (
-          <ContentCopy key={`${text}-${index}`}>
+          <ContentCopy
+          weight={{
+            '@initial': 'Mobil',
+            '@bp2': 'Tablet',
+            '@bp3': 'Desktop'
+        }}
+          key={`${text}-${index}`}>
             {text}
           </ContentCopy>)
       })}

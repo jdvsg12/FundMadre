@@ -1,58 +1,158 @@
 import React from "react";
-import { styled } from "@stitches/react";
 import generalImg from "../data/generalImg";
 import Image from "next/image";
-import { CardOrWork } from "./Main/CardOrWork";
+import { styled } from "../stitches.config";
 
 
 const ContentWhatDo = styled('div', {
-    display: 'flex',
-    flexDirection: 'row',
-    flex: 'fit-content',
-    width: '100%',
-    gap: '5rem',
-    margin: '2rem 0rem 0rem 0rem',
-    marginTop: '7rem',
+    variants: {
+        width: {
+            Desktop: {
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '5rem',
+            },
+            Tablet: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '3rem',
+            },
+            Mobile: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '3rem',
+            }
+        }
+    }
 });
 
 const WhatDoText = styled('div', {
-    width: '50%',
-    padding: '0 4rem 0rem 5rem', 
-    marginTop: '-2rem'
+    variants: {
+        width: {
+            Desktop: {
+                display: 'flex',
+                width: '50%',
+            },
+            Tablet: {
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                width: '100%',
+                padding: '0 5rem'
+            },
+            Mobile: {
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                padding: '0 3rem'
+            }
+        }
+    }
 });
 
 const WhatDoImg = styled('image', {
-    width: '50%',
-    paddingRight: '10rem',
+    variants: {
+        width: {
+            Desktop: {
+                display: 'flex',
+                justifyContent: 'flex-start',
+                padding: '0 5rem',
+            },
+            Tablet: {
+                width: '50%'
+            },
+            Mobile: {
+                width: '50%'
+            }
+        }
+    }
 });
 
 const H1 = styled('h1',{
     color: '$blueMain',
-    fontSize: '$5',
     lineHeight: '4rem',
-    borderBottom: '0.18rem solid $pinkMain'
+    borderBottom: '0.18rem solid $pinkMain',
+    variants: {
+        font: {
+            Desktop: {
+                fontSize: '$5',
+            },
+            Tablet: {
+                fontSize: '$4'
+            },
+            Mobile: {
+                fontSize: '$4'
+            }
+        }
+    }
 })
 
 const P = styled('p',{
     color: 'GrayText',
-    paddingLeft: '4rem',
-    paddingTop:'1rem',
     lineHeight: '1.5rem',
-    fontSize: '$3'
+    variants: {
+        font: {
+            Desktop: {
+                fontSize: '$3',
+                paddingLeft: '3rem',
+            },
+            Tablet: {
+                fontSize: '$2',
+                paddingLeft: '1rem'
+            },
+            Mobile: {
+                fontSize: '$2',
+            }
+        }
+    }
 })
+
 
 export const Wedo = () => {
 
     return (
-        <ContentWhatDo>
-            <WhatDoText>
-                <H1>¿Qué hacemos?</H1>
-                <P>Fundmadre tiene como propósito, asesorar, apoyar y acompañar a madres gestantes vulnerables
+        <ContentWhatDo
+        width=
+        {{
+            '@initial': 'Mobile',
+            '@bp2': 'Tablet',
+            '@bp3': 'Desktop'
+        }}>
+            <WhatDoText
+            width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+            }}>
+                <H1
+                font={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                }}>
+                ¿Qué hacemos?</H1>
+                <P
+                 font={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                }}>
+                Fundmadre tiene como propósito, asesorar, apoyar y acompañar a madres gestantes vulnerables
                      y marginadas en la ciudad de Bogotá- Colombia, contribuyendo con la defensa de la vida, 
                      para disminuir el índice de abortos, causados por la condición de pobreza, abandono y depresión.
                 </P>
             </WhatDoText>
-            <WhatDoImg>
+            <WhatDoImg
+            width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp4': 'Desktop'
+            }}
+            >
             <Image
               src={generalImg.WhatDoWeDoImg}
               alt="psicologia"

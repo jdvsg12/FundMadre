@@ -3,7 +3,6 @@ import generalIcono from "../../data/icono";
 import { styled } from '../../stitches.config';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { informativeSlider } from "../../data/informativeSlider";
-import { relative } from "node:path/win32";
 
 
 // General content

@@ -1,35 +1,112 @@
 import React from "react";
-import { styled } from "@stitches/react";
 import generalImg from '../../data/generalImg';
 import generalIcono from "../../data/icono";
 import Image from 'next/image';
 import { FormEvent, MouseEvent } from 'react';
-import { PaddingIcon } from "@radix-ui/react-icons";
+import { styled } from "../../stitches.config";
 
 
-const ContenImages = styled('div', {
-    position: 'absolute',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    gap: '1rem',
-    zIndex: '1',
+
+const Content = styled('div', {
+    background: '$blueMain',
+    variants: {
+        grid: {
+            Desktop: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gridTemplateRows: 'repeat(1, 1fr)',
+                gridGap: '1rem',
+            },
+            Tablet: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(1, 1fr)',
+                gridTemplateRows: 'repeat(2, 1fr)',
+            },
+            Mobile: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(1, 1fr)',
+                gridTemplateRows: 'repeat(2, 1fr)',
+            }
+        }
+    }
+})
+
+const ContentImage = styled('div', {
+    variants: {
+        grid: {
+            Desktop: {
+                minwidth: '100%',
+                maxWidth: '1560px',
+                height: '1000px',
+                overflow: 'hiden',
+                gridColumn: '1/4',
+                gridRow: '1/3',
+            },
+            Tablet: {
+                gridColumn: '1/2',
+                gridRow: '1/4'
+            },
+            Mobile: {
+                minwidth: '100%',
+                maxWidth: '1560px',
+                height: '1000px',
+                overflow: 'hideen',
+                gridColumn: '1/2',
+                gridRow: '1/3'
+            }
+        }
+    }
 })
 
 const ContentInfo = styled('div', {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '50%',
-    zIndex: '2',
-    marginLeft: '3rem',
-    paddingTop: '3rem'
+    variants: {
+        grid: {
+            Desktop: {
+                placeSelf: 'center',
+                gridColumn: '1/2',
+                gridRow: '1/2',
+                zIndex: '2'
+            },
+            Tablet: {
+                placeSelf: 'center',
+                gridColumn: '1/2',
+                gridRow: '1/2',
+                zIndex: '2'
+
+            },
+            Mobile: {
+                placeSelf: 'center',
+                gridColumn: '1/2',
+                gridRow: '1/2',
+                zIndex: '2'
+
+            }
+        }
+    }
 })
 
-const GeneralContent = styled('div', {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: '1rem',
-    zIndex: '2',
-    marginBottom: '5.2rem'
+const ContentForm = styled('form', {
+    padding: '0 10% 5% 10%',
+    variants: {
+        grid: {
+            Desktop: {
+                placeSelf: 'center',
+                gridColumn: '2/4',
+                gridRow: '1/2',
+                zIndex: '2'
+            },
+            Tablet: {
+                gridColumn: '1/2',
+                gridRow: '2/3',
+                zIndex: '2'
+            },
+            Mobile: {
+                gridColumn: '1/2',
+                gridRow: '2/3',
+                zIndex: '2'
+            }
+        }
+    }
 })
 
 const ContentData = styled('div', {
@@ -41,72 +118,147 @@ const ContentData = styled('div', {
 
 })
 
-const ContentForm = styled('form', {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    width: '50%',
-    zIndex: '3',
-    paddingTop: '3rem'
-
-})
-
 const Input = styled('input', {
+    display: 'flex',
+    justifyContent: 'center',
     border: 'none',
-    borderRadius: '0.3rem',
-    padding: '1rem 1rem',
+    width: '100%',
     color: 'gray',
-    fontSize: '1rem',
-    width: '70%',
-    marginBottom: '1rem',
-    marginLeft: '4rem'
+    variants: {
+        font: {
+            Desktop: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '$2',
+                marginBottom: '1rem',
+                marginLeft: '2rem',
+            },
+            Tablet: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '$2',
+                marginBottom: '1rem',
+                marginLeft: '1rem',
+            },
+            Mobile: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '$2',
+                marginBottom: '1rem',
+            }
+        }
+    }
 })
 
-const TextArea = styled('textarea',{
+const TextArea = styled('textarea', {
     border: 'none',
-    borderRadius: '0.3rem',
-    padding: '1rem 1rem',
+    width: '100%',
     color: 'gray',
-    fontSize: '1rem',
-    width: '70%',
-    height: '10rem',
+    height: '20%',
     marginBottom: '1rem',
     fontFamily: 'sans-serif',
-    marginLeft: '4rem'
+    variants: {
+        width: {
+            Desktop: {
+                borderRadius: '0.3rem',
+                padding: '1rem 1rem',
+                fontSize: '1rem',
+                marginLeft: '2rem',
+            },
+            Tablet: {
+                borderRadius: '0.3rem',
+                padding: '1rem 1rem',
+                fontSize: '1rem',
+                marginLeft: '1rem',
+            },
+            Mobile: {
+                borderRadius: '0.3rem',
+                padding: '1rem 1rem',
+                fontSize: '1rem',
+
+            }
+        }
+    }
 })
 
 const Button = styled('button', {
     backgroundColor: '$blueSecond',
     border: 'none',
-    borderRadius: '0.3rem',
-    padding: '1rem 1rem',
+    width: '100%',
     color: 'white',
-    width: '70%',
-    textAlign: 'left',
-    fontSize: '1rem',
-    marginLeft: '4rem',
+    variants: {
+        width: {
+            Desktop: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '1rem',
+                marginLeft: '2rem',
+            },
+            Tablet: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '1rem',
+                marginLeft: '1rem',
+            },
+            Mobile: {
+                borderRadius: '0.3rem',
+                padding: '2% 3%',
+                fontSize: '1rem',
+
+            }
+        }
+    },
     '&:hover': {
         backgroundColor: '$blueSecond',
         boxShadow: 'inset 0rem 0rem 0.2rem Black',
-        color: 'white',
-        marginLeft: '4rem',
     }
-});
+}
+);
 
 const H1 = styled('h1', {
     color: '$white',
-    fontSize: '$5',
-    lineHeight: '3rem',
-    borderBottom: '0.18rem solid $white',
-    width: '37.5%',
-    marginLeft: '4rem'
+    variants: {
+        font: {
+            Desktop: {
+                fontSize: '$5',
+                lineHeight: '3rem',
+                borderBottom: '0.18rem solid $white',
+                width: '37.5%',
+            },
+            Tablet: {
+                fontSize: '$4',
+                lineHeight: '3rem',
+                borderBottom: '0.18rem solid $white',
+                width: '37.5%',
+            },
+            Mobile: {
+                fontSize: '$3',
+                lineHeight: '3rem',
+                borderBottom: '0.18rem solid $white',
+                width: '37.5%',
+            }
+        }
+    }
 })
 
 const P = styled('p', {
     color: '$white',
-    lineHeight: '1.5rem',
-    fontSize: '$3',
-
+    variants: {
+        font: {
+            Desktop: {
+                lineHeight: '1.5rem',
+                fontSize: '$3',
+            },
+            Tablet: {
+                lineHeight: '1.5rem',
+                fontSize: '$2',
+            },
+            Mobile: {
+                lineHeight: '1.5rem',
+                fontSize: '$2',
+            }
+        }
+    }
 })
 
 const Icon = styled('div', {
@@ -132,17 +284,32 @@ export const MainForm = () => {
 
 
     return (
-        <GeneralContent>
-            <ContenImages>
+        <Content grid={{
+            '@initial': 'Mobile',
+            '@bp2': 'Tablet',
+            '@bp3': 'Desktop'
+        }}>
+            <ContentImage grid={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+            }}>
                 <Image
                     src={generalImg.BackgroundContact}
                     alt="Profile"
-                    layout='intrinsic'
                     objectFit='contain'
-                />
-            </ContenImages>
-            <ContentInfo>
-                <H1>Contáctanos</H1>
+                /></ContentImage>
+            <ContentInfo grid={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+            }}>
+                <H1 font={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                }}
+                >Contáctanos</H1>
                 <Legend>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Legend>
                 <ContentData>
                     <Icon><Image
@@ -158,28 +325,70 @@ export const MainForm = () => {
                         layout='intrinsic'
                         objectFit='contain'
                     /></Icon>
-                    <P>+54 321 123 4567</P></ContentData>
+                    <P font={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop'
+                    }}>+54 321 123 4567</P></ContentData>
             </ContentInfo>
-            <ContentForm>
+            <ContentForm grid={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+            }}>
                 <H1>Datos</H1>
-                <Input id="name"
-                    type="text"
-                    name="fullName"
-                    placeholder="Nombre y Apellido" required />
-                    <Input id="phoneNumber"
-                    type="tel"
-                    name="phoneNumber"
-                    placeholder="Teléfono" required />
-                    <Input id="Email"
-                    type="email"
-                    name="Email"
-                    placeholder="Correo" required />
-                    <TextArea id="message"
-                    name="message"
-                    placeholder="Mensaje" required />
-                    <Button>Enviar</Button>
-            </ContentForm>
-        </GeneralContent >
+                <form>
+                    <label>
+                        <Input font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop'
+                        }}
+                            id="name"
+                            type="text"
+                            name="fullName"
+                            placeholder="Nombre y Apellido" required />
+                    </label>
+                    <label>
+                        <Input font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop'
+                        }}
+                            id="phoneNumber"
+                            type="tel"
+                            name="phoneNumber"
+                            placeholder="Teléfono" required />
+                    </label>
+                    <label>
+                        <Input font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop'
+                        }}
+                            id="Email"
+                            type="email"
+                            name="Email"
+                            placeholder="Correo" required />
+                    </label>
+                    <TextArea width={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop'
+                    }}
 
+                        id="message"
+                        name="message"
+                        placeholder="Mensaje" required />
+                    <Button
+                        width={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp3': 'Desktop'
+                        }}
+                    >Enviar</Button>
+                </form>
+            </ContentForm>
+        </Content>
     );
 }
