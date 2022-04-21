@@ -144,8 +144,8 @@ export const DropdownMenuDemo = () => {
           <DropdownMenuContent align='start'>
             {header.links.map(({ href, text }, index) => {
               return (
-                <DropdownMenuItem>
-                  <Link key={`${text}-${index}`} href={href}>
+                <DropdownMenuItem key={`${text}-${index}`}>
+                  <Link href={href}>
                     <a>{text}</a>
                   </Link>
                 </DropdownMenuItem>)
