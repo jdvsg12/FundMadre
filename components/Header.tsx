@@ -4,47 +4,34 @@ import generalData from "../data/general";
 import { header } from "../data/header";
 import Link from "next/link";
 import { Separator } from "./Separator";
-import { AvatarWithMenu } from "./AvatarWithMenu";
-import { DonateVoluntary } from "../components/Main/DonateVoluntary" 
+import { DonateVoluntary } from "../components/Main/DonateVoluntary"
+import { DropdownMenuDemo } from "../components/Main/DropDownMenu"
 
 const Container = styled('div', {
-  flexWithDirection: 'row',
+  display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
-  variants:{
-    hidden:{
-      Desktop: {
-        background: '$White',
-        paddingX: '3rem',
-        paddingTop: '0.75rem',
-        paddingBottom: '0.38rem',
-        marginBottom: '0.37rem',
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      },
-      Tablet: {
-        position: 'absolute',
-        background: '$White',
-        paddingX: '3rem',
-        paddingTop: '0.75rem',
-        paddingBottom: '0.38rem',
-        marginBottom: '0.37rem',
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        },
-      Mobile: {
-        position: 'absolute',
-        background: '$White',
-        paddingX: '3rem',
-        paddingTop: '0.75rem',
-        paddingBottom: '0.38rem',
-        marginBottom: '0.37rem',
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      }
-    }
-  }
+  background: '$White',
+  paddingX: '3rem',
+  paddingTop: '0.75rem',
+  paddingBottom: '0.38rem',
+  marginBottom: '0.37rem',
+  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 });
 
 const LogoContainer = styled('div', {
-  width: '200px',
+  variants: {
+    width: {
+      Desktop: {
+        width: '200px',
+      },
+      Tablet: {
+        width: '200px',
+      },
+      Mobile: {
+        width: '180px',
+      }
+    }
+  }
 })
 
 const RightMenuContainer = styled('div', {
@@ -53,11 +40,48 @@ const RightMenuContainer = styled('div', {
   color: '$blueMain',
 });
 
+const ContentDropdown = styled('div', {
+  variants: {
+    hidden: {
+      Desktop: {
+        display: 'none',
+      },
+      Tablet: {
+        display: 'flex',
+        flexWithDirection: 'row',
+        alignItems: 'center',
+        gap: '3.5rem',
+        color: '$blueMain',
+      },
+      Mobile: {
+        display: 'flex',
+        flexWithDirection: 'row',
+        alignItems: 'center',
+        gap: '3.5rem',
+        color: '$blueMain',
+      }
+    }
+  }
+});
+
 const LinksAndLangContainer = styled('div', {
-  flexWithDirection: 'row',
-  alignItems: 'center',
-  gap: '3.5rem',
-  color: '$blueMain',
+  variants: {
+    hidden: {
+      Desktop: {
+        display: 'flex',
+        flexWithDirection: 'row',
+        alignItems: 'center',
+        gap: '3.5rem',
+        color: '$blueMain',
+      },
+      Tablet: {
+        display: 'none',
+      },
+      Mobile: {
+        display: 'none'
+      }
+    }
+  }
 });
 
 const LinksContainer = styled('div', {
@@ -66,35 +90,50 @@ const LinksContainer = styled('div', {
   color: '$blueMain',
   fontWeight: 'bold',
   height: 'fit-content'
+
 });
 
 
 export const Header = () => {
 
   return (
-    <Container  hidden={{
-      '@initial': 'Mobile',
-      '@bp2': 'Tablet',
-      '@bp3': 'Desktop'
-    }}>
-      <LogoContainer>
+    <Container>
+      <LogoContainer
+        width={{
+          '@initial': 'Mobile',
+          '@bp2': 'Tablet',
+          '@bp3': 'Desktop'
+        }}>
         <a href="home">
-        <Image
-          src={generalData.fundmadreLogoName}
-          alt="Fundmadre logo"
-          layout='intrinsic'
-          objectFit='contain'
-        /></a>
+          <Image
+            src={generalData.fundmadreLogoName}
+            alt="Fundmadre logo"
+            layout='intrinsic'
+            objectFit='contain'
+          /></a>
       </LogoContainer>
       <RightMenuContainer>
-        <LinksAndLangContainer>
+        <ContentDropdown
+          hidden={{
+            '@initial': 'Mobile',
+            '@bp2': 'Tablet',
+            '@bp3': 'Desktop'
+          }}>
+          <DropdownMenuDemo />
+        </ContentDropdown>
+        <LinksAndLangContainer
+          hidden={{
+            '@initial': 'Mobile',
+            '@bp2': 'Tablet',
+            '@bp3': 'Desktop'
+          }}>
           <LinksContainer>
             {header.links.map(({ href, text }) => (
               <Link key={text} href={href}>
                 <a>{text}</a>
               </Link>
             ))}
-            
+
           </LinksContainer>
         </LinksAndLangContainer>
       </RightMenuContainer>

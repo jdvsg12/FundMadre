@@ -129,22 +129,13 @@ const Header = styled('div', {
 })
 
 const LogoContainer = styled('div', {
-width: '150px'  
+  width: '150px'
 })
 
 export const DropdownMenuDemo = () => {
 
   return (
     <Header>
-      <LogoContainer>
-        <a href="home">
-          <Image
-            src={generalData.fundmadreLogoName}
-            alt="Fundmadre logo"
-            layout='intrinsic'
-            objectFit='contain'
-          /></a>
-      </LogoContainer>
       <Box>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
