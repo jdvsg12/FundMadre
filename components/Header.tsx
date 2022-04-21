@@ -128,8 +128,8 @@ export const Header = () => {
             '@bp3': 'Desktop'
           }}>
           <LinksContainer>
-            {header.links.map(({ href, text }) => (
-              <Link key={text} href={href}>
+            {header.links.map(({ href, text }, index) => (
+              <Link key={`${text}-${index}`} href={href}>
                 <a>{text}</a>
               </Link>
             ))}
