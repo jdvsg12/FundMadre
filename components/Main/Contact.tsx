@@ -8,7 +8,7 @@ import { styled } from "../../stitches.config";
 
 
 const Content = styled('div', {
-    background: '$blueMain',
+    background: 'linear-gradient(180deg, rgba(91,133,188,1) 0%, rgba(210,210,210,1) 100%)',
     variants: {
         grid: {
             Desktop: {
@@ -49,7 +49,7 @@ const ContentImage = styled('div', {
             },
             Mobile: {
                 position: 'relative',
-                height: '400px',
+                height: '350px',
                 overflow: 'hideen',
                 gridColumn: '1/2',
                 gridRow: '1/3'
@@ -75,6 +75,7 @@ const ContentInfo = styled('div', {
 
             },
             Mobile: {
+                padding: '1rem',
                 placeSelf: 'center',
                 gridColumn: '1/2',
                 gridRow: '1/2',
@@ -113,7 +114,7 @@ const ContentData = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: '1rem',
+    gap: '0.5rem',
     zIndex: '2',
 
 })
@@ -174,7 +175,6 @@ const TextArea = styled('textarea', {
             Mobile: {
                 borderRadius: '0.3rem',
                 padding: '1rem 1rem',
-                fontSize: '1rem',
 
             }
         }
@@ -222,20 +222,14 @@ const H1 = styled('h1', {
             Desktop: {
                 fontSize: '$5',
                 lineHeight: '3rem',
-                borderBottom: '0.18rem solid $white',
-                width: '37.5%',
             },
             Tablet: {
                 fontSize: '$4',
                 lineHeight: '3rem',
-                borderBottom: '0.18rem solid $white',
-                width: '37.5%',
             },
             Mobile: {
-                fontSize: '$3',
+                fontSize: '$4',
                 lineHeight: '3rem',
-                borderBottom: '0.18rem solid $white',
-                width: '37.5%',
             }
         }
     }
@@ -267,10 +261,28 @@ const Icon = styled('div', {
 })
 
 const Legend = styled('div', {
-    marginLeft: '4rem',
-    color: '$white',
-    marginBottom: '1.5rem',
-    fontSize: '$3',
+    variants: {
+        font: {
+            Desktop: {
+                marginLeft: '2rem',
+                color: '$white',
+                marginBottom: '1.5rem',
+                fontSize: '$3',
+            },
+            Tablet: {
+                marginLeft: '1rem',
+                color: '$white',
+                marginBottom: '1.5rem',
+                fontSize: '$2',
+            },
+            Mobile: {
+                marginLeft: '1rem',
+                color: '$white',
+                marginBottom: '1.5rem',
+                fontSize: '$2',
+            }
+        }
+    }
 })
 
 
@@ -312,7 +324,13 @@ export const MainForm = () => {
                     '@bp3': 'Desktop'
                 }}
                 >Contáctanos</H1>
-                <Legend>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Legend>
+                <Legend
+                font={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                }}
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Legend>
                 <ContentData>
                     <Icon><Image
                         src={generalIcono.iconoMessage}
@@ -338,7 +356,13 @@ export const MainForm = () => {
                 '@bp2': 'Tablet',
                 '@bp3': 'Desktop'
             }}>
-                <H1>Datos</H1>
+                <H1
+                    font={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop'
+                    }}
+                >Datos</H1>
                 <form>
                     <label>
                         <Input font={{
