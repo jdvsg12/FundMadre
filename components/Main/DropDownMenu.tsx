@@ -30,14 +30,15 @@ const slideLeftAndFade = keyframes({
 });
 //contenedor principal
 const StyledContent = styled(DropdownMenuPrimitive.Content, {
-  minWidth: 300,
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '0 5rem',
+  margin: '0auto',
   backgroundColor: 'white',
-  padding: 1,
-  right: 0,
   boxShadow:
     '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
   '@media (prefers-reduced-motion: no-preference)': {
-    animationDuration: '400ms',
+    animationDuration: '800ms',
     animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
     animationFillMode: 'forwards',
     willChange: 'transform, opacity',
@@ -55,16 +56,13 @@ const itemStyles = {
   fontSize: '$2',
   color: 'GreyText',
   display: 'flex',
+  justifyContent:'center',
   alignItems: 'center',
   height: '3rem',
-  padding: '0 5px',
-  position: 'relative',
-  paddingLeft: 25,
   userSelect: 'none',
-
   '&:focus': {
     backgroundColor: '$blueMain',
-    color: '$White'
+    color: '$White',
   },
 };
 
@@ -144,10 +142,10 @@ export const DropdownMenuDemo = () => {
             </IconButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent align='start'>
-            {header.links.map(({ href, text }) => {
+            {header.links.map(({ href, text }, index) => {
               return (
                 <DropdownMenuItem>
-                  <Link key={text} href={href}>
+                  <Link key={`${text}-${index}`} href={href}>
                     <a>{text}</a>
                   </Link>
                 </DropdownMenuItem>)
