@@ -30,31 +30,34 @@ const Tabs = styled(TabsPrimitive.Root, {
 // Content button
 
 const TabsList = styled(TabsPrimitive.List, {
+    width: '100%',
     variants: {
         height: {
             Desktop: {
                 flexShrink: 0,
                 display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
+                flexWrap: 'wrap ',
+                justifyContent: 'space-around',
                 gap: '10%',
+                padding: '0 10rem',
+                cursor: 'pointer',
             },
             Tablet: {
                 flexShrink: 0,
                 display: 'flex',
-                flexDirection: 'row ',
-                justifyContent: 'center',
+                flexWrap: 'wrap ',
+                justifyContent: 'space-around',
                 gap: '3%',
-                paddingLeft: '0'
+                padding: '0 10rem',
+                cursor: 'pointer',
             },
             Mobile: {
                 flexShrink: 0,
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                gap: '1%',
-                paddingLeft: '20%'
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                padding: '0 1rem',
+                gap: '10%',
             }
         }
     }
@@ -65,7 +68,6 @@ const TabsList = styled(TabsPrimitive.List, {
 const TabsTrigger = styled(TabsPrimitive.Trigger, {
     all: 'unset',
     textTransform: 'uppercase',
-    padding: '0 0rem',
     height: 45,
     flex: 1,
     display: 'flex',
