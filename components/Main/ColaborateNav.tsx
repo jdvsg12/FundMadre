@@ -37,27 +37,25 @@ const TabsList = styled(TabsPrimitive.List, {
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap ',
-                justifyContent: 'space-around',
-                gap: '10%',
-                padding: '0 10rem',
+                justifyContent: 'space-between',
+                padding: '0 10%',
                 cursor: 'pointer',
             },
             Tablet: {
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap ',
-                justifyContent: 'space-around',
-                gap: '3%',
-                padding: '0 10rem',
+                padding: '0 10px',
+                justifyContent: 'space-between',
                 cursor: 'pointer',
             },
             Mobile: {
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap',
-                justifyContent: 'space-between',
-                padding: '0 1rem',
-                gap: '10%',
+                padding: '0 10px',
+                gap: 10,
+                justifyContent: 'center',
             }
         }
     }
@@ -68,26 +66,27 @@ const TabsList = styled(TabsPrimitive.List, {
 const TabsTrigger = styled(TabsPrimitive.Trigger, {
     all: 'unset',
     textTransform: 'uppercase',
-    height: 45,
+    height: 35,
     flex: 1,
     display: 'flex',
+    gap: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '$1',
-    fontWeight: '700',
-    color: 'GrayText',
     userSelect: 'none',
-    '&:hover': {
-        color: 'Gray'
-    },
     '&[data-state="active"]': {
         borderBottom: '0.3rem solid $pinkMain',
     },
+    
 });
 
+const TitleBtn = styled('legend', {
+    fontSize: '$1',
+    fontWeight: '700',
+    color: 'GrayText',
+})
 const TabsContent = styled(TabsPrimitive.Content, {
     flexGrow: 1,
-    padding: 5,
+    padding: 1,
     backgroundColor: 'white',
     outline: 'none',
     gap: '1rem',
@@ -102,18 +101,25 @@ const ContentButton = styled('div', {
             Desktop: {
                 display: 'flex',
                 flexDirection: "row",
+                justifyContent: 'space-between',
                 gap: '1rem',
+                height: 50
             },
             Tablet: {
                 display: 'flex',
                 flexDirection: "row",
+                justifyContent: 'space-between',
                 gap: '1rem',
+                height: 50
+
             },
             Mobile: {
                 display: 'flex',
                 flexDirection: "row",
                 gap: '1rem',
                 justifyContent: 'flex-start',
+                height: 50
+
             }
         }
     }
@@ -125,19 +131,19 @@ const ColaborateContent = styled('div', {
         height: {
             Desktop: {
                 flexDirection: 'row',
-                justifyContent: 'center',
+                justifyContent: 'space-between',
                 margin: '0 1rem',
                 gap: '1rem'
             },
             Tablet: {
                 flexDirection: 'row',
-                justifyContent: 'center',
+                justifyContent: 'space-between',
                 margin: '0 1rem',
                 gap: '1rem'
             },
             Mobile: {
                 flexDirection: 'column',
-                justifyContent: 'center',
+                justifyContent: 'space-between',
                 margin: '0',
                 gap: '1rem'
             }
@@ -177,8 +183,8 @@ const ContentText = styled('div', {
             Tablet: {
                 position: 'absolute',
                 background: 'black',
-                width: '55%',
-                height: '90%',
+                width: '50%',
+                height: 'auto',
                 color: 'White',
                 opacity: '85%',
                 alignSelf: 'end'
@@ -186,7 +192,7 @@ const ContentText = styled('div', {
             },
             Mobile: {
                 background: 'black',
-                padding:'0.5rem',
+                padding: '0.5rem',
                 width: '100%',
                 height: 'auto',
                 color: 'White',
@@ -203,7 +209,7 @@ const H1 = styled('h1', {
         height: {
             Desktop: {
                 fontSize: '$5',
-                padding: '1rem'
+                padding: '0.5rem'
             },
             Tablet: {
                 fontSize: '$4',
@@ -261,10 +267,9 @@ export const NavColaborate = () => {
                             '@bp2': 'Tablet',
                             '@bp3': 'Desktop',
                         }}>
-                        <Image
-                            src={generalIcono.iconoPsychology} alt="Psychology" />
                         <TabsTrigger value="tab1">
-                            Psicologia
+                            <Image src={generalIcono.iconoPsychology} alt="Psychology" />
+                            <TitleBtn>Psicologia</TitleBtn>
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton
@@ -273,10 +278,9 @@ export const NavColaborate = () => {
                             '@bp2': 'Tablet',
                             '@bp3': 'Desktop',
                         }}>
-                        <Image
-                            src={generalIcono.iconoEntrepreneurship} alt="Enterpreneurshio" />
                         <TabsTrigger value="tab2">
-                            Emprendimmiento
+                            <Image src={generalIcono.iconoEntrepreneurship} alt="Enterpreneurshio" />
+                            <TitleBtn>Emprendimiento</TitleBtn>
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton
@@ -285,10 +289,9 @@ export const NavColaborate = () => {
                             '@bp2': 'Tablet',
                             '@bp3': 'Desktop',
                         }}>
-                        <Image
-                            src={generalIcono.iconoValueSpirituality} alt="valuesSpirituality" />
                         <TabsTrigger value="tab3">
-                            Espiritualidad y valores
+                            <Image src={generalIcono.iconoValueSpirituality} alt="valuesSpirituality" />
+                            <TitleBtn>Espiritualidad y valores</TitleBtn>
                         </TabsTrigger>
                     </ContentButton>
                     <ContentButton
@@ -297,10 +300,9 @@ export const NavColaborate = () => {
                             '@bp2': 'Tablet',
                             '@bp3': 'Desktop',
                         }}>
-                        <Image
-                            src={generalIcono.iconoCarePostpartum} alt="PostPartum" />
                         <TabsTrigger value="tab4">
-                            Post-partum
+                            <Image src={generalIcono.iconoCarePostpartum} alt="PostPartum" />
+                            <TitleBtn>Post-partum</TitleBtn>
                         </TabsTrigger>
                     </ContentButton>
 

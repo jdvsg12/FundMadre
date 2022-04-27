@@ -15,7 +15,7 @@ const CardWorkContent = styled('div', {
 
 const CardWorkBox = styled('div', {
     border: '0.15rem solid $pinkMain',
-    padding: '5rem 1rem 1rem 1rem',
+    padding: '5rem 0 0 1rem',
 })
 
 const H2 = styled('h2', {
@@ -30,6 +30,9 @@ const Ul = styled('p', {
     fontSize: '$2'
 })
 
+const Li = styled('li',{
+    margin: '0 1.5rem '
+})
 const ContentWorkImag = styled('div', {
     display: 'flex',
     justifyContent: 'center',
@@ -55,9 +58,9 @@ export const CardOrWork = () => {
                     <CardWorkBox>
                         <H2>Work</H2>
                         <Ul>
-                            <li>Adipiscing elit. Aliquam mattis id erat sed bibendum.</li>
-                            <li>Fusce nec sapien ante, consectetur adipiscing elit.</li>
-                            <li>Aliquam mattis id erat sed bibendum. Fusce nec sapien ante</li>
+                            <Li>Adipiscing elit. Aliquam mattis id erat sed bibendum.</Li>
+                            <Li>Fusce nec sapien ante, consectetur adipiscing elit.</Li>
+                            <Li>Aliquam mattis id erat sed bibendum. Fusce nec sapien ante</Li>
                         </Ul>
                     </CardWorkBox>
                 </CardWorkContent>

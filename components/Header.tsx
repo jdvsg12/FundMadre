@@ -11,11 +11,27 @@ const Container = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
   background: '$White',
-  paddingX: '3rem',
-  paddingTop: '0.75rem',
-  paddingBottom: '0.38rem',
   marginBottom: '0.37rem',
   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+  variants: {
+    width: {
+      Desktop: {
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+      },
+      Tablet: {
+        paddingX: '3rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+      },
+      Mobile: {
+        paddingX: '1rem',
+        paddingTop: '0.75rem',
+        paddingBottom: '0.38rem',
+      }
+    }
+  }
 });
 
 const LogoContainer = styled('div', {
@@ -97,7 +113,12 @@ const LinksContainer = styled('div', {
 export const Header = () => {
 
   return (
-    <Container>
+    <Container 
+    width={{
+      '@initial': 'Mobile',
+      '@bp2': 'Tablet',
+      '@bp3': 'Desktop'
+    }}>
       <LogoContainer
         width={{
           '@initial': 'Mobile',

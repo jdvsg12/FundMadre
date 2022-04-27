@@ -26,17 +26,16 @@ const ContentFooter = styled('div', {
       },
       Mobile: {
         display: 'flex',
-        flexDirectione: 'column',
+        flexDirection: 'column',
         gap: '2rem',
         padding: '2rem 0',
-        justifyContent: 'space-between'
-
+        justifyContent: 'center',
       }
     }
   }
 })
 
-const Line = styled('div',{
+const Line = styled('div', {
   border: 'solid 3px white'
 })
 
@@ -82,11 +81,10 @@ const Title = styled('ul', {
 
 const ContentData = styled('div', {
   display: 'flex',
-  flexDirection: 'row',
-  height: 25,
+  flexDirection: 'column',
   gap: '0.5rem',
   margin: '1.5rem 0',
-})  
+})
 
 
 const Li = styled('li', {
@@ -95,12 +93,30 @@ const Li = styled('li', {
   variants: {
     with: {
       Desktop: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'start',
+        height: 30,
+        gap: 10,
         fontSize: '$3',
       },
       Tablet: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'start',
+        height: 30,
+        gap: 10,
         fontSize: '$2'
       },
       Mobile: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 30,
+        gap: 10,
         fontSize: '$2',
       }
     }
@@ -141,7 +157,7 @@ export const FooterColumns = () => {
           '@bp2': 'Tablet',
           '@bp3': 'Desktop'
         }}>
-        {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
+        {footerData.DataContact.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
             <ContentContact
               width={{
@@ -158,37 +174,115 @@ export const FooterColumns = () => {
                 {title}
               </Title>
               <ContentData key={`${icon2}-${index}`}>
-                {icon1 ? (<Image src={icon1} alt={alt1}/>) : null}
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}
-                >{item1}</Li>
-
-              </ContentData>
-              <ContentData key={`${icon2}-${index}`}>
-                {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>{item2}</Li>
-
-              </ContentData>
-              <ContentData key={`${icon2}-${index}`}>
-                {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
                 <Li with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
                   '@bp3': 'Desktop'
                 }}>
-                  {item3}
-                </Li>
+                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
+                  {item1}</Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
+                  {item2}</Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
+                  {item3}</Li>
               </ContentData>
             </ContentContact>
           )
         })}
+
+        {footerData.DataNosotros.map(({ title, item1, item2, item3, href1, href2, href3 }, index) => {
+          return (
+            <ContentContact
+              width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              <Title key={`${title}-${index}`}
+                with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                {title}
+              </Title>
+              <ContentData key={`${item1}-${index}`}>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href1}>{item1}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href2}>{item2}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href3}>{item3}</a></Li>
+              </ContentData>
+            </ContentContact>
+          )
+        })}
+
+        {footerData.DataSocial.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3, href1, href2, href3 }, index) => {
+          return (
+            <ContentContact
+              width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              <Title key={`${title}-${index}`}
+                with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                {title}
+              </Title>
+              <ContentData key={`${icon2}-${index}`}>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
+                  <a href={href1}>{item1}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
+                  <a href={href2}>{item2}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
+                  <a href={href3}>{item3}</a></Li>
+              </ContentData>
+            </ContentContact>
+          )
+        })}
+
 
       </ContentFooter>
       {copyright.map(({ text }, index) => {
