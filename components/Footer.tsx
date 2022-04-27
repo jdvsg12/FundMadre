@@ -159,7 +159,7 @@ export const FooterColumns = () => {
         }}>
         {footerData.DataContact.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
-            <ContentContact
+            <ContentContact key={`${item1}-${index}`}
               width={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
@@ -174,7 +174,8 @@ export const FooterColumns = () => {
                 {title}
               </Title>
               <ContentData key={`${item1}-${index}`}>
-                <Li with={{
+                <Li 
+                 with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
                   '@bp3': 'Desktop'
@@ -202,7 +203,7 @@ export const FooterColumns = () => {
 
         {footerData.DataNosotros.map(({ title, item1, item2, item3, href1, href2, href3 }, index) => {
           return (
-            <ContentContact
+            <ContentContact key={`${item1}-${index}`}
               width={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
@@ -242,7 +243,7 @@ export const FooterColumns = () => {
 
         {footerData.DataSocial.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3, href1, href2, href3 }, index) => {
           return (
-            <ContentContact
+            <ContentContact key={`${item1}-${index}`}
               width={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
