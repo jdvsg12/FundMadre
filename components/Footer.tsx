@@ -173,7 +173,7 @@ export const FooterColumns = () => {
                 }}>
                 {title}
               </Title>
-              <ContentData key={`${icon2}-${index}`}>
+              <ContentData key={`${item1}-${index}`}>
                 <Li with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
@@ -256,7 +256,7 @@ export const FooterColumns = () => {
                 }}>
                 {title}
               </Title>
-              <ContentData key={`${icon2}-${index}`}>
+              <ContentData key={`${item1}-${index}`}>
                 <Li with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
