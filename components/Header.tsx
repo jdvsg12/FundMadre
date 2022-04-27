@@ -21,7 +21,7 @@ const Container = styled('div', {
         paddingBottom: '0.38rem',
       },
       Tablet: {
-        paddingX: '3rem',
+        paddingX: '1rem',
         paddingTop: '0.75rem',
         paddingBottom: '0.38rem',
       },
