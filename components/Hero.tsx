@@ -17,8 +17,6 @@ const HeroContainer = styled('div', {
 export const Hero = () => {
   const [carouselActiveIndex, setCarouselActiveIndex] = useState(0);
 
-  console.log(carouselActiveIndex)
-
   return (
     <Container>
       <HeroContainer>

@@ -5,6 +5,7 @@ import { styled } from "../stitches.config";
 
 
 const ContentWhatDo = styled('div', {
+    marrgin: '1rem 0',
     variants: {
         width: {
             Desktop: {
@@ -61,9 +62,10 @@ const WhatDoImg = styled('image', {
                 display: 'flex',
                 justifyContent: 'flex-start',
                 padding: '0 5rem',
+                height: 220
             },
             Tablet: {
-                width: '50%'
+                padding: '0 5%',
             },
             Mobile: {
                 width: '50%'

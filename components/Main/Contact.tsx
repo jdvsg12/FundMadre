@@ -8,7 +8,7 @@ import { styled } from "../../stitches.config";
 
 
 const Content = styled('div', {
-    background: 'linear-gradient(180deg, rgba(91,133,188,1) 0%, rgba(210,210,210,1) 100%)',
+    backgroundImage: 'linear-gradient(180deg, rgba(91,133,188,1) 0%, rgba(210,210,210,1) 100%)',
     variants: {
         grid: {
             Desktop: {

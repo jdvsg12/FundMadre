@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 
 const Content = styled('div', {
-  backgroundColor: '$blueMain',
+  backgroundImage: 'linear-gradient(180deg, rgba(91,133,188,1) 40%, rgba(127, 179, 213,1) 100%)',
 })
 
 const ContentFooter = styled('div', {
@@ -15,26 +15,28 @@ const ContentFooter = styled('div', {
       Desktop: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 0,
-        padding: '0 3%',
+        padding: '0 20%',
         justifyContent: 'space-between'
       },
       Tablet: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 0,
-        padding: '0 3%',
+        padding: '0 10%',
         justifyContent: 'space-between'
       },
       Mobile: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 0,
-        padding: '0 3%',
-        justifyContent: 'center'
+        gap: '2rem',
+        padding: '2rem 0',
+        justifyContent: 'center',
       }
     }
   }
+})
+
+const Line = styled('div', {
+  border: 'solid 3px white'
 })
 
 const ContentContact = styled('div', {
@@ -56,77 +58,88 @@ const ContentContact = styled('div', {
 
 })
 
-const ContentData = styled('div', {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  gap: '1rem',
-  margin: '1rem 0rem',
-})
-
-const TextUl = styled('ul', {
-  borderBottom: '0.15rem solid white',
+const Title = styled('ul', {
   color: 'White',
-  lineHeight: '2rem',
+  textTransform: 'uppercase',
+  fontWeight: '700',
+  padding: '0',
   textAlign: 'center',
-  padding: '0rem 2rem',
   variants: {
     with: {
       Desktop: {
         fontSize: '$4',
-        fontWeight: '600'
       },
       Tablet: {
         fontSize: '$3',
-        fontWeight: '600'
       },
       Mobile: {
-        fontSize: '$3',
-        fontWeight: '600'
+        fontSize: '$2',
       }
     }
   }
 })
 
-const Li = styled('li', {
+const ContentData = styled('div', {
   display: 'flex',
-  flex: 'row',
+  flexDirection: 'column',
+  gap: '0.5rem',
+  margin: '1.5rem 0',
+})
+
+
+const Li = styled('li', {
   listStyle: 'none',
-  color: '$white',
-  lineHeight: '1.8rem',
+  color: '#D4E6F1',
   variants: {
     with: {
       Desktop: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'start',
+        height: 30,
+        gap: 10,
         fontSize: '$3',
       },
       Tablet: {
-        fontSize: '$3'
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'start',
+        height: 30,
+        gap: 10,
+        fontSize: '$2'
       },
       Mobile: {
-        fontSize: '$3'
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 30,
+        gap: 10,
+        fontSize: '$2',
       }
     }
   }
 })
 
 const ContentCopy = styled('div', {
-  backgroundColor: '$blueMain',
-  textAlign: 'center',
   color: '$white',
   padding: '2rem 1rem',
   borderTop: '0.18rem solid $white',
   margin: '0rem 3rem',
   fontWeight: '500',
-  variants:{
-    weight:{
-      Desktop:{
+  textAlign: 'center',
+  variants: {
+    weight: {
+      Desktop: {
         fontSize: '$3'
       },
-      Tablet:{
+      Tablet: {
         fontSize: '$2'
       },
-      Mobil:{
-        fontSize: '$1'
+      Mobil: {
+        fontSize: '$2'
       }
     }
   }
@@ -144,81 +157,144 @@ export const FooterColumns = () => {
           '@bp2': 'Tablet',
           '@bp3': 'Desktop'
         }}>
-        {footerData.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
+        {footerData.DataContact.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
           return (
-            <ContentContact
+            <ContentContact key={`${item1}-${index}`}
               width={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
                 '@bp3': 'Desktop'
-              }}
-              key={`${title}-${index}`}>
-              <TextUl
+              }}>
+              <Title key={`${title}-${index}`}
                 with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
                   '@bp3': 'Desktop'
-                }}
-                key={`${title}-${index}`}>
+                }}>
                 {title}
-              </TextUl>
-              <ContentData>
-                {icon1
-                  ? (
-                    <Image
-                      src={icon1}
-                      alt={alt1}
-                    />
-                  )
-                  : null
-                }
-                <Li>{item1}</Li>
-              </ContentData>
-              <ContentData>
-                {icon2
-                  ? (
-                    <Image key={`${icon2}-${index}`}
-                      src={icon2}
-                      alt={alt2}
-                    />
-                  )
-                  : null
-                }
-                <Li
-                  with={{
-                    '@initial': 'Mobile',
-                    '@bp2': 'Tablet',
-                    '@bp3': 'Desktop'
-                  }} key={`${item2}-${index}`}>{item2}</Li>
-              </ContentData>
-              <ContentData>
-                {icon3
-                  ? (
-                    <Image key={`${icon2}-${index}`}
-                      src={icon3}
-                      alt={alt3}
-                    />
-                  )
-                  : null
-                }
-                <Li key={`${item3}-${index}`}>
-                  {item3}
-                </Li>
+              </Title>
+              <ContentData key={`${item1}-${index}`}>
+                <Li 
+                 with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
+                  {item1}</Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
+                  {item2}</Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
+                  {item3}</Li>
               </ContentData>
             </ContentContact>
           )
         })}
 
+        {footerData.DataNosotros.map(({ title, item1, item2, item3, href1, href2, href3 }, index) => {
+          return (
+            <ContentContact key={`${item1}-${index}`}
+              width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              <Title key={`${title}-${index}`}
+                with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                {title}
+              </Title>
+              <ContentData key={`${item1}-${index}`}>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href1}>{item1}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href2}>{item2}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href3}>{item3}</a></Li>
+              </ContentData>
+            </ContentContact>
+          )
+        })}
+
+        {footerData.DataSocial.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3, href1, href2, href3 }, index) => {
+          return (
+            <ContentContact key={`${item1}-${index}`}
+              width={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              <Title key={`${title}-${index}`}
+                with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                {title}
+              </Title>
+              <ContentData key={`${item1}-${index}`}>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
+                  <a href={href1}>{item1}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
+                  <a href={href2}>{item2}</a></Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
+                  <a href={href3}>{item3}</a></Li>
+              </ContentData>
+            </ContentContact>
+          )
+        })}
+
+
       </ContentFooter>
       {copyright.map(({ text }, index) => {
         return (
           <ContentCopy
-          weight={{
-            '@initial': 'Mobil',
-            '@bp2': 'Tablet',
-            '@bp3': 'Desktop'
-        }}
-          key={`${text}-${index}`}>
+            weight={{
+              '@initial': 'Mobil',
+              '@bp2': 'Tablet',
+              '@bp3': 'Desktop'
+            }}
+            key={`${text}-${index}`}>
             {text}
           </ContentCopy>)
       })}
