@@ -70,7 +70,7 @@ const swiperContainer = css({
           fontWeight: '800',
           textShadow: '2px 2px 10px black !important',
           '&:after': {
-            fontSize: 20,
+            fontSize: 30,
           }
         }
       },
@@ -100,7 +100,7 @@ const swiperContainer = css({
           fontWeight: '800',
           textShadow: '2px 2px 10px black !important',
           '&:after': {
-            fontSize: 15,
+            fontSize: 30,
           }
         }
       }
