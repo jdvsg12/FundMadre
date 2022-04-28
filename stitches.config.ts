@@ -2,7 +2,7 @@ import { createStitches } from '@stitches/react';
 
 type RemMeasure = `${string}rem`;
 
-export const { styled, getCssText } = createStitches({
+export const { styled, getCssText, css } = createStitches({
   media: {
     bp1: '(min-width: 540px)',
     bp2: '(min-width: 768px)',
