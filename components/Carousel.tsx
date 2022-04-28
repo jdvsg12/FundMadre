@@ -15,6 +15,8 @@ const swiperContainer = css({
   variants: {
     width: {
       Desktop: {
+        position: 'relative',
+        height: '500px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
@@ -30,9 +32,21 @@ const swiperContainer = css({
         '& .swiper-pagination-bullet-active': {
           border: '4px solid $pinkMain',
           backgroundColor: '$white',
+        },
+        '& .swiper-button-next, .swiper-button-prev': {
+          backgroundColor: 'rgba(255, 255, 255, 0.0)',
+          color: '$pinkMain !important',
+          right: 10,
+          fontWeight: '800',
+          textShadow: '2px 2px 10px black !important',
+          '&:after': {
+            fontSize: 50,
+          }
         }
       },
       Tablet: {
+        position: 'relative',
+        height: '400px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
@@ -48,9 +62,21 @@ const swiperContainer = css({
         '& .swiper-pagination-bullet-active': {
           border: '3px solid $pinkMain',
           backgroundColor: '$white',
+        },
+        '& .swiper-button-next, .swiper-button-prev': {
+          backgroundColor: 'rgba(255, 255, 255, 0.0)',
+          color: '$pinkMain !important',
+          right: 10,
+          fontWeight: '800',
+          textShadow: '2px 2px 10px black !important',
+          '&:after': {
+            fontSize: 20,
+          }
         }
       },
       Mobile: {
+        position: 'relative',
+        height: '300px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
@@ -66,6 +92,16 @@ const swiperContainer = css({
         '& .swiper-pagination-bullet-active': {
           border: '2px solid $pinkMain',
           backgroundColor: '$white',
+        },
+        '& .swiper-button-next, .swiper-button-prev': {
+          backgroundColor: 'rgba(255, 255, 255, 0.0)',
+          color: '$pinkMain !important',
+          right: 10,
+          fontWeight: '800',
+          textShadow: '2px 2px 10px black !important',
+          '&:after': {
+            fontSize: 15,
+          }
         }
       }
     }
@@ -86,11 +122,12 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
   return (
     <Swiper
       className={swiperContainer({
-          width: {
+        width: {
           '@initial': 'Mobile',
           '@bp2': 'Tablet',
-          '@bp3': 'Desktop'}
+          '@bp3': 'Desktop'
         }
+      }
       )}
       modules={[Keyboard, Navigation, Pagination, A11y]}
       onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
@@ -113,7 +150,8 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
             <Image
               src={image}
               alt={title}
-              layout='intrinsic'
+              layout="fill"
+              objectFit="cover"
             />
 
           </SwiperSlide>
