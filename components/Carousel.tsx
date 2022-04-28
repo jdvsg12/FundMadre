@@ -16,7 +16,7 @@ const swiperContainer = css({
     width: {
       Desktop: {
         position: 'relative',
-        height: '400px',
+        height: '500px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
@@ -46,7 +46,7 @@ const swiperContainer = css({
       },
       Tablet: {
         position: 'relative',
-        height: '300px',
+        height: '400px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
@@ -76,7 +76,7 @@ const swiperContainer = css({
       },
       Mobile: {
         position: 'relative',
-        height: '250px',
+        height: '300px',
         '& .swiper-pagination-bullets': {
           display: 'flex',
           justifyContent: 'flex-end',
