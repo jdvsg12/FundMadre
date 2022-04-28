@@ -26,6 +26,14 @@ const swiperContainer = css({
   '& .swiper-pagination-bullet-active': {
     border: '4px solid $pinkMain',
     backgroundColor: '$white',
+  },
+  '& .swiper-button-next, .swiper-button-prev': {
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      right: '10px',
+      padding: '30px',
+      color: '#000 !important',
+      fill: 'black !important',
+      stroke: 'black !important',
   }
 });
 
@@ -56,8 +64,7 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
       cssMode={true}
     >
       {sliders.map(({ image, title }, index) => {
-     
-     
+
         return (
           <SwiperSlide key={`${title}-${index}`}>
             <Image 
