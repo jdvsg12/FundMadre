@@ -6,10 +6,10 @@ import { Hero } from '../components/Hero'
 import banners from '../data/banners'
 import { styled } from '../stitches.config'
 import { FooterColumns } from '../components/Footer'
-
 import { MainForm } from '../components/Main/Contact'
 import { NavColaborate } from '../components/Main/ColaborateNav'
 import { MainBannerForm, MainBannerFormKit, MainBannerFormVoluntary} from '../components/Main/Form'
+import { informativeSlider } from '../data/informativeSlider'
 
 const HeaderContainer = styled('div', {
   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <MainBanner text={banners.mainPage} />
-        <NavColaborate />
+        <NavColaborate sliders={informativeSlider.PsychologyTab1} />
       </main>
       <footer>
         <FooterColumns />
