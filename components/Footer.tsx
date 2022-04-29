@@ -26,17 +26,12 @@ const ContentFooter = styled('div', {
       },
       Mobile: {
         display: 'flex',
-        flexDirection: 'column',
-        gap: '2rem',
-        padding: '2rem 0',
+        flexWrap: 'wrap-reverse',
+        padding: '0 10%',
         justifyContent: 'center',
       }
     }
   }
-})
-
-const Line = styled('div', {
-  border: 'solid 3px white'
 })
 
 const ContentContact = styled('div', {
@@ -79,11 +74,64 @@ const Title = styled('ul', {
   }
 })
 
+const ContentUbication = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '0 1rem',
+  gap: '0.5rem',
+  margin: '1rem 0',
+})
+
 const ContentData = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  padding: '0 1rem',
   gap: '0.5rem',
-  margin: '1.5rem 0',
+  margin: '1rem 0',
+})
+
+const ContentFollow = styled('div', {
+  variants: {
+    buttom: {
+      Desktop: {
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '0 1rem',
+        gap: '1rem',
+        margin: '1rem 0',
+      },
+      Tablet: {
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '0 1rem',
+        gap: '0.5rem',
+        margin: '1rem 0',
+      },
+      Mobile: {
+        display: 'none',
+      }
+    }
+  }
+})
+
+const ContentFollowMobile = styled('div', {
+  variants: {
+    buttom: {
+      Desktop: {
+        display: 'none',
+      },
+      Tablet: {
+        display: 'none',
+      },
+      Mobile: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: '1rem',
+        margin: '1.5rem 0',
+      }
+    }
+  }
 })
 
 
@@ -114,7 +162,7 @@ const Li = styled('li', {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'start',
         height: 30,
         gap: 10,
         fontSize: '$2',
@@ -145,6 +193,7 @@ const ContentCopy = styled('div', {
   }
 })
 
+
 export const FooterColumns = () => {
 
 
@@ -173,13 +222,13 @@ export const FooterColumns = () => {
                 }}>
                 {title}
               </Title>
-              <ContentData key={`${item1}-${index}`}>
-                <Li 
-                 with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
+              <ContentUbication key={`${item1}-${index}`}>
+                <Li
+                  with={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Tablet',
+                    '@bp3': 'Desktop'
+                  }}>
                   {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
                   {item1}</Li>
                 <Li with={{
@@ -196,11 +245,10 @@ export const FooterColumns = () => {
                 }}>
                   {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
                   {item3}</Li>
-              </ContentData>
+              </ContentUbication>
             </ContentContact>
           )
         })}
-
         {footerData.DataNosotros.map(({ title, item1, item2, item3, href1, href2, href3 }, index) => {
           return (
             <ContentContact key={`${item1}-${index}`}
@@ -240,7 +288,6 @@ export const FooterColumns = () => {
             </ContentContact>
           )
         })}
-
         {footerData.DataSocial.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3, href1, href2, href3 }, index) => {
           return (
             <ContentContact key={`${item1}-${index}`}
@@ -257,7 +304,12 @@ export const FooterColumns = () => {
                 }}>
                 {title}
               </Title>
-              <ContentData key={`${item1}-${index}`}>
+              <ContentFollow key={`${item1}-${index}`}
+              buttom={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
                 <Li with={{
                   '@initial': 'Mobile',
                   '@bp2': 'Tablet',
@@ -279,12 +331,38 @@ export const FooterColumns = () => {
                 }}>
                   {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
                   <a href={href3}>{item3}</a></Li>
-              </ContentData>
+              </ContentFollow>
+              <ContentFollowMobile key={`${item1}-${index}`}
+              buttom={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href1}> {icon1 ? (<Image src={icon1} alt={alt1} />) : null} </a>
+                </Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href2}> {icon2 ? (<Image src={icon2} alt={alt2} />) : null} </a>
+                </Li>
+                <Li with={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}>
+                  <a href={href3}> {icon3 ? (<Image src={icon3} alt={alt3} />) : null} </a>
+                </Li>
+              </ContentFollowMobile>
             </ContentContact>
           )
         })}
-
-
       </ContentFooter>
       {copyright.map(({ text }, index) => {
         return (
