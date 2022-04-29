@@ -9,6 +9,8 @@ import { FooterColumns } from '../components/Footer'
 import { MainForm } from '../components/Main/Contact'
 import { NavColaborate } from '../components/Main/ColaborateNav'
 import DropDownMenu from '../components/Main/DropDownMenu'
+import Swiper from 'swiper'
+import { IconJarLogoIcon } from '@radix-ui/react-icons'
 
 const HeaderContainer = styled('div', {
   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -28,7 +30,7 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <MainBanner text={banners.mainPage} />
-        <NavColaborate />
+        <NavColaborate sliders={IconJarLogoIcon.arguments} />
       </main>
       <footer>
         <FooterColumns />
