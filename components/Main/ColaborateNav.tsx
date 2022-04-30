@@ -36,30 +36,34 @@ const Tabs = styled(TabsPrimitive.Root, {
 // Content button
 
 const TabsList = styled(TabsPrimitive.List, {
+    background: 'white',
     width: '100%',
     variants: {
         height: {
             Desktop: {
+                boxShadow: 'black 0px 2px 10px 0px',
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap ',
                 justifyContent: 'space-between',
-                padding: '0 10%',
+                padding: '1% 10% 0% 10%',
                 cursor: 'pointer',
             },
             Tablet: {
+                boxShadow: 'black 0px 2px 10px 0px',
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap ',
-                padding: '0 10px',
+                padding: '1% 10% 0% 10%',
                 justifyContent: 'space-between',
                 cursor: 'pointer',
             },
             Mobile: {
+                boxShadow: 'black 0px 2px 10px 0px',
                 flexShrink: 0,
                 display: 'flex',
                 flexWrap: 'wrap',
-                padding: '0 10px',
+                padding: '1% 10% 0% 10%',
                 gap: 10,
                 justifyContent: 'center',
             }
@@ -167,7 +171,7 @@ const ContenImages = styled('div', {
 
 const ContentMain = styled('div', {
     position: 'absolute',
-    padding: '1rem',
+    padding: '2rem 0.5rem',
     display: 'flex',
     width: '100%',
     height: '100%',
@@ -220,7 +224,7 @@ const H1 = styled('h1', {
                 padding: '0.5rem'
             },
             Tablet: {
-                fontSize: '$4',
+                fontSize: '$3',
                 padding: '0.2rem'
             },
             Mobile: {
@@ -236,7 +240,7 @@ const P = styled('p', {
     variants: {
         height: {
             Desktop: {
-                fontSize: '$2',
+                fontSize: '$1',
                 padding: '0 1rem'
             },
             Tablet: {
@@ -276,8 +280,8 @@ const swiperContainer = css({
                 '& .swiper-pagination-bullets': {
                     display: 'flex',
                     justifyContent: 'flex-end',
-                    paddingRight: '1%',
-                    paddingBottom: '1%',
+                    paddingRight: '0.5%',
+                    paddingBottom: '0%',
                 },
                 '& .swiper-pagination-bullet': {
                     width: '1rem',
@@ -296,7 +300,7 @@ const swiperContainer = css({
                     fontWeight: '800',
                     textShadow: '2px 2px 10px black !important',
                     '&:after': {
-                        fontSize: 30,
+                        fontSize: 20,
                     }
                 }
             },
@@ -339,7 +343,7 @@ export const NavColaborate = ({ setActiveSlider, sliders }: CarouselProps) => {
                             '@bp3': 'Desktop',
                         }}>
                         <TabsTrigger value="tab1">
-                            <Image src={generalIcono.iconoPsychology} alt="Psychology" />
+                            <Image src={generalIcono.iconoPsychology} alt="Psychology"  />
                             <TitleBtn>Psicologia</TitleBtn>
                         </TabsTrigger>
                     </ContentButton>
