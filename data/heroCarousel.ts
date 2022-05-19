@@ -8,14 +8,14 @@ const carouselImages = [
     title: 'Plan padrinos',
     image: planPadrinos,
     message: 'Conoce más sobre nuestro plan padrinos dando click en el botón',
-    href: 'https://wa.me/573202408953',
+    href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20el%20plan%20padrinos',
     textBtn: 'Conoce más'
   },
   {
     title: 'Kit de madres',
     image: kitDeMadres,
     message: 'Conoce más sobre nuestros kit de ayuda a madres',
-    href: 'https://wa.me/573202408953',
+    href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20los%20kits',
     textBtn: 'Conoce más'
   },
   {
