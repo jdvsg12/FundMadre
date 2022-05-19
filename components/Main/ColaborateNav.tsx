@@ -299,10 +299,10 @@ export const NavColaborate = ({ setActiveSlider, sliders }: CarouselProps) => {
                         '@bp3': 'Desktop',
                     }}>
 
-                    {informativeTabSlider.map(({ titleBtn, tabName, icon, alt }) => {
+                    {informativeTabSlider.map(({ titleBtn, tabName, icon, alt }, index) => {
 
                         return (
-                            <ContentButton
+                            <ContentButton key={`${titleBtn}-${index}`}
                                 display={{
                                     '@initial': 'Mobile',
                                     '@bp2': 'Tablet',
@@ -321,7 +321,8 @@ export const NavColaborate = ({ setActiveSlider, sliders }: CarouselProps) => {
 
                     return (
 
-                        <TabsContent value={tabName}
+                        <TabsContent key={`${titleBtn}-${index}`}
+                         value={tabName}
                         flex={{
                             '@initial': 'Mobile',
                             '@bp2': 'Tablet',

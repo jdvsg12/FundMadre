@@ -186,14 +186,15 @@ export const HowToHelp = () => {
                 }}>
                 {godfatherData[0].title}
             </Title>
-            <Section direction=
+            <Section 
+            direction=
                 {{
                     '@initial': 'Tablet',
                     '@bp3': 'Desktop'
                 }}>
                 {godfatherData.map(({ text, image }, index) => {
                     return (
-                        <ContentInfo>
+                        <ContentInfo key={`${text}-${index}`}>
                             <Image
                                 src={image}
                                 alt="Plan padrinos"
