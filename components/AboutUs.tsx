@@ -1,30 +1,33 @@
-import React from 'react';
-import { styled } from '../stitches.config';
-import generalImg from '../data/generalImg';
+import React, { useRef, useState } from "react";
+import { aboutData, ourTeamData, teamData, voluntaryData } from '../data/aboutUsData';
+import { styled, css } from '../stitches.config';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
 import Image from 'next/image';
 
 
-const ContentAbout = styled('div', {
+const Content = styled('div', {
     variants: {
         width: {
             Desktop: {
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between',
+                justifyContent: 'space-evenly',
                 alignItems: 'center',
-                gap: '5rem',
             },
             Tablet: {
                 display: 'flex',
                 flexDirection: 'column',
+                justifyContent: 'space-evenly',
                 alignItems: 'center',
-                gap: '3rem',
             },
             Mobile: {
                 display: 'flex',
                 flexDirection: 'column',
+                justifyContent: 'space-evenly',
                 alignItems: 'center',
-                gap: '3rem',
             }
         }
     }
@@ -55,18 +58,19 @@ const AboutText = styled('div', {
 });
 
 const AboutImg = styled('div', {
+    padding: '2rem 3rem',
     variants: {
         width: {
             Desktop: {
                 display: 'flex',
-                justifyContent: 'flex-start',
-                padding: '0 5rem',
+                justifyContent: 'center',
+                width: '50%'
             },
             Tablet: {
-                width: '50%'
+                width: '100%'
             },
             Mobile: {
-                width: '50%'
+                width: '100%'
             }
         }
     }
@@ -111,55 +115,187 @@ const P = styled('p', {
     }
 })
 
+const CardTeamContent = styled('div', {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginTop: -80,
+    marginBottom: 40,
+    marginLeft: 0,
+    marginRight: 0
+})
+
+const CardTeamBox = styled('div', {
+    border: '0.15rem solid $pinkMain',
+    padding: '4rem 1rem 1rem 1rem',
+    width: '75%',
+
+})
+
+const H1 = styled('h2', {
+    color: 'GrayText',
+    fontSize: '$3',
+    textTransform: 'uppercase'
+})
+
+const H2 = styled('h3', {
+    color: 'GrayText',
+    fontSize: '$2',
+
+})
+
+
+
+const Text = styled('p', {
+    color: 'GrayText',
+    fontSize: '$2'
+})
+
+const ContentPerfilImag = styled('div', {
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    top: '5rem',
+})
+
+const Legend = styled('div', {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    color: '$blueMain',
+    fontSize: '$4',
+    padding: '0 0 2rem 0',
+    gap: '1rem',
+    
+})
+
+
+const swiperContainer = css({
+        '& .swiper-pagination-bullets': {
+    },
+    '& .swiper-button-next, .swiper-button-prev': {}
+});
+
 export const AbouteUs = () => {
 
     return (
-        <ContentAbout
-            width=
-            {{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-            }}>
-            <AboutText
-                width={{
+        <section>
+            <Content
+                width=
+                {{
                     '@initial': 'Mobile',
                     '@bp2': 'Tablet',
                     '@bp3': 'Desktop'
                 }}>
-                <Title
-                    font={{
+                <AboutText
+                    width={{
                         '@initial': 'Mobile',
                         '@bp2': 'Tablet',
-                        '@bp4': 'Desktop'
+                        '@bp3': 'Desktop'
                     }}>
-                    ¿Quiénes somos?</Title>
-                <P
-                    font={{
+                    <Title
+                        font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp4': 'Desktop'
+                        }}>
+                        {aboutData.title}</Title>
+                    <P
+                        font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp4': 'Desktop'
+                        }}
+                    >{aboutData.text}</P>
+                </AboutText>
+                <AboutImg
+                    width={{
                         '@initial': 'Mobile',
                         '@bp2': 'Tablet',
-                        '@bp4': 'Desktop'
-                    }}
-                >La Fundación Vida madre de nuevas generaciones (Fundmadre),
-                    entidad sin ánimo de Lucro nace para mejorar la calidad de vida de mujeres gestantes
-                    vulnerables en Bogotá y las periferias. a través de su modelo de acompañamiento en Psicosocial,
-                    en Enfermería, en emprendimiento y en Espiritualidad y valores, busca fracturar los siclos de
-                    pobreza generados por el desplazamiento, la migración, el abandono y la falta de oportunidades.
-                </P>
-            </AboutText>
-            <AboutImg
-                width={{
-                    '@initial': 'Mobile',
-                    '@bp2': 'Tablet',
-                    '@bp4': 'Desktop'
-                }}>
-                <Image
-                    src={generalImg.LogoImagFundmadre}
-                    alt="psicologia"
-                    layout='intrinsic'
-                    objectFit='contain'
-                />
-            </AboutImg>
-        </ContentAbout>
+                        '@bp3': 'Desktop'
+                    }}>
+                    <Image
+                        src={aboutData.image}
+                        alt="psicologia"
+                        layout='intrinsic'
+                        objectFit='contain'
+                    />
+                </AboutImg>
+            </Content>
+            <Content>
+                <AboutText
+                    width={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop'
+                    }}>
+                    <Title
+                        font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp4': 'Desktop'
+                        }}>
+                        {ourTeamData.title}</Title>
+                    <P
+                        font={{
+                            '@initial': 'Mobile',
+                            '@bp2': 'Tablet',
+                            '@bp4': 'Desktop'
+                        }}
+                    >{ourTeamData.text}</P>
+                </AboutText>
+            </Content>
+            <Swiper
+                modules={[Navigation]}
+                className="swiperContainer"
+                slidesPerView={4}
+                spaceBetween={10}
+                navigation={true}
+                cssMode={true}
+                breakpoints={{
+                    280: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    680: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 10,
+                    },
+                }}
+ >
+      {teamData.map(({ perfil, name, position, degree }, index) => {
+
+            return (
+                <SwiperSlide key={`${perfil}-${index}`}>
+                    <CardTeamContent>
+                    <ContentPerfilImag>
+                        <Image
+                            src={perfil}
+                            alt="Profile"
+                            layout='intrinsic'
+                            objectFit='contain'
+                            height={200}
+                        /></ContentPerfilImag>
+                    <CardTeamBox>
+                        <H1>{name}</H1>
+                        <H2>{position}</H2>
+                        <Text>{degree}</Text>
+                    </CardTeamBox>
+                </CardTeamContent>
+                </SwiperSlide>
+               )
+            })}
+            </Swiper>
+            {/* <Legend>{voluntaryData.text}<a href='/contactanos'> {voluntaryData.button}</a>
+            </Legend> */}
+        </section>
     )
 }

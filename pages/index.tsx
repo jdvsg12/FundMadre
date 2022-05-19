@@ -13,7 +13,6 @@ import Swiper from 'swiper'
 import { IconJarLogoIcon } from '@radix-ui/react-icons'
 
 const HeaderContainer = styled('div', {
-  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 });
 
 const Home: NextPage = () => {

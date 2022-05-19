@@ -22,7 +22,7 @@ const QuienesSomos = () => {
         </HeaderContainer>
         <main>
             <AbouteUs/>
-            <OurTeam/>
+            {/* <OurTeam/> */}
         </main>
         <footer>
         <FooterColumns></FooterColumns>

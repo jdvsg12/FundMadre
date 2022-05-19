@@ -1,7 +1,9 @@
 import React from 'react';
-import { copyright, footer as footerData } from '../data/footer';
+import { copyright, footerData } from '../data/footer';
 import { styled } from '../stitches.config';
 import Image from 'next/image';
+import { FontItalicIcon } from '@radix-ui/react-icons';
+import { Item } from '@radix-ui/react-dropdown-menu';
 
 
 
@@ -74,7 +76,7 @@ const Title = styled('ul', {
   }
 })
 
-const ContentUbication = styled('div', {
+const ContentInfo = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   padding: '0 1rem',
@@ -166,7 +168,7 @@ const Li = styled('li', {
         height: 30,
         gap: 10,
         fontSize: '$2',
-      }
+      },
     }
   }
 })
@@ -196,8 +198,6 @@ const ContentCopy = styled('div', {
 
 export const FooterColumns = () => {
 
-
-
   return (
     <Content>
       <ContentFooter
@@ -206,9 +206,9 @@ export const FooterColumns = () => {
           '@bp2': 'Tablet',
           '@bp3': 'Desktop'
         }}>
-        {footerData.DataContact.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3 }, index) => {
+        {footerData.map(({ title, items}, index) => {
           return (
-            <ContentContact key={`${item1}-${index}`}
+            <ContentContact key={`${title}-${index}`}
               width={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
@@ -222,148 +222,30 @@ export const FooterColumns = () => {
                 }}>
                 {title}
               </Title>
-              <ContentUbication key={`${item1}-${index}`}>
-                <Li
-                  with={{
-                    '@initial': 'Mobile',
-                    '@bp2': 'Tablet',
-                    '@bp3': 'Desktop'
-                  }}>
-                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
-                  {item1}</Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
-                  {item2}</Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
-                  {item3}</Li>
-              </ContentUbication>
-            </ContentContact>
-          )
-        })}
-        {footerData.DataNosotros.map(({ title, item1, item2, item3, href1, href2, href3 }, index) => {
-          return (
-            <ContentContact key={`${item1}-${index}`}
-              width={{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-              }}>
-              <Title key={`${title}-${index}`}
-                with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                {title}
-              </Title>
-              <ContentData key={`${item1}-${index}`}>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href1}>{item1}</a></Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href2}>{item2}</a></Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href3}>{item3}</a></Li>
-              </ContentData>
-            </ContentContact>
-          )
-        })}
-        {footerData.DataSocial.map(({ title, item1, item2, item3, icon1, icon2, icon3, alt1, alt2, alt3, href1, href2, href3 }, index) => {
-          return (
-            <ContentContact key={`${item1}-${index}`}
-              width={{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-              }}>
-              <Title key={`${title}-${index}`}
-                with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                {title}
-              </Title>
-              <ContentFollow key={`${item1}-${index}`}
-              buttom={{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-              }}>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  {icon1 ? (<Image src={icon1} alt={alt1} />) : null}
-                  <a href={href1}>{item1}</a></Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  {icon2 ? (<Image src={icon2} alt={alt2} />) : null}
-                  <a href={href2}>{item2}</a></Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  {icon3 ? (<Image src={icon3} alt={alt3} />) : null}
-                  <a href={href3}>{item3}</a></Li>
-              </ContentFollow>
-              <ContentFollowMobile key={`${item1}-${index}`}
-              buttom={{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-              }}>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href1}> {icon1 ? (<Image src={icon1} alt={alt1} />) : null} </a>
-                </Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href2}> {icon2 ? (<Image src={icon2} alt={alt2} />) : null} </a>
-                </Li>
-                <Li with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                  <a href={href3}> {icon3 ? (<Image src={icon3} alt={alt3} />) : null} </a>
-                </Li>
-              </ContentFollowMobile>
+              <ContentInfo
+                key={`${items}-${index}`}>
+                {items.map((item) => {
+                  return (
+                    <Li
+                      // with ={item?.icon && !item?.item ? '@initial'}
+
+                      with={{
+                        '@initial': 'Mobile',
+                        '@bp2': 'Tablet',
+                        '@bp3': 'Desktop'
+                      }}
+                      key={`${title}-${index}`}
+                    >
+                      {item?.icon ? (<Image src={item.icon} />) : null}
+                      {item.item}
+                    </Li>)
+                })}
+              </ContentInfo>
             </ContentContact>
           )
         })}
       </ContentFooter>
+
       {copyright.map(({ text }, index) => {
         return (
           <ContentCopy

@@ -9,6 +9,7 @@ const Container = styled('div', {
 });
 
 const Paragraph = styled('p', {
+  color: 'DarkRed',
   variants: {
     Paragraph: {
       Desktop: {

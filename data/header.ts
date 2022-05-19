@@ -1,7 +1,7 @@
 const navbar = [
   { text: 'Inicio', href:"/home" },
   { text: '¿Quiénes somos?', href:"/quienes-somos" },
-  { text: '¿Qué hacemos?', href:"/que-hacemos" },
+  { text: '¿Comó ayudar?', href:"/como-ayudar" },
   { text: 'Contáctanos', href:"/contactanos" },
 ]
 

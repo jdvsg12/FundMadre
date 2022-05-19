@@ -1,8 +1,8 @@
 
-import { css } from "../stitches.config";
+import { styled, css } from "../stitches.config";
 import Image from "next/image";
 import React, { Component } from "react";
-import { A11y, Keyboard, Navigation, Pagination } from 'swiper';
+import { A11y, Autoplay, Keyboard, Navigation, Pagination } from 'swiper';
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/navigation";
@@ -108,9 +108,134 @@ const swiperContainer = css({
   }
 });
 
+const Content = styled('div', {
+  position: 'absolute',
+  display: 'flex',
+  flexDirection: 'column',
+  background: '$pinkMain',
+  opacity: '100%',
+  variants: {
+    size: {
+      Desktop: {
+        borderRadius: '0 30px 30px 30px',
+        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)',
+        width: '30%',
+        padding: '2rem',
+        left: '3rem',
+        bottom: '4rem',
+      },
+      Tablet: {
+        borderRadius: '0 20px 20px 20px',
+        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)',
+        width: '40%',
+        padding: '2rem',
+        left: '3rem',
+        bottom: '4rem',
+      },
+      Mobile: {
+        borderRadius: '0 5px 5px 5px',
+        width: '50%',
+        padding: '1rem',
+        margin: '0 2.3rem',
+        bottom: '1rem',
+        opacity: '90%'
+      }
+    }
+  }
+})
+
+const H1 = styled('h1', {
+  color: 'DarkRed',
+  textTransform: 'uppercase',
+  padding: '0',
+  margin: '0',
+  variants: {
+    size: {
+      Desktop: {
+        fontSize: '$5',
+        fontWeight: '700',
+      },
+      Tablet: {
+        fontSize: '$3',
+        fontWeight: '600',
+      },
+      Mobile: {
+        fontSize: '$2',
+        fontWeight: '500',
+      }
+    }
+  }
+})
+
+const P = styled('p', {
+  color: 'DarkRed',
+  margin: '1rem 0',
+  variants: {
+    size: {
+      Desktop: {
+        fontWeight: '400',
+        fontSize: '$4'
+      },
+      Tablet: {
+        fontWeight: '400',
+        fontSize: '$3'
+      },
+      Mobile: {
+        fontWeight: '400',
+        fontSize: '$2'
+      }
+    }
+  }
+})
+
+const Button = styled('button', {
+  fontSize: '$2',
+  border: 'none',
+  boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)',
+  transition: 'all 0.3s ease 0s',
+  color: 'GrayText',
+  variants: {
+    size: {
+      Desktop: {
+        padding: '1rem 2rem',
+        borderRadius: '3rem',
+        '&:hover': {
+          background: '#FDEDEC',
+          boxShadow: '0px 15px 20px #B03A2E',
+          color: '#CD6155',
+          transform: 'translateY(-7px)'
+        }
+      },
+      Tablet: {
+        padding: '0.5rem 1rem',
+        borderRadius: '1rem',
+        '&:hover': {
+          background: '#FDEDEC',
+          boxShadow: '0px 15px 20px #B03A2E',
+          color: '#CD6155',
+          transform: 'translateY(-7px)'
+        }
+      },
+      Mobile: {
+        padding: '0.1rem 0.5rem',
+        borderRadius: '3rem',
+        '&:hover': {
+          background: '#FDEDEC',
+          boxShadow: '0px 15px 20px #B03A2E',
+          color: '#CD6155',
+          transform: 'translateY(-7px)'
+        }
+      }
+    }
+  }
+})
+
 interface Slider {
   title: string;
   image: StaticImageData | string;
+  message: string;
+  href: string;
+  textBtn: string;
 }
 
 interface CarouselProps {
@@ -129,11 +254,12 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
         }
       }
       )}
-      modules={[Keyboard, Navigation, Pagination, A11y]}
+      modules={[Keyboard, Navigation, Pagination, A11y, Autoplay]}
       onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
       pagination={{ clickable: true }}
       keyboard={true}
       navigation={true}
+      autoplay={true}
       loop={true}
       a11y={{
         prevSlideMessage: 'Previous slide',
@@ -141,8 +267,7 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
       }}
       cssMode={true}
     >
-      {sliders.map(({ image, title }, index) => {
-
+      {sliders.map(({ title, image, message, href, textBtn }, index) => {
 
         return (
           <SwiperSlide
@@ -153,7 +278,35 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
               layout="fill"
               objectFit="cover"
             />
-
+            <Content
+             size={{
+              '@initial': 'Mobile',
+              '@bp2': 'Tablet',
+              '@bp3': 'Desktop'
+            }}
+            >
+              <H1
+                size={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}
+              >{title}</H1>
+              <P
+                size={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}
+              >{message}</P>
+              <Button
+                size={{
+                  '@initial': 'Mobile',
+                  '@bp2': 'Tablet',
+                  '@bp3': 'Desktop'
+                }}
+              ><a target='_blank' href={href}>{textBtn}</a></Button>
+            </Content>
           </SwiperSlide>
         )
       })}

@@ -1,8 +1,7 @@
 import React from "react";
-import generalImg from '../../data/generalImg';
-import generalIcono from "../../data/icono";
+import { contactBackground, contactData, formContactData, titleContactData, ImageDonateBanks } from "../../data/contactData";
 import Image from 'next/image';
-import { FormEvent, MouseEvent } from 'react';
+import { FormEvent } from 'react';
 import { styled } from "../../stitches.config";
 
 
@@ -13,19 +12,19 @@ const Content = styled('div', {
         grid: {
             Desktop: {
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
+                gridTemplateColumns: 'repeat(3, 1fr)',
                 gridTemplateRows: 'repeat(1, 1fr)',
                 gridGap: '1rem',
             },
             Tablet: {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(1, 1fr)',
-                gridTemplateRows: 'repeat(2, 1fr)',
+                gridTemplateRows: 'repeat(3, 1fr)',
             },
             Mobile: {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(1, 1fr)',
-                gridTemplateRows: 'repeat(2, 1fr)',
+                gridTemplateRows: 'repeat(3, 1fr)',
             }
         }
     }
@@ -38,21 +37,21 @@ const ContentImage = styled('div', {
                 position: 'relative',
                 height: '600px',
                 overflow: 'hiden',
-                gridColumn: '1/4',
+                gridColumn: '1/5',
                 gridRow: '1/3',
             },
             Tablet: {
                 position: 'relative',
-                height: '450px',
+                height: '1070px',
                 gridColumn: '1/2',
                 gridRow: '1/4'
             },
             Mobile: {
                 position: 'relative',
-                height: '350px',
+                height: '1070px',
                 overflow: 'hideen',
                 gridColumn: '1/2',
-                gridRow: '1/3'
+                gridRow: '1/4'
             }
         }
     }
@@ -92,18 +91,18 @@ const ContentForm = styled('form', {
         grid: {
             Desktop: {
                 placeSelf: 'center',
-                gridColumn: '2/4',
+                gridColumn: '3/4',
                 gridRow: '1/2',
                 zIndex: '2'
             },
             Tablet: {
                 gridColumn: '1/2',
-                gridRow: '2/3',
+                gridRow: '3/4',
                 zIndex: '2'
             },
             Mobile: {
                 gridColumn: '1/2',
-                gridRow: '2/3',
+                gridRow: '3/4',
                 zIndex: '2'
             }
         }
@@ -182,15 +181,16 @@ const TextArea = styled('textarea', {
 })
 
 const Button = styled('button', {
-    backgroundColor: '$blueSecond',
-    border: 'none',
+    background: '#FDEDEC',
+    border: 'solid',
     width: '100%',
-    color: 'white',
+    color: '#CD6155',
+    transition: 'all 0.3s ease 0s',
     variants: {
         width: {
             Desktop: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
+                borderRadius: '1rem',
+                padding: '3% 3%',
                 fontSize: '1rem',
                 marginLeft: '2rem',
             },
@@ -209,8 +209,10 @@ const Button = styled('button', {
         }
     },
     '&:hover': {
-        backgroundColor: '$blueSecond',
-        boxShadow: 'inset 0rem 0rem 0.2rem Black',
+        background: '#FDEDEC',
+        boxShadow: '0px 5px 10px #B03A2E',
+        color: '#CD6155',
+        transform: 'translateY(-3px)'
     }
 }
 );
@@ -221,15 +223,12 @@ const H1 = styled('h1', {
         font: {
             Desktop: {
                 fontSize: '$5',
-                lineHeight: '3rem',
             },
             Tablet: {
                 fontSize: '$4',
-                lineHeight: '3rem',
             },
             Mobile: {
                 fontSize: '$4',
-                lineHeight: '3rem',
             }
         }
     }
@@ -237,6 +236,7 @@ const H1 = styled('h1', {
 
 const P = styled('p', {
     color: '$white',
+    fontWeight: '500',
     variants: {
         font: {
             Desktop: {
@@ -255,34 +255,39 @@ const P = styled('p', {
     }
 })
 
-const Icon = styled('div', {
-    marginLeft: '4rem'
-
-})
-
-const Legend = styled('div', {
+const ContentImageDonta = styled('div', {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'column',
     variants: {
-        font: {
+        grid: {
             Desktop: {
-                marginLeft: '2rem',
-                color: '$white',
-                marginBottom: '1.5rem',
-                fontSize: '$3',
+                placeSelf: 'center',
+                gridColumn: '2/3',
+                gridRow: '1/2',
+                zIndex: '2'
             },
             Tablet: {
-                marginLeft: '1rem',
-                color: '$white',
-                marginBottom: '1.5rem',
-                fontSize: '$2',
+                gridColumn: '1/2',
+                gridRow: '2/3',
+                zIndex: '2'
             },
             Mobile: {
-                marginLeft: '1rem',
-                color: '$white',
-                marginBottom: '1.5rem',
-                fontSize: '$2',
+                gridColumn: '1/2',
+                gridRow: '2/3',
+                zIndex: '2'
             }
         }
     }
+})
+
+const ImageDonte = styled('div', {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '18rem',
 })
 
 
@@ -307,7 +312,7 @@ export const MainForm = () => {
                 '@bp3': 'Desktop'
             }}>
                 <Image
-                    src={generalImg.BackgroundContact}
+                    src={contactBackground.image}
                     alt="Profile"
                     layout="fill"
                     objectFit="cover"
@@ -323,34 +328,49 @@ export const MainForm = () => {
                     '@bp2': 'Tablet',
                     '@bp3': 'Desktop'
                 }}
-                >Contáctanos</H1>
-                <Legend
-                font={{
+                >{titleContactData[0].title}</H1>
+
+                {contactData.map(({ icon, data }, index) => {
+                    return (
+                        <ContentData key={`${icon}-${index}`}>
+                            <Image
+                                src={icon}
+                                alt="psicologia"
+                                layout='intrinsic'
+                                objectFit='contain'
+                                width={40}
+                                height={40}
+                            /><P>{data}</P></ContentData>
+                    )
+                })}
+            </ContentInfo>
+            <ContentImageDonta
+                grid={{
                     '@initial': 'Mobile',
                     '@bp2': 'Tablet',
                     '@bp3': 'Desktop'
-                }}
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. </Legend>
-                <ContentData>
-                    <Icon><Image
-                        src={generalIcono.iconoMessage}
-                        alt="psicologia"
-                        layout='intrinsic'
-                        objectFit='contain'
-                    /></Icon><P>loremipsum@correo.com</P></ContentData>
-                <ContentData>
-                    <Icon><Image
-                        src={generalIcono.iconPhoneNumber}
-                        alt="psicologia"
-                        layout='intrinsic'
-                        objectFit='contain'
-                    /></Icon>
-                    <P font={{
+                }}>
+                <H1
+                    font={{
                         '@initial': 'Mobile',
                         '@bp2': 'Tablet',
                         '@bp3': 'Desktop'
-                    }}>+54 321 123 4567</P></ContentData>
-            </ContentInfo>
+                    }}
+                >{titleContactData[2].title}</H1>
+                {ImageDonateBanks.map(({ image, text }, index) => {
+                    return (
+                        <ImageDonte key={`${image}-${index}`}>
+                            <Image
+                                src={image}
+                                alt='donate'
+                                layout='intrinsic'
+                                objectFit='contain'
+                            />
+                            <P>{text}</P>
+                        </ImageDonte>
+                    )
+                })}
+            </ContentImageDonta>
             <ContentForm grid={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
@@ -362,41 +382,25 @@ export const MainForm = () => {
                         '@bp2': 'Tablet',
                         '@bp3': 'Desktop'
                     }}
-                >Datos</H1>
+                >{titleContactData[1].title}</H1>
                 <form>
-                    <label>
-                        <Input font={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop'
-                        }}
-                            id="name"
-                            type="text"
-                            name="fullName"
-                            placeholder="Nombre y Apellido" required />
-                    </label>
-                    <label>
-                        <Input font={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop'
-                        }}
-                            id="phoneNumber"
-                            type="tel"
-                            name="phoneNumber"
-                            placeholder="Teléfono" required />
-                    </label>
-                    <label>
-                        <Input font={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop'
-                        }}
-                            id="Email"
-                            type="email"
-                            name="Email"
-                            placeholder="Correo" required />
-                    </label>
+                    {formContactData.map(({ type, text, name }, index) => {
+
+                        return (
+                            <label key={`${type}-${index}`}>
+                                <Input font={{
+                                    '@initial': 'Mobile',
+                                    '@bp2': 'Tablet',
+                                    '@bp3': 'Desktop'
+                                }}
+                                    type={type}
+                                    name={name}
+                                    placeholder={text} required />
+                            </label>
+
+                        )
+                    })}
+
                     <TextArea width={{
                         '@initial': 'Mobile',
                         '@bp2': 'Tablet',

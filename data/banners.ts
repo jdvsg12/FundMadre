@@ -1,5 +1,5 @@
 const banners = {
-  mainPage: 'La maternidad es Vida, apoyar las madres gestantes vulnerables es grato al que es Fuente de Vida y Amor',
+  mainPage: 'La maternidad es Vida, apoyar a madres gestantes vulnerables es grato al que es Fuente de Vida y Amor',
   tabs: [
     {icon: 'some-icon', text: 'En psicologia'},
     {icon: 'some-icon', text: 'En emprendimiento'},

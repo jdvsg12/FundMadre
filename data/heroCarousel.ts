@@ -1,19 +1,36 @@
-import mothersGroup from '../public/assets/sliders/main-slider/picture-1.jpg';
-import voluntaryGroup from '../public/assets/sliders/main-slider/picture-2.jpg';
-import kitGroup from '../public/assets/sliders/main-slider/picture-3.jpg'
+import planPadrinos from '../public/assets/sliders/main-slider/Portada_3.jpg';
+import kitDeMadres from '../public/assets/sliders/main-slider/Portada_1.jpg';
+import siguenos from '../public/assets/sliders/main-slider/Portada_2.jpg'
+import contacteConNosotros from '../public/assets/sliders/main-slider/Portada_5.jpg'
 
 const carouselImages = [
   {
-    title: 'grupo de madres',
-    image: mothersGroup,
+    title: 'Plan padrinos',
+    image: planPadrinos,
+    message: 'Conoce más sobre nuestro plan padrinos dando click en el botón',
+    href: 'https://wa.me/573202408953',
+    textBtn: 'Conoce más'
   },
   {
-    title: 'Voluntariado',
-    image: voluntaryGroup,
+    title: 'Kit de madres',
+    image: kitDeMadres,
+    message: 'Conoce más sobre nuestros kit de ayuda a madres',
+    href: 'https://wa.me/573202408953',
+    textBtn: 'Conoce más'
   },
   {
-    title: 'Kit de madres ',
-    image: kitGroup,
+    title: 'Siguenos',
+    image: siguenos,
+    message: 'Siguenos para saber más de nuestro trabajo',
+    href: 'https://www.instagram.com/fundmadre',
+    textBtn: 'Conoce más'
+  },
+  {
+    title: 'Conectate con nostros',
+    image: contacteConNosotros,
+    message: 'Siguenos para saber más de nuestro trabajo',
+    href: 'https://www.youtube.com/watch?v=qWwEGr1gGnw',
+    textBtn: 'Conoce más'
   },
 ];
 
@@ -21,7 +38,7 @@ export const forms = {
 
   GropMothersTab: [
     {
-      message: 'Queremos Apoyar, Acompañar y Asesorar a MÁS Madres Embarazadas.  DONA!',
+      message: 'Queremos Apoyar, Acompañar y Asesorar a más madres Embarazadas.  DONA!',
       title: "Pon tu granito de arena",
     }
   ],

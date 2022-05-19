@@ -1,7 +1,3 @@
-import iconoPsychology from '../public/assets/icons/psychology.svg';
-import iconoEntrepreneurship from '../public/assets/icons/entrepreneurship.svg'
-import iconoValueSpirituality from '../public/assets/icons/valueSpirituality.svg'
-import iconoCarePostpartum from '../public/assets/icons/carePostpartum.svg'
 import iconoPregnant from '../public/assets/icons/IconoPregnant.svg'
 import iconoDonate from '../public/assets/icons/IconoVolunteering.svg'
 import iconUbication from '../public/assets/icons/IconUbication.svg'
@@ -14,19 +10,8 @@ import menu from '../public/assets/icons/menu_open.svg'
 
 const generalIcono = {
 
-    // Estos iconos son del navegador de colaborar
+     //Estos iconos son los de botones para donar
 
-    iconoPsychology,
-    TextAlterpsychology: 'La psicologia es parte esencial para nosotros',
-
-    iconoEntrepreneurship,
-    TextAlterEmprendimiento: 'El emprendimiento es parte esencial para nosotros',
-
-    iconoValueSpirituality,
-    TextAlterEspiritualidadvalores: 'la espiritualidad es parte esencial para nosotros',
-
-    iconoCarePostpartum,
-    TextAlterCarePostpartum: 'El cuidado antes del parto y post-parto es parte esencial para nosotros',
 
     iconoPregnant,
     TextAlterPregnant: 'El cuidado antes del parto y post-parto es parte esencial para nosotros',

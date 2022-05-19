@@ -6,16 +6,11 @@ import { Hero } from '../components/Hero'
 import banners from '../data/banners'
 import { styled } from '../stitches.config'
 import { FooterColumns } from '../components/Footer'
-import { MainForm } from '../components/Main/Contact'
 import { NavColaborate } from '../components/Main/ColaborateNav'
-import { MainBannerForm, MainBannerFormKit, MainBannerFormVoluntary} from '../components/Main/Form'
-import { informativeSlider } from '../data/informativeSlider'
+import { IdCardIcon } from '@radix-ui/react-icons'
 
 const HeaderContainer = styled('div', {
-  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 });
-
-
 
 const Home: NextPage = () => {
   return (
@@ -31,7 +26,7 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <MainBanner text={banners.mainPage} />
-        <NavColaborate sliders={informativeSlider.PsychologyTab1} />
+        <NavColaborate sliders={IdCardIcon.arguments} />
       </main>
       <footer>
         <FooterColumns />

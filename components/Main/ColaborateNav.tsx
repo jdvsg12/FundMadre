@@ -1,8 +1,7 @@
 import Image from "next/image";
-import generalIcono from "../../data/icono";
 import { styled, css } from '../../stitches.config';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { informativeSlider } from "../../data/informativeSlider";
+import { informativeTabSlider } from "../../data/informativeSlider";
 import { A11y, Keyboard, Navigation, Pagination } from 'swiper';
 import "swiper/css";
 import "swiper/css/a11y";
@@ -14,23 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // General content
 
 const Tabs = styled(TabsPrimitive.Root, {
-    display: 'flex',
-    variants: {
-        height: {
-            Desktop: {
-                flexDirection: 'column',
-                width: '100%',
-            },
-            Tablet: {
-                flexDirection: 'column',
-                width: '100%',
-            },
-            Mobile: {
-                flexDirection: 'column',
-                width: '100%',
-            }
-        }
-    }
+    width: '100%',
 });
 
 // Content button
@@ -80,6 +63,7 @@ const TabsTrigger = styled(TabsPrimitive.Trigger, {
     flex: 1,
     display: 'flex',
     gap: 10,
+    transition: 'all 0.5s ease 0s',
     alignItems: 'center',
     justifyContent: 'center',
     userSelect: 'none',
@@ -92,17 +76,46 @@ const TabsTrigger = styled(TabsPrimitive.Trigger, {
 const TitleBtn = styled('legend', {
     fontSize: '$1',
     fontWeight: '700',
-    color: 'GrayText',
+    color: 'darkred',
 })
 const TabsContent = styled(TabsPrimitive.Content, {
-    flexGrow: 1,
     padding: 1,
-    backgroundColor: 'white',
     outline: 'none',
-    gap: '1rem',
+    variants: {
+        flex: {
+            Desktop: {
+                display: 'flex',
+                flexDirection: 'row',
+            },
+            Tablet: {
+                display: 'flex',
+                flexDirection: 'column',
+            },
+            Mobile: {
+                display: 'flex',
+                flexDirection: 'column',
+                outline: 'none',
+            }
+        }
+    }
 });
 
 const Content = styled('div', {
+    display: 'flex',
+    variants: {
+        row: {
+            Desktop: {
+                display: 'flex',
+                flexDirection: 'column',
+            },
+            Tablet: {
+                flexDirection: 'column',
+            },
+            Mobile: {
+                flexDirection: 'row',
+            }
+        }
+    }
 })
 
 const ContentButton = styled('div', {
@@ -135,121 +148,68 @@ const ContentButton = styled('div', {
     }
 })
 
-const ColaborateContent = styled('div', {
-    variants: {
-        height: {
-            Desktop: {
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                margin: '0 1rem',
-                gap: '1rem'
-            },
-            Tablet: {
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                margin: '0 1rem',
-                gap: '1rem'
-            },
-            Mobile: {
-                display: 'none',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                margin: '0',
-                gap: '1rem'
-            }
-        }
-    }
-})
-
-const ContenImages = styled('div', {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-})
-
-const ContentMain = styled('div', {
-    position: 'absolute',
-    padding: '2rem 0.5rem',
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'flex-end',
-})
-
 const ContentText = styled('div', {
-    color: 'White',
+    display: 'flex',
+    background: 'linear-gradient(235deg, #B03A2E 10%, LightCoral 100%)',
+    height: 'auto',
     variants: {
         Content: {
             Desktop: {
-                position: 'absolute',
-                background: 'black',
-                width: '50%',
-                color: 'White',
-                opacity: '85%',
-                alignSelf: 'end'
-
-
+                flexDirection: 'column',
+                justifyContent: 'center',
+                width: '25%',
+                alignItems: 'start',
+                padding: '0 2rem',
             },
             Tablet: {
-                position: 'absolute',
-                background: 'black',
-                width: '50%',
-                height: 'auto',
-                color: 'White',
-                opacity: '85%',
-                alignSelf: 'end'
-
+                flexDirection: 'column',
+                justifyContent: 'center',
+                width: '100%',
+                padding: '3rem 3rem',
             },
             Mobile: {
-                background: 'black',
-                padding: '0.5rem',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 width: '100%',
-                height: 'auto',
-                color: 'White',
-                opacity: '85%',
-                alignSelf: 'end'
+                padding: '1rem 3rem',
             }
         }
     }
 })
 
 const H1 = styled('h1', {
+    textShadow: '2px 2px 4px Maroon',
     color: '$white',
     variants: {
         height: {
             Desktop: {
                 fontSize: '$5',
-                padding: '0.5rem'
             },
             Tablet: {
-                fontSize: '$3',
-                padding: '0.2rem'
+                fontSize: '$4',
             },
             Mobile: {
                 fontSize: '$3',
-                padding: '1rem'
             }
         }
     }
 })
 
 const P = styled('p', {
+    textShadow: '2px 2px 4px Maroon',
     color: '$white',
+    fontWeight: '500',
     variants: {
         height: {
             Desktop: {
-                fontSize: '$1',
-                padding: '0 1rem'
+                fontSize: '$3',
+                lineHeight: 2,
             },
             Tablet: {
-                fontSize: '$1',
-                padding: '0 1rem'
+                fontSize: '$2',
             },
             Mobile: {
-                fontSize: '$1',
-                padding: '0 1rem'
+                fontSize: '$2',
             }
         }
     }
@@ -259,7 +219,8 @@ const swiperContainer = css({
     variants: {
         width: {
             Desktop: {
-                display: 'none',
+                width: '75%',
+                height: 500,
                 '& .swiper-pagination-bullets': {
                 },
                 '& .swiper-pagination-bullet': {},
@@ -267,7 +228,8 @@ const swiperContainer = css({
                 '& .swiper-button-next, .swiper-button-prev': {}
             },
             Tablet: {
-                display: 'none',
+                width: '100%',
+                height: 300,
                 '& .swiper-pagination-bullets': {
                 },
                 '& .swiper-pagination-bullet': {},
@@ -275,8 +237,8 @@ const swiperContainer = css({
                 '& .swiper-button-next, .swiper-button-prev': {}
             },
             Mobile: {
-                position: 'relative',
-                height: '300px',
+                width: '100%',
+                height: 300,
                 '& .swiper-pagination-bullets': {
                     display: 'flex',
                     justifyContent: 'flex-end',
@@ -322,489 +284,108 @@ interface CarouselProps {
 export const NavColaborate = ({ setActiveSlider, sliders }: CarouselProps) => {
 
     return (
-        <Content>
+        <Content
+            row={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+            }}>
             <Tabs
-                height={{
-                    '@initial': 'Mobile',
-                    '@bp2': 'Tablet',
-                    '@bp3': 'Desktop',
-                }}
-                defaultValue="tab1">
+                defaultValue={informativeTabSlider[0].tabName}>
                 <TabsList
                     height={{
                         '@initial': 'Mobile',
                         '@bp2': 'Tablet',
                         '@bp3': 'Desktop',
                     }}>
-                    <ContentButton
-                        display={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-                        <TabsTrigger value="tab1">
-                            <Image src={generalIcono.iconoPsychology} alt="Psychology"  />
-                            <TitleBtn>Psicologia</TitleBtn>
-                        </TabsTrigger>
-                    </ContentButton>
-                    <ContentButton
-                        display={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-                        <TabsTrigger value="tab2">
-                            <Image src={generalIcono.iconoEntrepreneurship} alt="Enterpreneurshio" />
-                            <TitleBtn>Emprendimiento</TitleBtn>
-                        </TabsTrigger>
-                    </ContentButton>
-                    <ContentButton
-                        display={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-                        <TabsTrigger value="tab3">
-                            <Image src={generalIcono.iconoValueSpirituality} alt="valuesSpirituality" />
-                            <TitleBtn>Espiritualidad y valores</TitleBtn>
-                        </TabsTrigger>
-                    </ContentButton>
-                    <ContentButton
-                        display={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-                        <TabsTrigger value="tab4">
-                            <Image src={generalIcono.iconoCarePostpartum} alt="PostPartum" />
-                            <TitleBtn>Post-partum</TitleBtn>
-                        </TabsTrigger>
-                    </ContentButton>
+
+                    {informativeTabSlider.map(({ titleBtn, tabName, icon, alt }) => {
+
+                        return (
+                            <ContentButton
+                                display={{
+                                    '@initial': 'Mobile',
+                                    '@bp2': 'Tablet',
+                                    '@bp3': 'Desktop',
+                                }}>
+                                <TabsTrigger value={tabName}>
+                                    <Image src={icon} alt={alt} />
+                                    <TitleBtn>{titleBtn}</TitleBtn>
+                                </TabsTrigger>
+                            </ContentButton>
+                        )
+                    })}
 
                 </TabsList>
-                <TabsContent value="tab1">
+                {informativeTabSlider.map(({ titleBtn, tabName, images, alt, text }, index) => {
 
-                    <ColaborateContent
-                        height={{
+                    return (
+
+                        <TabsContent value={tabName}
+                        flex={{
                             '@initial': 'Mobile',
                             '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-                        {informativeSlider.PsychologyTab1.map(({ title, image, alt, text }, index) => {
+                            '@bp3': 'Desktop'
+                            }}>
 
-                            return (
+                            <Swiper
+                                className={swiperContainer({
+                                    width: {
+                                        '@initial': 'Mobile',
+                                        '@bp2': 'Tablet',
+                                        '@bp3': 'Desktop'
+                                    }
+                                }
+                                )}
+                                modules={[Keyboard, Navigation, Pagination, A11y]}
+                                onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
+                                pagination={{ clickable: true }}
+                                keyboard={true}
+                                navigation={true}
+                                loop={true}
+                                a11y={{
+                                    prevSlideMessage: 'Previous slide',
+                                    nextSlideMessage: 'Next slide',
+                                }}
+                                cssMode={true}>
+                                {images.map((image) => {
 
-                                <ContenImages key={`${title}-${index}`}>
+                                    return (
+                                        <SwiperSlide
+                                            key={`${titleBtn}-${index}`}>
+                                            <Image
+                                                src={image}
+                                                alt={alt}
+                                                layout="fill"
+                                                objectFit="cover" />
 
-                                    <Image
-                                        src={image}
-                                        alt={alt} />
-                                    <ContentMain>
-                                        <ContentText
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}
-                                            key={`${title}-${index}`}
-                                        >
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                </ContenImages>
-
-                            )
-                        }
-                        )}
-                    </ColaborateContent>
-                    <Swiper
-                            className={swiperContainer({
-                                width: {
+                                        </SwiperSlide>
+                                    )
+                                })}
+                            </Swiper>
+                            <ContentText
+                                Content={{
                                     '@initial': 'Mobile',
                                     '@bp2': 'Tablet',
                                     '@bp3': 'Desktop'
-                                }
-                            }
-                            )}
-                            modules={[Keyboard, Navigation, Pagination, A11y]}
-                            onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
-                            pagination={{ clickable: true }}
-                            keyboard={true}
-                            navigation={true}
-                            loop={true}
-                            a11y={{
-                                prevSlideMessage: 'Previous slide',
-                                nextSlideMessage: 'Next slide',
-                            }}
-                            cssMode={true}
-                        >
-                            {informativeSlider.PsychologyTab1.map(({ title, image, alt, text }, index) => {
-
-
-                                return (
-                                    <SwiperSlide
-                                        key={`${title}-${index}`}>
-                                        <Image
-                                            src={image}
-                                            alt={alt}
-                                            layout="fill"
-                                            objectFit="cover"
-                                        />
-                                        <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-
-                                    </SwiperSlide>
-                                )
-                            })}
-                        </Swiper>
-
-                </TabsContent>
-                <TabsContent value="tab2">
-                    <ColaborateContent
-                        height={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-
-                        {informativeSlider.EntrepreneurshipTab2.map(({ title, image, alt, text }, index) => {
-
-                            return (
-
-                                <ContenImages key={`${title}-${index}`}>
-                                    <Image
-                                        src={image}
-                                        alt={alt} />
-                                    <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-
-                                </ContenImages>
-                            )
-                        }
-                        )}
-                    </ColaborateContent>
-                    <Swiper
-                            className={swiperContainer({
-                                width: {
-                                    '@initial': 'Mobile',
-                                    '@bp2': 'Tablet',
-                                    '@bp3': 'Desktop'
-                                }
-                            }
-                            )}
-                            modules={[Keyboard, Navigation, Pagination, A11y]}
-                            onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
-                            pagination={{ clickable: true }}
-                            keyboard={true}
-                            navigation={true}
-                            loop={true}
-                            a11y={{
-                                prevSlideMessage: 'Previous slide',
-                                nextSlideMessage: 'Next slide',
-                            }}
-                            cssMode={true}
-                        >
-                            {informativeSlider.EntrepreneurshipTab2.map(({ title, image, alt, text }, index) => {
-
-
-                                return (
-                                    <SwiperSlide
-                                        key={`${title}-${index}`}>
-                                        <Image
-                                            src={image}
-                                            alt={alt}
-                                            layout="fill"
-                                            objectFit="cover"
-                                        />
-                                        <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                    </SwiperSlide>
-                                )
-                            })}
-                        </Swiper>
-
-                </TabsContent>
-                <TabsContent value="tab3">
-                    <ColaborateContent
-                        height={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-
-                        {informativeSlider.ValuesTab3.map(({ title, image, alt, text }, index) => {
-
-                            return (
-
-                                <ContenImages key={`${title}-${index}`}>
-                                    <Image
-                                        src={image}
-                                        alt={alt} />
-                                    <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                </ContenImages>
-                            )
-                        }
-                        )}
-                    </ColaborateContent>
-                    <Swiper
-                            className={swiperContainer({
-                                width: {
-                                    '@initial': 'Mobile',
-                                    '@bp2': 'Tablet',
-                                    '@bp3': 'Desktop'
-                                }
-                            }
-                            )}
-                            modules={[Keyboard, Navigation, Pagination, A11y]}
-                            onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
-                            pagination={{ clickable: true }}
-                            keyboard={true}
-                            navigation={true}
-                            loop={true}
-                            a11y={{
-                                prevSlideMessage: 'Previous slide',
-                                nextSlideMessage: 'Next slide',
-                            }}
-                            cssMode={true}
-                        >
-                            {informativeSlider.ValuesTab3.map(({ title, image, alt, text }, index) => {
-
-
-                                return (
-                                    <SwiperSlide
-                                        key={`${title}-${index}`}>
-                                        <Image
-                                            src={image}
-                                            alt={alt}
-                                            layout="fill"
-                                            objectFit="cover"
-                                        />
-                                        <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                    </SwiperSlide>
-                                )
-                            })}
-                        </Swiper>
-
-                </TabsContent>
-                <TabsContent value="tab4">
-                    <ColaborateContent
-                        height={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop',
-                        }}>
-
-                        {informativeSlider.PostPartoTab4.map(({ title, image, alt, text }, index) => {
-
-                            return (
-
-                                <ContenImages key={`${title}-${index}`}>
-                                    <Image
-                                        src={image}
-                                        alt={alt} />
-                                    <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                </ContenImages>
-                            )
-                        }
-                        )}
-                    </ColaborateContent>
-                    <Swiper
-                            className={swiperContainer({
-                                width: {
-                                    '@initial': 'Mobile',
-                                    '@bp2': 'Tablet',
-                                    '@bp3': 'Desktop'
-                                }
-                            }
-                            )}
-                            modules={[Keyboard, Navigation, Pagination, A11y]}
-                            onActiveIndexChange={({ activeIndex }) => setActiveSlider?.(activeIndex)}
-                            pagination={{ clickable: true }}
-                            keyboard={true}
-                            navigation={true}
-                            loop={true}
-                            a11y={{
-                                prevSlideMessage: 'Previous slide',
-                                nextSlideMessage: 'Next slide',
-                            }}
-                            cssMode={true}
-                        >
-                            {informativeSlider.PostPartoTab4.map(({ title, image, alt, text }, index) => {
-
-
-                                return (
-                                    <SwiperSlide
-                                        key={`${title}-${index}`}>
-                                        <Image
-                                            src={image}
-                                            alt={alt}
-                                            layout="fill"
-                                            objectFit="cover"
-                                        />
-                                        <ContentMain>
-                                        <ContentText
-                                            key={`${title}-${index}`}
-                                            Content={{
-                                                '@initial': 'Mobile',
-                                                '@bp2': 'Tablet',
-                                                '@bp3': 'Desktop',
-                                            }}>
-                                            <H1
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{title}</H1>
-                                            <P
-                                                height={{
-                                                    '@initial': 'Mobile',
-                                                    '@bp2': 'Tablet',
-                                                    '@bp3': 'Desktop',
-                                                }}>{text}</P>
-                                        </ContentText>
-                                    </ContentMain>
-                                    </SwiperSlide>
-                                )
-                            })}
-                        </Swiper>
-
-                </TabsContent>
+                                }}>
+                                <H1
+                                    height={{
+                                        '@initial': 'Mobile',
+                                        '@bp2': 'Tablet',
+                                        '@bp3': 'Desktop'
+                                    }}>{titleBtn}</H1>
+                                <P
+                                    height={{
+                                        '@initial': 'Mobile',
+                                        '@bp2': 'Tablet',
+                                        '@bp3': 'Desktop'
+                                    }}
+                                >{text}</P>
+                            </ContentText>
+                        </TabsContent>)
+                })}
             </Tabs>
-
-        </Content>
+        </Content >
     );
 }

@@ -3,7 +3,6 @@ import { styled } from "../stitches.config";
 import generalData from "../data/general";
 import { header } from "../data/header";
 import Link from "next/link";
-import { Separator } from "./Separator";
 import { DonateVoluntary } from "../components/Main/DonateVoluntary"
 import { DropdownMenuDemo } from "../components/Main/DropDownMenu"
 
@@ -38,13 +37,13 @@ const LogoContainer = styled('div', {
   variants: {
     width: {
       Desktop: {
-        width: '200px',
+        width: '150px',
       },
       Tablet: {
-        width: '200px',
+        width: '100px',
       },
       Mobile: {
-        width: '180px',
+        width: '100px',
       }
     }
   }
@@ -109,6 +108,16 @@ const LinksContainer = styled('div', {
 
 });
 
+const A = styled('a',{
+  transition: 'all 0.3s ease 0s',
+  '&:hover': {
+    textShadow: '0px 15px 20px $blueSecond',
+    color: '$blueSecond',
+    transform: 'translateY(-3px)',
+    cursor: 'pointer',
+  }
+
+})
 
 export const Header = () => {
 
@@ -140,6 +149,7 @@ export const Header = () => {
             '@bp2': 'Tablet',
             '@bp3': 'Desktop'
           }}>
+          {/* <Menu /> */}
           <DropdownMenuDemo />
         </ContentDropdown>
         <LinksAndLangContainer
@@ -151,7 +161,7 @@ export const Header = () => {
           <LinksContainer>
             {header.links.map(({ href, text }, index) => (
               <Link key={`${text}-${index}`} href={href}>
-                <a>{text}</a>
+                <A>{text}</A>
               </Link>
             ))}
 

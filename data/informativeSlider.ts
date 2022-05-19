@@ -1,71 +1,52 @@
-import psychology1 from '../public/assets/sliders/informative-slider/psychology-1.png';
-import psychology2 from '../public/assets/sliders/informative-slider/psychology-2.jpg';
-import entrepreneurship1 from '../public/assets/sliders/informative-slider/entrepreneurship-1.png';
+import psychology1 from '../public/assets/sliders/informative-slider/psychology-1.jpg';
+import psychology2 from '../public/assets/sliders/informative-slider/psychology-2.png';
+import iconoPsychology from '../public/assets/icons/psychology.svg';
+import entrepreneurship1 from '../public/assets/sliders/informative-slider/entrepreneurship-1.jpg';
 import entrepreneurship2 from '../public/assets/sliders/informative-slider/entrepreneurship-2.jpg';
-import values1 from '../public/assets/sliders/informative-slider/values-1.png';
-import values2 from '../public/assets/sliders/informative-slider/values-2.jpg';
+import entrepreneurship3 from '../public/assets/sliders/informative-slider/entrepreneurship-3.jpg';
+import iconoEntrepreneurship from '../public/assets/icons/entrepreneurship.svg'
+import values1 from '../public/assets/sliders/informative-slider/values_1.jpg';
+import values2 from '../public/assets/sliders/informative-slider/values_2.jpg';
+import values3 from '../public/assets/sliders/informative-slider/values_3.jpg';
+import values4 from '../public/assets/sliders/informative-slider/values_4.jpg';
+import iconoValueSpirituality from '../public/assets/icons/valueSpirituality.svg'
 import postpartum1 from '../public/assets/sliders/informative-slider/postpartum-1.jpg';
-import postpartum3 from '../public/assets/sliders/informative-slider/postpartum-3.jpg';
+import postpartum2 from '../public/assets/sliders/informative-slider/postpartum-3.jpg';
+import postpartum3 from '../public/assets/sliders/informative-slider/postpartum-2.jpg';
+import iconoCarePostpartum from '../public/assets/icons/carePostpartum.svg'
 
 
-export const informativeSlider = {
-
-  PsychologyTab1: [
-    {
-      title: 'Psicologia',
-      image: psychology1,
-      alt: 'resilience workshop',
-      text: 'Asesorías en temas de Resiliencia, Pautas de Crianza, promoviendo el amor por la vida desde la Gestación y apoyando los cambios Psicológicos durante y después del parto.',
-    },
-    {
-      title: 'Psicologia',
-      image: psychology2,
-      alt: 'positive discipline workshop',
-      text: 'Asesorías en temas de Resiliencia, Pautas de Crianza, promoviendo el amor por la vida desde la Gestación y apoyando los cambios Psicológicos durante y después del parto.',
-    }
-  ],
-
-  EntrepreneurshipTab2: [
-    {
-      title: 'Emprendimiento',
-      image: entrepreneurship1,
-      alt: '',
-      text: 'Asesoramos a las emprendedoras Capacitándolas y  acompañándolas en su Proyecto, en la búsqueda de recursos y en la Creación de su Plan de Negocio.',
-    },
-    {
-      title: 'Emprendimiento',
-      image: entrepreneurship2,
-      alt: '',
-      text: 'Asesoramos a las emprendedoras Capacitándolas y  acompañándolas en su Proyecto, en la búsqueda de recursos y en la Creación de su Plan de Negocio.',
-    }
-  ],
-
-  ValuesTab3: [
-    {
-      title: 'Espiritualidad y valores',
-      image: values1,
-      alt: '',
-      text: ' Queremos Redescubrir el principio del Amor  en familia, para que asuman la maternidad con fortaleza y Esperanza',
-    },
-    {
-      title: 'Espiritualidad y valores',
-      image: values2,
-      alt: '',
-      text: ' Queremos Redescubrir el principio del Amor  en familia, para que asuman la maternidad con fortaleza y Esperanza',
-    }
-  ],
-  PostPartoTab4: [
-    {
-      title: 'Post-parto',
-      image: postpartum1,
-      alt: '',
-      text: 'Les bridamos las herramientas necesarias para un buen desarrollo físico  de la madre y su bebe.',
-    },
-    {
-      title: 'Post-parto',
-      image: postpartum3,
-      alt: '',
-      text: 'Les bridamos las herramientas necesarias para un buen desarrollo físico  de la madre y su bebe.',
-    },
-  ]
-}
+export const informativeTabSlider = [
+  {
+    titleBtn: 'Psicología',
+    tabName: 'Tab1',
+    icon: iconoPsychology,
+    alt: 'psychology',
+    images: [psychology1, psychology2],
+    text: 'Las acompañamos en procesos Psicológicos y emocionales que les permita construir bases sólidas para la crianza ética y moral de sus hijos.',
+  },
+  {
+    titleBtn: 'Emprendimiento',
+    tabName: 'Tab2',
+    icon: iconoEntrepreneurship,
+    alt: 'Entrepreneurship',
+    images: [entrepreneurship1, entrepreneurship2, entrepreneurship3],
+    text: 'La fundación vida, ofrece talleres gratuitos de capacitación en Marketing, servicio al cliente, fotografía, gestión de inventarios, logística, gastronomía, nutrición, didáctica para la primera instancia y manualidades. Permitiéndoles un empoderamiento como madres trabajadoras y líderes de su hogar.',
+  },
+  {
+    titleBtn: 'Espiritualidad y valores',
+    tabName: 'Tab3',
+    icon: iconoValueSpirituality,
+    alt: 'ValueSpirituality',
+    images: [values1, values2, values3, values4],
+    text: ' Queremos redescubrir el principio del Amor  en familia, para que asuman la maternidad con fortaleza y esperanza',
+  },
+  {
+    titleBtn: 'Post-parto',
+    tabName: 'Tab4',
+    icon: iconoCarePostpartum,
+    alt: 'Postpartum',
+    images: [postpartum1, postpartum2, postpartum3],
+    text: 'Les bridamos las herramientas necesarias para un buen desarrollo físico  de la madre y su bebe.',
+  }
+]

@@ -3,59 +3,31 @@ import mail from '../public/assets/icons/IconMessage.svg';
 import mapMark from '../public/assets/icons/IconUbication.svg';
 import facebook from '../public/assets/icons/IconFacebook.svg';
 import instagram from '../public/assets/icons/IconInstagram.svg';
-import twitter from '../public/assets/icons/IconTwitter.svg';
+import youtube from '../public/assets/icons/youtube.svg';
+import whatsapp from '../public/assets/icons/IconTwitter.svg';
 
-export const footer = {
 
-  DataContact: [
-    {
-      title: 'Contáctanos',
-      item1: 'Bogota, Colombia',
-      icon1: mapMark,
-      alt1: 'map mark icon',
-      item2: 'info@fundmadre.com',
-      icon2: mail,
-      alt2: 'mail icon',
-      item3: '(+57) 311 4717306',
-      icon3: cellphone,
-      alt3: 'cellphone icon'
-    }
-  ],
-  DataNosotros: [
-    {
-      title: 'Nosotros',
-      item1: '¿Quiénes somos?',
-      icon1: null,
-      href1: "/quienes-somos",
-      item2: '¿Qué hacemos?',
-      icon2: null,
-      href2: "/que-hacemos",
-      item3: 'Contáctanos',
-      icon3: null,
-      href3: "/contactanos",
-    }
-  ],
-  DataSocial: [
-    {
-      title: 'Síguenos',
-      item1: '/fundmadre',
-      icon1: facebook,
-      alt1: 'facebook icon',
-      href1: "https://www.facebook.com/fundmadre/",
-      item2: '/fundmadre',
-      icon2: instagram,
-      alt2: 'instagram icon',
-      href2: "https://www.instagram.com/fundmadre/?hl=es-la",
-      item3: '@fundmadre',
-      icon3: twitter,
-      alt3: 'twitter icon',
-      href3: "https://www.facebook.com/fundmadre/",
-    }
-  ]
-}
+export const footerData = [
+  {
+    title: 'Contáctanos',
+    items: [ {icon: mapMark, item:'Bogotá - Colombia'}, {icon: mail, item: 'info@fundmadre.com'}, {icon: cellphone, item: '(+57) 320 2408953'}],
+    alts: ['map mark icon', 'mail icon', 'cellphone icon'],
+  },
+  {
+    title: 'Síguenos',
+    items: [{icon: facebook, item: null, href: 'https://www.facebook.com/fundmadre/'}, {icon: instagram, item: null, href: 'https://www.instagram.com/fundmadre/?hl=es-la'},{icon: youtube, item: null, href: 'https://www.youtube.com/channel/UCS-u6qczV5lLw8qMxUbS79g'}],
+    alts: ['facebook icon','instagram icon', 'twitter icon'],
+  },
+  {
+    title: 'Nosotros',
+    items: [{icon: null, item: '¿Quiénes somos?', href: '/quienes-somos'},{icon: null, item: '¿Qué hacemos?', href: '/que-hacemos'},{icon: null, item: 'Contáctanos', href: '/contactanos'}],
+    alts: null,
+    href: ["/quienes-somos", "/que-hacemos", "/contactanos"]
+  }
+] 
 
 export const copyright = [
   {
-    text: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+    text: "© 2022 Fundmadre, Fundacion vida, madre nuevas generaciones",
   }
 ]
