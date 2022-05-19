@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { AbouteUs } from '../components/AboutUs'
 import { Header } from '../components/Header'
 import { FooterColumns } from '../components/Footer';
-import { OurTeam } from '../components/OurTeam';
 
 const HeaderContainer = styled('div', {
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -22,7 +21,6 @@ const QuienesSomos = () => {
         </HeaderContainer>
         <main>
             <AbouteUs/>
-            {/* <OurTeam/> */}
         </main>
         <footer>
         <FooterColumns></FooterColumns>

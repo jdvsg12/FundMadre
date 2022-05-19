@@ -2,8 +2,6 @@ import { styled } from '../stitches.config';
 import { Header } from '../components/Header'
 import Head from 'next/head';
 import { FooterColumns } from '../components/Footer';
-import { Wedo } from '../components/Wedo'
-import { OurWork } from '../components/Work';
 import { HowToHelp } from '../components/HowToHelp';
 
 const HeaderContainer = styled('div', {
