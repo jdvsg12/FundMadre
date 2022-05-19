@@ -2,8 +2,6 @@ import React from 'react';
 import { copyright, footerData } from '../data/footer';
 import { styled } from '../stitches.config';
 import Image from 'next/image';
-import { FontItalicIcon } from '@radix-ui/react-icons';
-import { Item } from '@radix-ui/react-dropdown-menu';
 
 
 

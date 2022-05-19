@@ -4,8 +4,6 @@ import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
 import { header } from '../../data/header';
-import Image from 'next/image';
-import generalData from '../../data/general';
 
 
 const slideUpAndFade = keyframes({
