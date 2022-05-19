@@ -305,7 +305,7 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
                   '@bp2': 'Tablet',
                   '@bp3': 'Desktop'
                 }}
-              ><a target='_blank' href={href}>{textBtn}</a></Button>
+              ><a target='_blank' rel="noreferrer" href={href}>{textBtn}</a></Button>
             </Content>
           </SwiperSlide>
         )
