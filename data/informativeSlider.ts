@@ -31,7 +31,7 @@ export const informativeTabSlider = [
     icon: iconoEntrepreneurship,
     alt: 'Entrepreneurship',
     images: [entrepreneurship1, entrepreneurship2, entrepreneurship3],
-    text: 'La fundación vida, ofrece talleres gratuitos de capacitación en Marketing, servicio al cliente, fotografía, gestión de inventarios, logística, gastronomía, nutrición, didáctica para la primera instancia y manualidades. Permitiéndoles un empoderamiento como madres trabajadoras y líderes de su hogar.',
+    text: 'La fundación vida, ofrece talleres gratuitos de capacitación en Marketing, servicio al cliente, fotografía, gestión de inventarios, logística, gastronomía, nutrición, didáctica para la primera infancia y manualidades. Permitiéndoles un empoderamiento como madres trabajadoras y líderes de su hogar.',
   },
   {
     titleBtn: 'Espiritualidad y valores',

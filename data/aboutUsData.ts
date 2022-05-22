@@ -11,7 +11,7 @@ import PerfilAndres from '../public/assets/sliders/tiem-perfil/Andres.png'
 export const aboutData = {
 
     title: '¿Quiénes somos?',
-    text: 'La Fundación Vida madre de nuevas generaciones (Fundmadre), entidad sin ánimo de Lucro nace para mejorar la calidad de vida de mujeres gestantes vulnerables en Bogotá y las periferias, a través de su modelo de acompañamiento en psicologia, enfermería, emprendimiento, espiritualidad y valores. Busca fracturar los siclos de pobreza generados por el desplazamiento, la migración, el abandono y la falta de oportunidades.',
+    text: 'La Fundación Vida madre de nuevas generaciones (Fundmadre), entidad sin ánimo de Lucro nace para mejorar la calidad de vida de mujeres gestantes vulnerables en Bogotá y las periferias, a través de su modelo de acompañamiento en psicología, enfermería, emprendimiento, espiritualidad y valores. Busca fracturar los ciclos de pobreza generados por el desplazamiento, la migración, el abandono y la falta de oportunidades.',
     image: ImagFundmadre,
 }
 

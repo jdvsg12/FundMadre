@@ -254,12 +254,38 @@ const P = styled('p', {
         }
     }
 })
+const DonateText = styled('p', {
+    color: 'GreyText',
+    fontWeight: '500',
+    marginTop: '-0.5rem',
+    variants: {
+        font: {
+            Desktop: {
+                lineHeight: '1.5rem',
+                fontSize: '$3',
+            },
+            Tablet: {
+                lineHeight: '1.5rem',
+                fontSize: '$2',
+            },
+            Mobile: {
+                lineHeight: '1.5rem',
+                fontSize: '$2',
+            }
+        }
+    }
+})
 
 const ContentImageDonta = styled('div', {
+    background: 'rgba(249, 235, 234, 0.80)',
+    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+    backdropFilter: 'blur(0.1px)',
+    borderRadius: '1rem',
+    border: '1px solid rgba(255, 255, 255, 0.76)',
     display: 'flex',
-    justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'column',
+    gap: '0.5rem',
     variants: {
         grid: {
             Desktop: {
@@ -283,10 +309,14 @@ const ContentImageDonta = styled('div', {
 })
 
 const ImageDonte = styled('div', {
+    // background: '$white',
+    // borderRadius: '5rem',
+    // border: 'solid 5px red',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     width: '18rem',
 })
 
@@ -337,7 +367,7 @@ export const MainForm = () => {
                                 src={icon}
                                 alt="psicologia"
                                 layout='intrinsic'
-                                objectFit='contain'
+                                objectFit='cover'
                                 width={40}
                                 height={40}
                             /><P>{data}</P></ContentData>
@@ -365,8 +395,9 @@ export const MainForm = () => {
                                 alt='donate'
                                 layout='intrinsic'
                                 objectFit='contain'
+                                width='150px'
                             />
-                            <P>{text}</P>
+                            <DonateText>{text}</DonateText>
                         </ImageDonte>
                     )
                 })}

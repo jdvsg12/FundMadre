@@ -9,7 +9,7 @@ import PaddrinoFundMadre from '../public/assets/godfatherPhoto/Padrinos-fundmadr
 export const godfatherData = [
     {
         title: 'Plan padrinos',
-        text: 'La primera es "Padrinos Mamá y Bebé", en este, el padrino y/o madrina dará un acompañamiento a la madre gestante que será asignada por la fundación y la apoyará desde el momento que se asigna, hasta que el bebé haya cumplido dos años de edad. El compromiso inicia donando a la madre gestante un Kit de nacimiento para el bebé, con los siguientes elementos sugeridos:',
+        text: 'La primera es "Padrinos Mamá y Bebé", en este, el padrino y/o madrina dará un acompañamiento a la madre gestante que será asignada por la fundación y la apoyará desde el momento que se asigna, hasta que el bebé haya cumplido dos años de edad. El compromiso inicia donando a la madre gestante un Kit de nacimiento para el bebé.',
         image: PadrinoMamayBebe
     },
     {
@@ -24,19 +24,19 @@ export const kitData = [
         title: "Kit's",
         subTitle: 'Kit 1 de nacimiento bebé',
         value: '$ 100.000 contiene:',
-        text: '(Primera muda, pañales 1, pañitos, toalla cuerpo).',
+        text: 'Primera muda, pañales 1, pañitos, toalla cuerpo.',
         image: Kit1Photo,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20los%20kits%201',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%201',
     },
     {
         title: null,
         subTitle: 'Kit 2 de nacimiento bebé',
         value: '$ 150.000 contiene: ',
-        text: '(Primera muda, pañales 1, pañitos, toalla cuerpo, cobija, pijama).',
+        text: 'Primera muda, pañales 1, pañitos, toalla cuerpo, cobija, pijama.',
         image: kit2Photo,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20los%20kits%202',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%202',
     },
     {
         title: null,
@@ -45,6 +45,6 @@ export const kitData = [
         text: 'Elementos únicamente para la madre gestante (toalla cuerpo, toallas maternas, lactinosotras, bata y/o pijama y chanclas).',
         image: KitMama,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20los%20kits%20mama',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%20mama',
     }
 ]
