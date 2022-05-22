@@ -255,7 +255,7 @@ const P = styled('p', {
     }
 })
 const DonateText = styled('p', {
-    color: 'GreyText',
+    color: '$white',
     fontWeight: '500',
     marginTop: '-0.5rem',
     variants: {
@@ -277,7 +277,7 @@ const DonateText = styled('p', {
 })
 
 const ContentImageDonta = styled('div', {
-    background: 'rgba(249, 235, 234, 0.80)',
+    background: 'rgba(250, 219, 216, 0.50)',
     boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
     backdropFilter: 'blur(0.1px)',
     borderRadius: '1rem',
