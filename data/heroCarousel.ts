@@ -29,7 +29,7 @@ const carouselImages = [
     title: 'Conectate con nostros',
     image: contacteConNosotros,
     message: 'Siguenos para saber más de nuestro trabajo',
-    href: 'https://www.youtube.com/watch?v=qWwEGr1gGnw',
+    href: 'https://www.youtube.com/watch?v=HB9K9Uo8kXM',
     textBtn: 'Conoce más'
   },
 ];
