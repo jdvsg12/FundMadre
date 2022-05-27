@@ -1,12 +1,37 @@
 import React from 'react';
-import { copyright, footerData } from '../data/footer';
+import { copyright, footerData, footerSocial, footerWe } from '../data/footer';
 import { styled } from '../stitches.config';
 import Image from 'next/image';
 
-
+const Footer = styled('div', {
+  backgroundImage: 'linear-gradient(180deg, rgba(91,133,188,1) 40%, rgba(127, 179, 213,1) 100%)',
+})
 
 const Content = styled('div', {
-  backgroundImage: 'linear-gradient(180deg, rgba(91,133,188,1) 40%, rgba(127, 179, 213,1) 100%)',
+  variants :{
+    flex: {
+      Desktop:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        padding: '0 5%',
+      },
+      Tablet: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: '0 5%',
+      },
+      Mobile: {
+        display: 'flex',
+        flexDirection: 'column-reverse',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+      }
+    }
+  }
+
 })
 
 const ContentFooter = styled('div', {
@@ -15,20 +40,17 @@ const ContentFooter = styled('div', {
       Desktop: {
         display: 'flex',
         flexDirection: 'row',
-        padding: '0 20%',
         justifyContent: 'space-between'
       },
       Tablet: {
         display: 'flex',
-        flexDirection: 'row',
-        padding: '0 10%',
+        flexDirection: 'column-reverse',
         justifyContent: 'space-between'
       },
       Mobile: {
         display: 'flex',
-        flexWrap: 'wrap-reverse',
-        padding: '0 10%',
-        justifyContent: 'center',
+        flexDirection: 'column-reverse',
+        justifyContent: 'space-between'
       }
     }
   }
@@ -83,52 +105,49 @@ const ContentInfo = styled('div', {
 })
 
 const ContentData = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '0 1rem',
-  gap: '0.5rem',
-  margin: '1rem 0',
-})
-
-const ContentFollow = styled('div', {
   variants: {
-    buttom: {
+    with: {
       Desktop: {
         display: 'flex',
-        flexDirection: 'column',
-        padding: '0 1rem',
-        gap: '1rem',
-        margin: '1rem 0',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
       },
       Tablet: {
         display: 'flex',
         flexDirection: 'column',
-        padding: '0 1rem',
-        gap: '0.5rem',
-        margin: '1rem 0',
+        justifyContent: 'space-between'
       },
       Mobile: {
-        display: 'none',
+        display:'none',
       }
     }
   }
 })
 
-const ContentFollowMobile = styled('div', {
+const ContentFollow = styled('div', {
   variants: {
-    buttom: {
+    direction: {
       Desktop: {
-        display: 'none',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: '1rem 1rem',
+        gap: '1rem',
+        margin: '1rem 0',
       },
       Tablet: {
-        display: 'none',
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '0 1rem',
+        gap: '0.5rem',
+        margin: '1rem 0',
       },
       Mobile: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
-        gap: '1rem',
-        margin: '1.5rem 0',
+        padding: '0 1rem',
+        gap: '0.5rem',
+        margin: '1rem 0',
       }
     }
   }
@@ -197,67 +216,148 @@ const ContentCopy = styled('div', {
 export const FooterColumns = () => {
 
   return (
-    <Content>
-      <ContentFooter
-        with={{
-          '@initial': 'Mobile',
-          '@bp2': 'Tablet',
-          '@bp3': 'Desktop'
-        }}>
-        {footerData.map(({ title, items}, index) => {
-          return (
-            <ContentContact key={`${title}-${index}`}
-              width={{
+    <Footer>
+    <Content 
+    flex= {{
+      '@initial': 'Mobile',
+      '@bp2': 'Tablet',
+      '@bp3': 'Desktop'
+    }}>
+      {FooterData()}
+      {FooterSocial()}
+      {FooterWe()}
+    </Content>
+    <ContentCopy>{copyright[0].text}
+    </ContentCopy>
+    </Footer>
+  )
+
+  function FooterData() {
+    return <ContentFooter
+      with={{
+        '@initial': 'Mobile',
+        '@bp2': 'Tablet',
+        '@bp3': 'Desktop'
+      }}>
+      {footerData.map(({ title, items }, index) => {
+        return (
+          <ContentContact key={`${title}-${index}`}
+            width={{
+              '@initial': 'Mobile',
+              '@bp2': 'Tablet',
+              '@bp3': 'Desktop'
+            }}>
+            <Title
+              with={{
                 '@initial': 'Mobile',
                 '@bp2': 'Tablet',
                 '@bp3': 'Desktop'
               }}>
-              <Title key={`${title}-${index}`}
-                with={{
-                  '@initial': 'Mobile',
-                  '@bp2': 'Tablet',
-                  '@bp3': 'Desktop'
-                }}>
-                {title}
-              </Title>
-              <ContentInfo
-                key={`${items}-${index}`}>
-                {items.map((item) => {
-                  return (
-                    <Li
-                      // with ={item?.icon && !item?.item ? '@initial'}
-
-                      with={{
-                        '@initial': 'Mobile',
-                        '@bp2': 'Tablet',
-                        '@bp3': 'Desktop'
-                      }}
-                      key={`${title}-${index}`}
-                    >
-                      {item?.icon ? (<Image src={item.icon} />) : null}
-                      {item.item}
-                    </Li>)
-                })}
-              </ContentInfo>
-            </ContentContact>
-          )
-        })}
-      </ContentFooter>
-
-      {copyright.map(({ text }, index) => {
+              {title}
+            </Title>
+            <ContentInfo key={`${items}-${index}`}>
+              {items.map((item) => {
+                return (
+                  <Li
+                    with={{
+                      '@initial': 'Mobile',
+                      '@bp2': 'Tablet',
+                      '@bp3': 'Desktop'
+                    }}
+                  >
+                    {item?.icon ? (<Image src={item.icon} />) : null}
+                    {item.item}
+                  </Li>);
+              })}
+            </ContentInfo>
+          </ContentContact>
+        );
+      })}
+    </ContentFooter>;
+  }
+  function FooterSocial() {
+    return <ContentFooter
+      with={{
+        '@initial': 'Mobile',
+        '@bp2': 'Tablet',
+        '@bp3': 'Desktop'
+      }}>
+      {footerSocial.map(({ title, items }, index) => {
         return (
-          <ContentCopy
-            weight={{
-              '@initial': 'Mobil',
+          <ContentContact key={`${title}-${index}`}
+            width={{
+              '@initial': 'Mobile',
               '@bp2': 'Tablet',
               '@bp3': 'Desktop'
-            }}
-            key={`${text}-${index}`}>
-            {text}
-          </ContentCopy>)
+            }}>
+            <Title
+              with={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              {title}
+            </Title>
+            <ContentFollow key={`${items}-${index}`}
+            direction={{
+              '@initial': 'Mobile',
+              '@bp2': 'Tablet',
+              '@bp3': 'Desktop'
+            }}>
+              {items.map((item) => {
+                return (
+                  <Li><a href={item.href}>
+                    {item?.icon ? (<Image src={item.icon} height={40} width={50} />) : null}
+                    {item.item}
+                    </a></Li>);
+              })}
+            </ContentFollow>
+          </ContentContact>
+        );
       })}
-
-    </Content>
-
-  )
+    </ContentFooter>;
+  }
+  function FooterWe() {
+    return <ContentData
+      with={{
+        '@initial': 'Mobile',
+        '@bp2': 'Tablet',
+        '@bp3': 'Desktop'
+      }}>
+      {footerWe.map(({ title, items }, index) => {
+        return (
+          <ContentContact key={`${title}-${index}`}
+            width={{
+              '@initial': 'Mobile',
+              '@bp2': 'Tablet',
+              '@bp3': 'Desktop'
+            }}>
+            <Title
+              with={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
+              {title}
+            </Title>
+            <ContentInfo key={`${items}-${index}`}>
+              {items.map((item) => {
+                return (
+                  <Li
+                    with={{
+                      '@initial': 'Mobile',
+                      '@bp2': 'Tablet',
+                      '@bp3': 'Desktop'
+                    }}
+                  ><a href={item.href}>
+                    {item?.icon ? (<Image src={item.icon} />) : null}
+                    {item.item}
+                    </a></Li>);
+              })}
+            </ContentInfo>
+          </ContentContact>
+        );
+      })}
+    </ContentData>;
+  }
 }
