@@ -2,15 +2,14 @@ import cellphone from '../public/assets/icons/IconPhoneNumber.svg';
 import mail from '../public/assets/icons/IconMessage.svg';
 import mapMark from '../public/assets/icons/IconUbication.svg';
 import facebook from '../public/assets/icons/IconFacebook.svg';
-import instagram from '../public/assets/icons/IconInstagram.svg';
+import instagram from '../public/assets/icons/instagram.svg';
 import youtube from '../public/assets/icons/youtube.svg';
-import whatsapp from '../public/assets/icons/IconTwitter.svg';
 
 
 export const footerData = [
   {
     title: 'Contáctanos',
-    items: [{ icon: mapMark, item: 'Bogotá - Colombia' },
+    items: [{ icon: mapMark, item : ['Cra. 47 #174a-48, Villa del prado.', ' Bogotá, Colombia']},
             { icon: mail, item: 'info@fundmadre.com' },
             { icon: cellphone, item: '(+57) 320 2408953' }],
     alts: ['map mark icon', 'mail icon', 'cellphone icon'],

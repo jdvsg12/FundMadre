@@ -8,9 +8,9 @@ const Footer = styled('div', {
 })
 
 const Content = styled('div', {
-  variants :{
+  variants: {
     flex: {
-      Desktop:{
+      Desktop: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
@@ -40,17 +40,16 @@ const ContentFooter = styled('div', {
       Desktop: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
       },
       Tablet: {
         display: 'flex',
         flexDirection: 'column-reverse',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
       },
       Mobile: {
         display: 'flex',
         flexDirection: 'column-reverse',
-        justifyContent: 'space-between'
       }
     }
   }
@@ -60,15 +59,13 @@ const ContentContact = styled('div', {
   variants: {
     width: {
       Desktop: {
-        lineHeight: 1
-
+        lineHeight: 1,
       },
       Tablet: {
-        lineHeight: 1
-
+        lineHeight: 1,
       },
       Mobile: {
-        lineHeight: 1
+        lineHeight: 1,
       }
     }
   }
@@ -99,8 +96,7 @@ const Title = styled('ul', {
 const ContentInfo = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '0 1rem',
-  gap: '0.5rem',
+  gap: '0. 5rem',
   margin: '1rem 0',
 })
 
@@ -111,6 +107,7 @@ const ContentData = styled('div', {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between'
+
       },
       Tablet: {
         display: 'flex',
@@ -118,7 +115,7 @@ const ContentData = styled('div', {
         justifyContent: 'space-between'
       },
       Mobile: {
-        display:'none',
+        display: 'none',
       }
     }
   }
@@ -131,21 +128,20 @@ const ContentFollow = styled('div', {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '1rem 1rem',
         gap: '1rem',
         margin: '1rem 0',
       },
       Tablet: {
         display: 'flex',
         flexDirection: 'row',
-        padding: '0 1rem',
+        justifyContent: 'center',
         gap: '0.5rem',
         margin: '1rem 0',
       },
       Mobile: {
         display: 'flex',
         flexDirection: 'row',
-        padding: '0 1rem',
+        justifyContent: 'center',
         gap: '0.5rem',
         margin: '1rem 0',
       }
@@ -164,8 +160,8 @@ const Li = styled('li', {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'start',
-        height: 30,
-        gap: 10,
+        height: 35,
+        gap: 20,
         fontSize: '$3',
       },
       Tablet: {
@@ -173,17 +169,17 @@ const Li = styled('li', {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'start',
-        height: 30,
-        gap: 10,
+        height: 35,
+        gap: 15,
         fontSize: '$2'
       },
       Mobile: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'start',
-        height: 30,
-        gap: 10,
+        whiteSpace: 'break-spaces',
+        height:40,
+        gap: 20,
         fontSize: '$2',
       },
     }
@@ -212,23 +208,37 @@ const ContentCopy = styled('div', {
   }
 })
 
-
+const P = styled('p', {
+  variants: {
+    size :{
+      Desktop :{
+        width: '20rem'
+      },
+      Tablet :{
+        width: '15rem'
+      },
+      Mobile : {
+        width: '15rem'
+      }
+    }
+  }
+})
 export const FooterColumns = () => {
 
   return (
     <Footer>
-    <Content 
-    flex= {{
-      '@initial': 'Mobile',
-      '@bp2': 'Tablet',
-      '@bp3': 'Desktop'
-    }}>
-      {FooterData()}
-      {FooterSocial()}
-      {FooterWe()}
-    </Content>
-    <ContentCopy>{copyright[0].text}
-    </ContentCopy>
+      <Content
+        flex={{
+          '@initial': 'Mobile',
+          '@bp2': 'Tablet',
+          '@bp3': 'Desktop'
+        }}>
+        {FooterData()}
+        {FooterSocial()}
+        {FooterWe()}
+      </Content>
+      <ContentCopy>{copyright[0].text}
+      </ContentCopy>
     </Footer>
   )
 
@@ -255,10 +265,10 @@ export const FooterColumns = () => {
               }}>
               {title}
             </Title>
-            <ContentInfo key={`${items}-${index}`}>
+            <ContentInfo>
               {items.map((item) => {
                 return (
-                  <Li
+                  <Li key={`${items}-${index}`}
                     with={{
                       '@initial': 'Mobile',
                       '@bp2': 'Tablet',
@@ -266,7 +276,11 @@ export const FooterColumns = () => {
                     }}
                   >
                     {item?.icon ? (<Image src={item.icon} />) : null}
-                    {item.item}
+                    <P size={{
+                      '@initial': 'Mobile',
+                      '@bp2': 'Tablet',
+                      '@bp3': 'Desktop'
+                    }}>{item.item}</P>
                   </Li>);
               })}
             </ContentInfo>
@@ -298,18 +312,19 @@ export const FooterColumns = () => {
               }}>
               {title}
             </Title>
-            <ContentFollow key={`${items}-${index}`}
-            direction={{
-              '@initial': 'Mobile',
-              '@bp2': 'Tablet',
-              '@bp3': 'Desktop'
-            }}>
+            <ContentFollow 
+              direction={{
+                '@initial': 'Mobile',
+                '@bp2': 'Tablet',
+                '@bp3': 'Desktop'
+              }}>
               {items.map((item) => {
                 return (
-                  <Li><a href={item.href}>
+                  <Li key={`${items}-${index}`}
+                  ><a target='_blank' rel="noreferrer" href={item.href}>
                     {item?.icon ? (<Image src={item.icon} height={40} width={50} />) : null}
                     {item.item}
-                    </a></Li>);
+                  </a></Li>);
               })}
             </ContentFollow>
           </ContentContact>
@@ -340,18 +355,18 @@ export const FooterColumns = () => {
               }}>
               {title}
             </Title>
-            <ContentInfo key={`${items}-${index}`}>
+            <ContentInfo>
               {items.map((item) => {
                 return (
-                  <Li
+                  <Li  key={`${items}-${index}`}
                     with={{
                       '@initial': 'Mobile',
                       '@bp2': 'Tablet',
                       '@bp3': 'Desktop'
                     }}
-                  ><a href={item.href}>
-                    {item?.icon ? (<Image src={item.icon} />) : null}
-                    {item.item}
+                  ><a target='_blank' rel="noreferrer" href={item.href}>
+                      {item?.icon ? (<Image src={item.icon} />) : null}
+                      {item.item}
                     </a></Li>);
               })}
             </ContentInfo>

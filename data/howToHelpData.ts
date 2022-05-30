@@ -27,7 +27,7 @@ export const kitData = [
         text: 'Primera muda, pañales 1, pañitos, toalla cuerpo.',
         image: Kit1Photo,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%201',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%201',
     },
     {
         title: null,
@@ -36,7 +36,7 @@ export const kitData = [
         text: 'Primera muda, pañales 1, pañitos, toalla cuerpo, cobija, pijama.',
         image: kit2Photo,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%202',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%202',
     },
     {
         title: null,
@@ -45,6 +45,6 @@ export const kitData = [
         text: 'Elementos únicamente para la madre gestante (toalla cuerpo, toallas maternas, lactinosotras, bata y/o pijama y chanclas).',
         image: KitMama,
         button: 'Conoce más',
-        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20kit%20mama',
+        href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%20mamá',
     }
 ]

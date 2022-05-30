@@ -88,7 +88,6 @@ const StyledLabel = styled(DropdownMenuPrimitive.Label, {
   paddingLeft: 25,
   fontSize: 12,
   lineHeight: "25px",
-  color: '#345F97'
 });
 
 const StyledSeparator = styled(DropdownMenuPrimitive.Separator, {
@@ -130,9 +129,8 @@ const Box = styled("div", {});
 const IconButton = styled("button", {
   all: "unset",
   fontFamily: "inherit",
-  height: 35,
-  width: 35,
-  borderRadius: '5px 0px 0px 0px',
+  height: 50,
+  width: 50,
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",

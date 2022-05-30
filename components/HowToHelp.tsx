@@ -222,7 +222,7 @@ export const HowToHelp = () => {
                     '@bp2': 'Tablet',
                     '@bp3': 'Desktop'
                 }}>
-                <a target='_blank' rel="noreferrer" href='https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20el%20plan%20padrinos'>Conoce más</a></Button>
+                <a target='_blank' rel="noreferrer" href='https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20plan%20padrinos'>Conoce más</a></Button>
 
             <Title
              size={{
