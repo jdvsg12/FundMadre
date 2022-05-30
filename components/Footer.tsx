@@ -41,11 +41,13 @@ const ContentFooter = styled('div', {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        width: '35rem',
       },
       Tablet: {
         display: 'flex',
         flexDirection: 'column-reverse',
         justifyContent: 'space-between',
+        width: '18rem',
       },
       Mobile: {
         display: 'flex',
