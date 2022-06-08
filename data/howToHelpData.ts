@@ -9,11 +9,13 @@ import PaddrinoFundMadre from '../public/assets/godfatherPhoto/Padrinos-fundmadr
 export const godfatherData = [
     {
         title: 'Plan padrinos',
-        text: 'La primera es "Padrinos Mamá y Bebé", en este, el padrino y/o madrina dará un acompañamiento a la madre gestante que será asignada por la fundación y la apoyará desde el momento que se asigna, hasta que el bebé haya cumplido dos años de edad. El compromiso inicia donando a la madre gestante un Kit de nacimiento para el bebé.',
+        subTitle: 'PRIMERA OPCIÓN:',
+        text: '"MAMA Y BEBE"  El compromiso de amor que adquieren los padrinos es acompañar a la madre embarazada asignada,  hasta dos años después de nacido el bebé y la apoya con un Kit de nacimiento.',
         image: PadrinoMamayBebe
     },
     {
         title: null,
+        subTitle: 'SEGUNDA OPCIÓN:',
         text: 'La segunda Opción, es "Padrinos Fundmadre"; está, tiene como finalidad, respaldar a la fundación para la realización de sus programas de formacion y acompañamiento, así como proveer de elementos esenciales a las madres que aun no tiene padrinos. El aporte será distribuido a discreción y criterio de la fundación dependiendo de las necesidades que mensualmente se vayan presentando.',
         image: PaddrinoFundMadre
     }
@@ -21,21 +23,21 @@ export const godfatherData = [
 
 export const kitData = [
     {
-        title: "Kit's",
-        subTitle: 'Kit 1 de nacimiento bebé',
+        title: "Kit's Nacimiento y Mamá",
+        subTitle: 'Kit 1. Básico nacimiento bebé',
         value: '$ 100.000 contiene:',
-        text: 'Primera muda, pañales 1, pañitos, toalla cuerpo.',
+        text: 'Primera muda (camisetas, saco, patines, gorro, mitones), pañales 1, pañitos, toalla cuerpo.',
         image: Kit1Photo,
-        button: 'Conoce más',
+        button: 'Contáctanos',
         href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%201',
     },
     {
         title: null,
-        subTitle: 'Kit 2 de nacimiento bebé',
+        subTitle: 'Kit 2. Completo nacimiento bebé',
         value: '$ 150.000 contiene: ',
-        text: 'Primera muda, pañales 1, pañitos, toalla cuerpo, cobija, pijama.',
+        text: 'Primera muda (camisetas, saco, patines, gorro, mitones), pañales 1, pañitos, toalla cuerpo, cobija, pijama.',
         image: kit2Photo,
-        button: 'Conoce más',
+        button: 'Contáctanos',
         href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%202',
     },
     {
@@ -44,7 +46,7 @@ export const kitData = [
         value: '$ 120.000 contiene:',
         text: 'Elementos únicamente para la madre gestante (toalla cuerpo, toallas maternas, lactinosotras, bata y/o pijama y chanclas).',
         image: KitMama,
-        button: 'Conoce más',
+        button: 'Contáctanos',
         href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20kit%20mamá',
     }
 ]

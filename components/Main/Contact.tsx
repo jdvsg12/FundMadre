@@ -1,7 +1,7 @@
 import React from "react";
-import { contactBackground, contactData, formContactData, titleContactData, ImageDonateBanks } from "../../data/contactData";
+import { contactBackground, contactData, titleContactData, ImageDonateBanks } from "../../data/contactData";
 import Image from 'next/image';
-import { FormEvent } from 'react';
+import { MainFormContact } from "../Main/FormContact"
 import { styled } from "../../stitches.config";
 
 
@@ -12,19 +12,19 @@ const Content = styled('div', {
         grid: {
             Desktop: {
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateColumns: 'repeat(2, 1fr)',
                 gridTemplateRows: 'repeat(1, 1fr)',
                 gridGap: '1rem',
             },
             Tablet: {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(1, 1fr)',
-                gridTemplateRows: 'repeat(3, 1fr)',
+                gridTemplateRows: 'repeat(2, 1fr)',
             },
             Mobile: {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(1, 1fr)',
-                gridTemplateRows: 'repeat(3, 1fr)',
+                gridTemplateRows: 'repeat(2, 1fr)',
             }
         }
     }
@@ -85,30 +85,6 @@ const ContentInfo = styled('div', {
     }
 })
 
-const ContentForm = styled('form', {
-    padding: '0 10% 5% 10%',
-    variants: {
-        grid: {
-            Desktop: {
-                placeSelf: 'center',
-                gridColumn: '3/4',
-                gridRow: '1/2',
-                zIndex: '2'
-            },
-            Tablet: {
-                gridColumn: '1/2',
-                gridRow: '3/4',
-                zIndex: '2'
-            },
-            Mobile: {
-                gridColumn: '1/2',
-                gridRow: '3/4',
-                zIndex: '2'
-            }
-        }
-    }
-})
-
 const ContentData = styled('div', {
     display: 'flex',
     flexDirection: 'row',
@@ -117,105 +93,6 @@ const ContentData = styled('div', {
     zIndex: '2',
 
 })
-
-const Input = styled('input', {
-    display: 'flex',
-    justifyContent: 'center',
-    border: 'none',
-    width: '100%',
-    color: 'gray',
-    variants: {
-        font: {
-            Desktop: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
-                fontSize: '$2',
-                marginBottom: '1rem',
-                marginLeft: '2rem',
-            },
-            Tablet: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
-                fontSize: '$2',
-                marginBottom: '1rem',
-                marginLeft: '1rem',
-            },
-            Mobile: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
-                fontSize: '$2',
-                marginBottom: '1rem',
-            }
-        }
-    }
-})
-
-const TextArea = styled('textarea', {
-    border: 'none',
-    width: '100%',
-    color: 'gray',
-    height: '20%',
-    marginBottom: '1rem',
-    fontFamily: 'sans-serif',
-    variants: {
-        width: {
-            Desktop: {
-                borderRadius: '0.3rem',
-                padding: '1rem 1rem',
-                fontSize: '1rem',
-                marginLeft: '2rem',
-            },
-            Tablet: {
-                borderRadius: '0.3rem',
-                padding: '1rem 1rem',
-                fontSize: '1rem',
-                marginLeft: '1rem',
-            },
-            Mobile: {
-                borderRadius: '0.3rem',
-                padding: '1rem 1rem',
-
-            }
-        }
-    }
-})
-
-const Button = styled('button', {
-    background: '#FDEDEC',
-    border: 'solid',
-    width: '100%',
-    color: '#CD6155',
-    transition: 'all 0.3s ease 0s',
-    variants: {
-        width: {
-            Desktop: {
-                borderRadius: '1rem',
-                padding: '3% 3%',
-                fontSize: '1rem',
-                marginLeft: '2rem',
-            },
-            Tablet: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
-                fontSize: '1rem',
-                marginLeft: '1rem',
-            },
-            Mobile: {
-                borderRadius: '0.3rem',
-                padding: '2% 3%',
-                fontSize: '1rem',
-
-            }
-        }
-    },
-    '&:hover': {
-        background: '#FDEDEC',
-        boxShadow: '0px 5px 10px #B03A2E',
-        color: '#CD6155',
-        transform: 'translateY(-3px)'
-    }
-}
-);
 
 const H1 = styled('h1', {
     color: '$white',
@@ -309,9 +186,6 @@ const ContentImageDonta = styled('div', {
 })
 
 const ImageDonte = styled('div', {
-    // background: '$white',
-    // borderRadius: '5rem',
-    // border: 'solid 5px red',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -321,15 +195,8 @@ const ImageDonte = styled('div', {
 })
 
 
-export const MainForm = () => {
-
-    const registerUser = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // don't redirect the page
-        // where we'll add our form logic
-    };
-
-
-
+export const Contact = () => {
+   
     return (
         <Content grid={{
             '@initial': 'Mobile',
@@ -402,54 +269,7 @@ export const MainForm = () => {
                     )
                 })}
             </ContentImageDonta>
-            <ContentForm grid={{
-                '@initial': 'Mobile',
-                '@bp2': 'Tablet',
-                '@bp3': 'Desktop'
-            }}>
-                <H1
-                    font={{
-                        '@initial': 'Mobile',
-                        '@bp2': 'Tablet',
-                        '@bp3': 'Desktop'
-                    }}
-                >{titleContactData[1].title}</H1>
-                <form>
-                    {formContactData.map(({ type, text, name }, index) => {
-
-                        return (
-                            <label key={`${type}-${index}`}>
-                                <Input font={{
-                                    '@initial': 'Mobile',
-                                    '@bp2': 'Tablet',
-                                    '@bp3': 'Desktop'
-                                }}
-                                    type={type}
-                                    name={name}
-                                    placeholder={text} required />
-                            </label>
-
-                        )
-                    })}
-
-                    <TextArea width={{
-                        '@initial': 'Mobile',
-                        '@bp2': 'Tablet',
-                        '@bp3': 'Desktop'
-                    }}
-
-                        id="message"
-                        name="message"
-                        placeholder="Mensaje" required />
-                    <Button
-                        width={{
-                            '@initial': 'Mobile',
-                            '@bp2': 'Tablet',
-                            '@bp3': 'Desktop'
-                        }}
-                    >Enviar</Button>
-                </form>
-            </ContentForm>
+          {/* <MainFormContact /> */}
         </Content>
     );
 }

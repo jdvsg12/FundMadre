@@ -5,32 +5,25 @@ import contacteConNosotros from '../public/assets/sliders/main-slider/Portada_5.
 
 const carouselImages = [
   {
-    title: 'Plan padrinos',
-    image: planPadrinos,
-    message: 'Conoce más sobre nuestro plan padrinos dando click en el botón',
-    href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20el%20plan%20padrinos',
-    textBtn: 'Conoce más'
-  },
-  {
-    title: 'Kit de madres',
+    title: 'Dona un Kit o su equivalente en dinero.',
     image: kitDeMadres,
-    message: 'Conoce más sobre nuestros kit de ayuda a madres',
-    href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundaMadre%20por%20los%20informacion%20sobre%20los%20kits',
-    textBtn: 'Conoce más'
+    message: '',
+    href:"/como-ayudar",
+    textBtn: '¿Cómo ayudar?'
   },
   {
-    title: 'Siguenos',
+    title: 'Conoce nuestro trabajo',
     image: siguenos,
-    message: 'Siguenos para saber más de nuestro trabajo',
+    message: '',
     href: 'https://www.instagram.com/fundmadre',
-    textBtn: 'Conoce más'
+    textBtn: 'Click aquí'
   },
   {
-    title: 'Conectate con nostros',
+    title: 'Nuestro video de presentación',
     image: contacteConNosotros,
-    message: 'Siguenos para saber más de nuestro trabajo',
+    message: '',
     href: 'https://www.youtube.com/watch?v=HB9K9Uo8kXM',
-    textBtn: 'Conoce más'
+    textBtn: 'Síguenos',
   },
 ];
 

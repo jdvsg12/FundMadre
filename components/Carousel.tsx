@@ -119,7 +119,7 @@ const Content = styled('div', {
       Desktop: {
         borderRadius: '0 30px 30px 30px',
         boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)',
-        width: '30%',
+        width: '20%',
         padding: '2rem',
         left: '3rem',
         bottom: '4rem',
@@ -152,7 +152,7 @@ const H1 = styled('h1', {
   variants: {
     size: {
       Desktop: {
-        fontSize: '$5',
+        fontSize: '$4',
         fontWeight: '700',
       },
       Tablet: {
@@ -161,7 +161,7 @@ const H1 = styled('h1', {
       },
       Mobile: {
         fontSize: '$2',
-        fontWeight: '500',
+        fontWeight: '600',
       }
     }
   }
@@ -259,7 +259,7 @@ export const Carousel = ({ setActiveSlider, sliders }: CarouselProps) => {
       pagination={{ clickable: true }}
       keyboard={true}
       navigation={true}
-      autoplay={true}
+      autoplay={{delay: 5000}}
       loop={true}
       a11y={{
         prevSlideMessage: 'Previous slide',

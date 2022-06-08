@@ -2,7 +2,7 @@ import { styled } from '../stitches.config';
 import { Header } from '../components/Header'
 import Head from 'next/head';
 import { FooterColumns } from '../components/Footer';
-import { MainForm } from '../components/Main/Contact';
+import { Contact } from '../components/Main/Contact';
 
 
 const HeaderContainer = styled('div', {
@@ -21,7 +21,7 @@ const QueHacemos = () => {
         <Header />
       </HeaderContainer>
       <main>
-        <MainForm />
+        <Contact />
       </main>
       <footer>
         <FooterColumns></FooterColumns>

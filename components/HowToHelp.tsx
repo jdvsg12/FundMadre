@@ -2,6 +2,8 @@ import React from "react";
 import { godfatherData, kitData } from "../data/howToHelpData";
 import Image from "next/image";
 import { styled } from "../stitches.config";
+import iconWhatsapp from '../public/assets/icons/whatsapp.svg'
+
 
 const Content = styled('div', {
     display: 'flex',
@@ -33,12 +35,13 @@ const ContentInfo = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
+    alignItems: 'center',
     gap: '1rem',
     background: '#FBFCFC',
     boxShadow: '0px 0px 30px #EAEDED',
     borderRadius: '0.5rem',
     width: '100%',
-    padding: '2rem 1rem 0 1rem',
+    padding: '2rem 1rem 1.5rem 1rem',
     border: '0.18rem solid $pinkMain',
 
 })
@@ -126,7 +129,17 @@ const Text = styled('text', {
     }
 })
 
-const Button = styled('button', {
+const ButtonInfo = styled('div',{
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '2rem'
+})
+
+const A = styled('a', {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 10,
     background: '#FDEDEC',
     fontSize: '$2',
     border: 'none',
@@ -138,7 +151,7 @@ const Button = styled('button', {
             Desktop: {
                 padding: '1rem 2rem',
                 borderRadius: '3rem',
-                margin: '1% 20% 4% 20%',
+                width: '20rem',
                 '&:hover': {
                     background: '#FDEDEC',
                     boxShadow: '0px 15px 20px #B03A2E',
@@ -149,7 +162,6 @@ const Button = styled('button', {
             Tablet: {
                 padding: '0.5rem 1rem',
                 borderRadius: '1rem',
-                margin: '1rem 30% 5% 30%',
                 '&:hover': {
                     background: '#FDEDEC',
                     boxShadow: '0px 15px 20px #B03A2E',
@@ -161,7 +173,6 @@ const Button = styled('button', {
                 padding: '0.5rem 0.5rem',
                 borderRadius: '3rem',
                 border: '3px solid $pinkMain',
-                margin: '1% 20% 5% 20%',
                 '&:hover': {
                     background: '#FDEDEC',
                     boxShadow: '0px 15px 20px #B03A2E',
@@ -172,8 +183,6 @@ const Button = styled('button', {
         }
     }
 })
-
-
 export const HowToHelp = () => {
 
     return (
@@ -186,13 +195,15 @@ export const HowToHelp = () => {
                 }}>
                 {godfatherData[0].title}
             </Title>
-            <Section 
-            direction=
+            <SubTitle>Tenemos dos opciones:</SubTitle>
+            <Section
+                direction=
                 {{
                     '@initial': 'Tablet',
                     '@bp3': 'Desktop'
                 }}>
-                {godfatherData.map(({ text, image }, index) => {
+
+                {godfatherData.map(({ text, subTitle, image }, index) => {
                     return (
                         <ContentInfo key={`${text}-${index}`}>
                             <Image
@@ -202,6 +213,7 @@ export const HowToHelp = () => {
                                 objectFit='contain'
                                 height={300}
                             />
+                            <SubTitle>{subTitle}</SubTitle>
                             <Text
                                 size=
                                 {{
@@ -215,21 +227,23 @@ export const HowToHelp = () => {
                     )
                 })}
             </Section>
-            <Button
-                size
-                ={{
+            <ButtonInfo>
+            <A
+                size={{
                     '@initial': 'Mobile',
                     '@bp2': 'Tablet',
                     '@bp3': 'Desktop'
-                }}>
-                <a target='_blank' rel="noreferrer" href='https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20plan%20padrinos'>Conoce más</a></Button>
-
+                }}
+                target='_blank' rel="noreferrer" href='https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20los%20informacion%20sobre%20el%20plan%20padrinos'>
+                <SubTitle> Contáctanos </SubTitle>
+                <Image src={iconWhatsapp} width='45' height='45' /></A>
+                </ButtonInfo>
             <Title
-             size={{
-                '@initial': 'Mobile',
-                '@bp2': 'Mobile',
-                '@bp3': 'Desktop'
-            }}>
+                size={{
+                    '@initial': 'Mobile',
+                    '@bp2': 'Mobile',
+                    '@bp3': 'Desktop'
+                }}>
                 {kitData[0].title}
             </Title>
             <Section direction=
@@ -254,12 +268,12 @@ export const HowToHelp = () => {
                                     '@bp3': 'Desktop'
                                 }}>{subTitle}</SubTitle>
                             <Value
-                            size=
-                            {{
-                                '@initial': 'Mobile',
-                                '@bp2': 'Tablet',
-                                '@bp3': 'Desktop'
-                            }}
+                                size=
+                                {{
+                                    '@initial': 'Mobile',
+                                    '@bp2': 'Tablet',
+                                    '@bp3': 'Desktop'
+                                }}
                             >{value}</Value>
 
                             <Text
@@ -271,13 +285,16 @@ export const HowToHelp = () => {
                                 }}>
                                 {text}
                             </Text>
-                            <Button size
-                                ={{
-                                    '@initial': 'Mobile',
-                                    '@bp2': 'Tablet',
-                                    '@bp3': 'Desktop'
-                                }}>
-                                <a target='_blank' rel="noreferrer" href={href}>{button}</a></Button>
+                            <A 
+                            target='_blank' rel="noreferrer" href={href}
+                            size={{
+                                '@initial': 'Mobile',
+                                '@bp2': 'Tablet',
+                                '@bp3': 'Desktop'
+                            }}>
+                            {button}
+                            <Image src={iconWhatsapp} width='45' height='45' />
+                            </A>
                         </ContentInfo>
                     )
                 })}
