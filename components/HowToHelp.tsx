@@ -5,6 +5,7 @@ import { styled } from "../stitches.config";
 import iconWhatsapp from '../public/assets/icons/whatsapp.svg'
 
 
+
 const Content = styled('div', {
     display: 'flex',
     flexDirection: 'column',

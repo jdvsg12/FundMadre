@@ -6,7 +6,7 @@ import iconPhoneNumber from '../public/assets/icons/IconPhoneNumber.svg'
 import iconoFacebook from '../public/assets/icons/IconFacebook.svg'
 import iconoTwitter from '../public/assets/icons/IconTwitter.svg'
 import iconoInstagram from '../public/assets/icons/IconInstagram.svg'
-import menu from '../public/assets/icons/menu_open.svg'
+import menu from '../public/assets/icons/menu_hamburguesa.svg'
 
 const generalIcono = {
 

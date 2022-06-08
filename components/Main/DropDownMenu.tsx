@@ -1,9 +1,12 @@
 import React from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
+import generalIcono from '../../data/icono'; 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
 import { header } from '../../data/header';
+import Image from 'next/image';
+
 
 
 const slideUpAndFade = keyframes({
@@ -148,7 +151,7 @@ export const DropdownMenuDemo = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <IconButton>
-              <HamburgerMenuIcon />
+              <Image src={generalIcono.menu} />
             </IconButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent align='start'>
