@@ -10,7 +10,7 @@ export const godfatherData = [
     {
         title: 'Plan padrinos',
         subTitle: 'PRIMERA OPCIÓN:',
-        text: '"MAMA Y BEBE"  El compromiso de amor que adquieren los padrinos es acompañar a la madre embarazada asignada,  hasta dos años después de nacido el bebé y la apoya con un Kit de nacimiento.',
+        text: '"MAMÁ Y BEBÉ"  El compromiso de amor que adquieren los padrinos es acompañar a la madre embarazada asignada,  hasta dos años después de nacido el bebé y la apoya con un Kit de nacimiento.',
         image: PadrinoMamayBebe
     },
     {
