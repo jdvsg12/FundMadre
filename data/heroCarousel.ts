@@ -2,6 +2,7 @@ import planPadrinos from '../public/assets/sliders/main-slider/Portada_3.jpg';
 import kitDeMadres from '../public/assets/sliders/main-slider/Portada_1.jpg';
 import siguenos from '../public/assets/sliders/main-slider/Portada_2.jpg'
 import contacteConNosotros from '../public/assets/sliders/main-slider/Portada_5.jpg'
+import productMobile from '../public/assets/sliders/main-slider/Portada_6.jpg'
 
 const carouselImages = [
   {
@@ -10,6 +11,13 @@ const carouselImages = [
     message: '',
     href:"/como-ayudar",
     textBtn: '¿Cómo ayudar?'
+  },
+  {
+    title: 'Porta Celular Fundmadre',
+    image: productMobile,
+    message: 'Con tu compra estás apoyando a más madres',
+    href: 'https://api.whatsapp.com/send/?phone=573202408953&text&app_absent=0&text=Hola%2C%20escribo%20desde%20la%20web%20de%20FundMadre%20por%20informacion%20sobre%20el%20porta%20celular',
+    textBtn: 'Click aquí'
   },
   {
     title: 'Conoce nuestro trabajo',
