@@ -8,6 +8,8 @@ const Container = styled('div', {
   background: 'linear-gradient(180deg, #FFA3A3 0%, #FFDFDF 29.69%, #FFFFFF 100%)',
 });
 
+
+// Check how to avoid repetition in the 
 const Paragraph = styled('p', {
   color: 'DarkRed',
   variants: {

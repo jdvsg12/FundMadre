@@ -12,6 +12,7 @@ import DropDownMenu from '../components/Main/DropDownMenu'
 import Swiper from 'swiper'
 import { IconJarLogoIcon } from '@radix-ui/react-icons'
 
+// TODO: Remove dead code and use a div. here can be used just a div instead of an styled div
 const HeaderContainer = styled('div', {
 });
 

@@ -109,7 +109,7 @@ export const MainBannerForm = () => {
 
   const registerUser = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // don't redirect the page
-    // where we'll add our form logic
+    // add form logic here
   };
 
   const handleMoneyButtonClick = ({ currentTarget }: MouseEvent<HTMLInputElement>) => {

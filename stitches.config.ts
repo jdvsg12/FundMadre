@@ -3,6 +3,10 @@ import { createStitches } from '@stitches/react';
 type RemMeasure = `${string}rem`;
 
 export const { styled, getCssText, css } = createStitches({
+  /* Instead of bp1, bp2 ..., use Desktop, Mobile and Tablet,
+      the most common is update the example naming because are generic and without a lot of effort,
+      because that isn't important in an example, but it's in a production app
+  */
   media: {
     bp1: '(min-width: 540px)',
     bp2: '(min-width: 768px)',

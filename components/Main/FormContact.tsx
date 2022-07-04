@@ -127,6 +127,7 @@ const Button = styled('button', {
 }
 );
 
+// TODO: Use descriptive naming
 const H1 = styled('h1', {
     color: '$white',
     variants: {

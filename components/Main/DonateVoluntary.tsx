@@ -4,6 +4,7 @@ import { styled } from '../../stitches.config';
 import { buttonDonate } from "../../data/buttonDonate";
 import Link from "next/link";
 
+// TODO: This should be camelCase
 const ContentDonatevoluntary = styled('div', {
   right: '1rem',
   top: '4rem',
@@ -14,6 +15,7 @@ const ContentDonatevoluntary = styled('div', {
   zIndex: '2'
 })
 
+// TODO: Don't use spanish
 const IconoStatico = styled('div', {
   position: 'relative',
   marginTop: '1.7rem',
@@ -25,6 +27,7 @@ const IconoStatico = styled('div', {
   zIndex: '33'
 })
 
+// TODO: Don't use spanish
 const IconoText = styled('button', {
   position: 'relative',
   right: '1.8rem',
@@ -43,6 +46,8 @@ const Icon = styled('div', {
   marginLeft: '1.2rem',
   marginTop: '0.8rem'
 })
+
+// TODO: Volunteer instead of Voluntary
 export const DonateVoluntary = () => {
 
 

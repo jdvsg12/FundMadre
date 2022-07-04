@@ -8,6 +8,8 @@ import iconoTwitter from '../public/assets/icons/IconTwitter.svg'
 import iconoInstagram from '../public/assets/icons/IconInstagram.svg'
 import menu from '../public/assets/icons/menu_hamburguesa.svg'
 
+// TODO: "generalIcons" instead of "generalIcono", also, why not use an array of objects?
+
 const generalIcono = {
 
      //Estos iconos son los de botones para donar

@@ -8,6 +8,37 @@ import { Navigation } from "swiper";
 import Image from 'next/image';
 
 
+/* Check if there is a "Stitches way" to avoid the repeated styles in the variants,
+  if don't exist, do something like this in all the places there is a repetition:
+
+  const ContentBaseStyles = {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  }
+
+
+  const Content = styled('div', {
+    variants: {
+        width: {
+            Desktop: {
+              ...ContentBaseStyles,
+              flexDirection: 'row',
+            },
+            Tablet: {
+              ...ContentBaseStyles,
+              flexDirection: 'column',
+            },
+            Mobile: {
+              ...ContentBaseStyles,
+              flexDirection: 'column',
+            }
+        }
+    }
+});
+
+*/
+
 const Content = styled('div', {
     variants: {
         width: {

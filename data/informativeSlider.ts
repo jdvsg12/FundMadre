@@ -18,6 +18,7 @@ import iconoCarePostpartum from '../public/assets/icons/carePostpartum.svg'
 
 export const informativeTabSlider = [
   {
+    // TODO: Don't use abbreviations
     titleBtn: 'Psicología',
     tabName: 'Tab1',
     icon: iconoPsychology,

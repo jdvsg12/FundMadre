@@ -20,6 +20,8 @@ export const ourTeamData = {
     text: 'Fundmadre cuenta con un talento humano conformado por:',
 }
 
+// TODO: Use english names EG "profile" instead of "perfil"
+
 export const teamData = [
     {
         perfil: PerfilReinaldo,
@@ -59,6 +61,7 @@ export const teamData = [
     },
 ]
 
+// TODO: Use "Volunteer" instead of "Voluntary"
 export const voluntaryData = 
     {
         text: 'Los inivitarmos a ser servidores voluntarios de FundMadre.' ,

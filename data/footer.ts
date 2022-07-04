@@ -32,6 +32,7 @@ export const footerWe = [
     items: [{ icon: null, item: '¿Quiénes somos?', href: '/quienes-somos' },
             { icon: null, item: '¿Comó ayudar?', href: '/como-ayudar' },
             { icon: null, item: 'Contáctanos', href: '/contactanos' }],
+            // add the alts instead of let them as  null
     alts: null,
     href: ["/quienes-somos", "/que-hacemos", "/contactanos"]
   }

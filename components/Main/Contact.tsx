@@ -111,6 +111,7 @@ const H1 = styled('h1', {
     }
 })
 
+// avoid this naming because "P" is not descriptive
 const P = styled('p', {
     color: '$white',
     fontWeight: '500',

@@ -31,6 +31,7 @@ const slideLeftAndFade = keyframes({
 const StyledContent = styled(DropdownMenuPrimitive.Content, {
   position: 'fixed',
   height: '80vh',
+  // TODO: Check if this maxwidth is doing something, because should be maxWidth to make it work
   maxwidth: '100vh',
   margin: 2,
   backgroundColor: "white",

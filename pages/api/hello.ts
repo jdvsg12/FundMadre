@@ -1,6 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+// TODO: Remove this unused file
+
 type Data = {
   name: string
 }
